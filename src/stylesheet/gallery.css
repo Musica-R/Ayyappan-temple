@@ -1,0 +1,11 @@
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.gal-item button{width:100%;display:block}
+.gal-item .smart-img{aspect-ratio:1/1;border:2px solid transparent;transition:.3s}
+.gal-item:hover .smart-img{border-color:var(--gold)}
+.lightbox{position:fixed;inset:0;background:rgba(30,5,18,.93);z-index:300;display:grid;place-items:center;padding:20px}
+.lightbox img{max-height:88vh;border-radius:12px;border:2px solid var(--gold)}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:1.6rem}
+@media (max-width:1024px){.gal-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:768px){.gal-grid{grid-template-columns:repeat(2,1fr);gap:14px}}
+@media (max-width:520px){.gal-grid{gap:10px}}
+@media (max-width:340px){.gal-grid{grid-template-columns:1fr}}

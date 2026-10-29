@@ -1,0 +1,191 @@
+const translations = {
+  en: {
+    brand: { name: 'Ayyappankadu Dharma Sastha Temple', tag: 'Faith • Heritage • Renewal' },
+    nav: { home: 'Home', about: 'About', renovation: 'Renovation', gallery: 'Gallery', festivals: 'Festivals', contact: 'Contact' },
+    hero: {
+      slides: [
+        { eyebrow: 'Swamiye Saranam Ayyappa', title: 'Ayyappankadu Dharma Sastha Temple', text: 'An ancient abode of Lord Ayyappa, rising again through the devotion of the faithful.' },
+        { eyebrow: 'Temple Renovation', title: 'Help Us Restore a Centuries-Old Temple', text: 'Devotees are united to rebuild the sacred shrine of Ayyappankadu. Join this noble cause.' },
+        { eyebrow: 'Light of Devotion', title: 'Where Every Lamp Carries a Prayer', text: 'Daily poojas, festive vilakku and the peace of a Kerala village shrine.' },
+      ],
+      cta1: 'Support Renovation', cta2: 'Explore the Temple',
+    },
+    about: {
+      eyebrow: 'About the Temple', title: 'A Timeless Abode of Dharma Sastha',
+      p1: 'The Ayyappankadu Dharma Sastha Temple has stood for centuries as a place of faith for the people of the village. Its sacred grounds, once flourishing with daily worship, now await the loving hands of devotees.',
+      p2: 'A group of devotees, led by a group of women, has begun the work of restoring the temple, guided by tradition and the Deva Prashnam.',
+      deity: 'Presiding Deity', deityV: 'Lord Dharma Sastha (Ayyappa)', location: 'Location', locationV: 'Ayyappankadu, Kerala, India', est: 'Established', estV: 'Centuries old', more: 'Know More About the Temple',
+      historyTitle: 'Our Story', history: 'Known by the name Ayyappankadu, the temple was cared for by generations. Local residents recall 40 cents of land set aside for the shrine in earlier times, always regarded as temple property. Today, it is found in a ruined condition, and the community has risen to bring it back to life.',
+    },
+    quick: ['Temple History', 'Poojas & Rituals', 'Festival Details', 'Gallery', 'How to Reach'],
+    highlights: {
+      title: 'Temple Highlights', sub: 'Experience the divine beauty and spiritual essence of Ayyappankadu.',
+      items: [
+        { t: 'Sacred Heritage', d: 'Centuries of worship and local tradition.' },
+        { t: 'Lord Ayyappa', d: 'Blessings of Dharma Sastha for all devotees.' },
+        { t: 'Daily Poojas', d: 'Regular rituals and offerings.' },
+        { t: 'Festivals', d: 'Vilakku, Mandala Pooja and more.' },
+        { t: 'Peaceful Surroundings', d: 'Serene Kerala village atmosphere.' },
+        { t: 'Community Seva', d: 'Led by devotees, supported by all.' },
+      ],
+    },
+    gallery: { title: 'Temple Gallery', sub: 'Capturing the divine moments of our temple.', all: 'View Full Gallery' },
+    festivals: {
+      title: 'Festivals & Events', sub: 'Join us in celebrating the divine.', all: 'View All Festivals', learn: 'Learn More',
+      items: [
+        { m: 'Jan – Feb', t: 'Makara Vilakku', d: 'Special darshan, lamps and cultural programs.' },
+        { m: 'Nov – Dec', t: 'Mandala Pooja', d: 'Forty-one days of vratham and grand pooja.' },
+        { m: 'Karthika', t: 'Karthika Vilakku', d: 'Lighting of lamps across the temple grounds.' },
+        { m: 'Dec – Jan', t: 'Sabarimala Yatra', d: 'Devotees begin their pilgrimage with irumudi.' },
+      ],
+    },
+    visit: {
+      title: 'Plan Your Visit', sub: 'Your journey to divine blessings begins here.', timingsT: 'Temple Timings', timings: 'Please contact the committee for current timings', locT: 'Location', loc: 'Ayyappankadu, Kerala, India', guideT: 'Visitor Guidance', guide: 'Traditional attire • Maintain temple discipline', directions: 'Get Directions',
+    },
+    reno: {
+      title: 'Temple Renovation', sub: 'A sincere appeal to all devotees', greeting: 'Dear Devotees,',
+      paras: [
+        'The Ayyappankadu Dharma Sastha Temple, which has been known by the name Ayyappankadu and existed for centuries, is now found in a completely ruined condition. This is a matter of great sorrow for Ayyappa devotees.',
+        'Efforts have been initiated by a group of devotees, under the leadership of a group of women, to renovate and restore the temple. According to information received from local residents, 40 cents of land had been set aside for the temple in earlier times. Although the former claimants are no longer alive, the local people are aware that this land was historically maintained as temple property.',
+        'Before commencing the reconstruction of the temple, the Deva Prashnam (traditional astrological consultation) recommended that matters relating to the land be resolved. Accordingly, the devotees are taking the necessary steps to address these matters.',
+        'The land currently identified as temple property is being protected. Anyone who has a genuine claim to the land is requested to come forward with the relevant supporting documents.',
+        'We sincerely hope that all matters can be resolved through mutual understanding, cooperation, and friendly discussions. We respectfully request everyone to cooperate in resolving these issues amicably.',
+        'We humbly appeal to nearby residents, local people, and all devotees to consider this notice as a sincere request for cooperation and to extend their support towards the temple renovation activities.',
+      ],
+      saranam: 'Swamiye Saranam Ayyappa!!', org: 'Ayyappankadu Ayyappa Seva Samithi', behalf: 'On behalf of the members',
+      stepsTitle: 'Our Path Forward',
+      steps: ['Deva Prashnam guidance', 'Protecting temple land', 'Resolving claims amicably', 'Reconstruction of the shrine'],
+      cta: 'Contact the Samithi',
+    },
+    contact: { title: 'Contact Us', sub: 'Reach the Ayyappankadu Ayyappa Seva Samithi', name: 'Your Name', email: 'Email', msg: 'Your Message', send: 'Send Message', address: 'Ayyappankadu, Kerala, India', thanks: 'Thank you! Swamiye Saranam.' },
+    quote: 'Devotion in darshan… peace in the heart…',
+    footer: { rights: 'All rights reserved.', dev: 'Developed by Mpeoples', links: 'Quick Links', contact: 'Contact', follow: 'Follow Us', om: 'Swamiye Saranam Ayyappa' },
+  },
+
+  ml: {
+    brand: { name: 'അയ്യപ്പൻകാട് ധർമ്മശാസ്താ ക്ഷേത്രം', tag: 'ഭക്തി • പൈതൃകം • നവീകരണം' },
+    nav: { home: 'ഹോം', about: 'ക്ഷേത്രം', renovation: 'പുനരുദ്ധാരണം', gallery: 'ഗാലറി', festivals: 'ഉത്സവങ്ങൾ', contact: 'ബന്ധപ്പെടുക' },
+    hero: {
+      slides: [
+        { eyebrow: 'സ്വാമിയേ ശരണം അയ്യപ്പാ', title: 'അയ്യപ്പൻകാട് ധർമ്മശാസ്താ ക്ഷേത്രം', text: 'ഭക്തരുടെ ഭക്തിയാൽ വീണ്ടും ഉയരുന്ന അയ്യപ്പസ്വാമിയുടെ പുരാതന സന്നിധി.' },
+        { eyebrow: 'ക്ഷേത്ര പുനരുദ്ധാരണം', title: 'നൂറ്റാണ്ടുകൾ പഴക്കമുള്ള ക്ഷേത്രം വീണ്ടെടുക്കാൻ കൈകോർക്കാം', text: 'അയ്യപ്പൻകാട് ക്ഷേത്രം പുനർനിർമ്മിക്കാൻ ഭക്തർ ഒന്നിക്കുന്നു. ഈ പുണ്യകർമ്മത്തിൽ പങ്കുചേരുക.' },
+        { eyebrow: 'ഭക്തിയുടെ പ്രകാശം', title: 'ഓരോ ദീപത്തിലും ഒരു പ്രാർത്ഥന', text: 'നിത്യപൂജകൾ, വിളക്ക് ഉത്സവങ്ങൾ, കേരളഗ്രാമത്തിന്റെ ശാന്തത.' },
+      ],
+      cta1: 'പുനരുദ്ധാരണത്തിന് സഹായിക്കുക', cta2: 'ക്ഷേത്രത്തെ അറിയുക',
+    },
+    about: {
+      eyebrow: 'ക്ഷേത്ര പരിചയം', title: 'ധർമ്മശാസ്താവിന്റെ കാലാതീത സന്നിധി',
+      p1: 'അയ്യപ്പൻകാട് ധർമ്മശാസ്താ ക്ഷേത്രം നൂറ്റാണ്ടുകളായി നാട്ടുകാരുടെ വിശ്വാസകേന്ദ്രമാണ്. ഒരിക്കൽ നിത്യാരാധനയാൽ സമൃദ്ധമായിരുന്ന ഈ പുണ്യഭൂമി ഇന്ന് ഭക്തരുടെ കൈത്താങ്ങിനായി കാത്തിരിക്കുന്നു.',
+      p2: 'വനിതകളുടെ നേതൃത്വത്തിൽ ഒരു കൂട്ടം ഭക്തർ ദേവപ്രശ്നത്തിന്റെയും പാരമ്പര്യത്തിന്റെയും വഴിയിൽ ക്ഷേത്രം പുനരുദ്ധരിക്കാൻ ആരംഭിച്ചിരിക്കുന്നു.',
+      deity: 'പ്രതിഷ്ഠ', deityV: 'ശ്രീ ധർമ്മശാസ്താവ് (അയ്യപ്പൻ)', location: 'സ്ഥലം', locationV: 'അയ്യപ്പൻകാട്, കേരളം', est: 'സ്ഥാപനം', estV: 'നൂറ്റാണ്ടുകൾ പഴക്കം', more: 'കൂടുതൽ വായിക്കുക',
+      historyTitle: 'ക്ഷേത്ര ചരിത്രം', history: 'അയ്യപ്പൻകാട് എന്ന പേരിൽ അറിയപ്പെടുന്ന ഈ ക്ഷേത്രം തലമുറകളായി സംരക്ഷിക്കപ്പെട്ടിരുന്നു. പണ്ട് 40 സെന്റ് ഭൂമി ക്ഷേത്രത്തിനായി മാറ്റിവച്ചിരുന്നതായി നാട്ടുകാർ ഓർക്കുന്നു. ഇന്ന് ക്ഷേത്രം പൂർണ്ണമായി തകർന്ന നിലയിലാണ്; അതിനെ വീണ്ടും ജീവിപ്പിക്കാൻ നാട് ഒന്നിച്ചിരിക്കുന്നു.',
+    },
+    quick: ['ക്ഷേത്ര ചരിത്രം', 'പൂജകളും ചടങ്ങുകളും', 'ഉത്സവ വിവരങ്ങൾ', 'ഗാലറി', 'എത്തിച്ചേരുക'],
+    highlights: {
+      title: 'ക്ഷേത്ര വിശേഷങ്ങൾ', sub: 'അയ്യപ്പൻകാടിന്റെ ദിവ്യസൗന്ദര്യവും ആത്മീയതയും അനുഭവിക്കുക.',
+      items: [
+        { t: 'പുണ്യ പൈതൃകം', d: 'നൂറ്റാണ്ടുകളുടെ ആരാധനയും നാട്ടുപാരമ്പര്യവും.' },
+        { t: 'അയ്യപ്പസ്വാമി', d: 'എല്ലാ ഭക്തർക്കും ധർമ്മശാസ്താവിന്റെ അനുഗ്രഹം.' },
+        { t: 'നിത്യപൂജകൾ', d: 'ദിവസേനയുള്ള പൂജകളും വഴിപാടുകളും.' },
+        { t: 'ഉത്സവങ്ങൾ', d: 'വിളക്ക്, മണ്ഡലപൂജ തുടങ്ങിയവ.' },
+        { t: 'ശാന്തമായ പരിസരം', d: 'കേരളഗ്രാമത്തിന്റെ ശാന്തത.' },
+        { t: 'സമൂഹ സേവനം', d: 'ഭക്തർ നയിക്കുന്നു, എല്ലാവരും പിന്തുണയ്ക്കുന്നു.' },
+      ],
+    },
+    gallery: { title: 'ക്ഷേത്ര ദർശന കാഴ്ചകൾ', sub: 'ക്ഷേത്രത്തിലെ ദിവ്യ നിമിഷങ്ങൾ.', all: 'എല്ലാ ചിത്രങ്ങളും കാണുക' },
+    festivals: {
+      title: 'ഉത്സവങ്ങൾ', sub: 'ക്ഷേത്രത്തിലെ വിശേഷ ഉത്സവങ്ങൾ.', all: 'എല്ലാ ഉത്സവങ്ങളും കാണുക', learn: 'കൂടുതൽ അറിയുക',
+      items: [
+        { m: 'ജനുവരി – ഫെബ്രുവരി', t: 'മകരവിളക്ക്', d: 'വിശേഷ ദർശനം, ദീപങ്ങൾ, കലാപരിപാടികൾ.' },
+        { m: 'നവംബർ – ഡിസംബർ', t: 'മണ്ഡല പൂജ', d: 'നാല്പത്തിയൊന്ന് ദിവസത്തെ വ്രതവും മഹാപൂജയും.' },
+        { m: 'കാർത്തിക മാസം', t: 'കാർത്തിക വിളക്ക്', d: 'ക്ഷേത്രമുറ്റത്ത് ദീപം തെളിയിക്കൽ.' },
+        { m: 'ഡിസംബർ – ജനുവരി', t: 'ശബരിമല യാത്ര', d: 'ഇരുമുടിക്കെട്ടോടെ തീർത്ഥാടനം ആരംഭിക്കുന്നു.' },
+      ],
+    },
+    visit: {
+      title: 'ദർശനത്തിനായി', sub: 'ദിവ്യാനുഗ്രഹത്തിലേക്കുള്ള യാത്ര ഇവിടെ തുടങ്ങുന്നു.', timingsT: 'ദർശന സമയം', timings: 'നിലവിലെ സമയത്തിന് സമിതിയെ ബന്ധപ്പെടുക', locT: 'സ്ഥലം', loc: 'അയ്യപ്പൻകാട്, കേരളം', guideT: 'സന്ദർശകർക്ക്', guide: 'പരമ്പരാഗത വസ്ത്രധാരണം • ക്ഷേത്രചിട്ടകൾ പാലിക്കുക', directions: 'വഴി കാണുക',
+    },
+    reno: {
+      title: 'ക്ഷേത്ര പുനരുദ്ധാരണം', sub: 'എല്ലാ ഭക്തരോടുമുള്ള ഹൃദയപൂർവ്വമായ അഭ്യർത്ഥന', greeting: 'പ്രിയ ഭക്തജനങ്ങളേ,',
+      paras: [
+        'നൂറ്റാണ്ടുകളായി അയ്യപ്പൻകാട് എന്ന പേരിൽ അറിയപ്പെടുന്ന അയ്യപ്പൻകാട് ധർമ്മശാസ്താ ക്ഷേത്രം ഇന്ന് പൂർണ്ണമായും തകർന്ന അവസ്ഥയിലാണ്. ഇത് അയ്യപ്പഭക്തർക്ക് ഏറെ ദുഃഖകരമായ കാര്യമാണ്.',
+        'വനിതകളുടെ നേതൃത്വത്തിൽ ഒരു കൂട്ടം ഭക്തർ ക്ഷേത്രം പുനരുദ്ധരിക്കാനുള്ള ശ്രമങ്ങൾ ആരംഭിച്ചിട്ടുണ്ട്. നാട്ടുകാരിൽ നിന്ന് ലഭിച്ച വിവരമനുസരിച്ച് പണ്ട് 40 സെന്റ് ഭൂമി ക്ഷേത്രത്തിനായി മാറ്റിവച്ചിരുന്നു. മുൻകാല അവകാശികൾ ഇന്ന് ജീവിച്ചിരിപ്പില്ലെങ്കിലും ഈ ഭൂമി ക്ഷേത്രസ്വത്തായി സംരക്ഷിക്കപ്പെട്ടിരുന്നതായി നാട്ടുകാർക്കറിയാം.',
+        'ക്ഷേത്ര പുനർനിർമ്മാണം തുടങ്ങുന്നതിന് മുമ്പ് ഭൂമിസംബന്ധമായ കാര്യങ്ങൾ പരിഹരിക്കണമെന്ന് ദേവപ്രശ്നത്തിൽ കണ്ടിരുന്നു. അതനുസരിച്ച് ഭക്തർ ആവശ്യമായ നടപടികൾ സ്വീകരിച്ചുവരുന്നു.',
+        'ക്ഷേത്രസ്വത്തായി തിരിച്ചറിഞ്ഞിരിക്കുന്ന ഭൂമി ഇപ്പോൾ സംരക്ഷിച്ചുവരുന്നു. ഭൂമിയിൽ യഥാർത്ഥ അവകാശമുള്ളവർ ബന്ധപ്പെട്ട രേഖകളുമായി മുന്നോട്ടു വരണമെന്ന് അഭ്യർത്ഥിക്കുന്നു.',
+        'പരസ്പര ധാരണയോടെയും സഹകരണത്തോടെയും സൗഹൃദ ചർച്ചകളിലൂടെയും എല്ലാ കാര്യങ്ങളും പരിഹരിക്കാനാകുമെന്ന് ഞങ്ങൾ ആത്മാർത്ഥമായി പ്രതീക്ഷിക്കുന്നു. ഈ വിഷയങ്ങൾ സൗഹാർദ്ദപരമായി പരിഹരിക്കാൻ എല്ലാവരും സഹകരിക്കണമെന്ന് വിനയപൂർവ്വം അഭ്യർത്ഥിക്കുന്നു.',
+        'സമീപവാസികളും നാട്ടുകാരും എല്ലാ ഭക്തജനങ്ങളും ഈ അറിയിപ്പ് സഹകരണത്തിനായുള്ള ആത്മാർത്ഥമായ അഭ്യർത്ഥനയായി കണക്കാക്കി ക്ഷേത്ര പുനരുദ്ധാരണ പ്രവർത്തനങ്ങൾക്ക് പിന്തുണ നൽകണമെന്ന് വിനയപൂർവ്വം അപേക്ഷിക്കുന്നു.',
+      ],
+      saranam: 'സ്വാമിയേ ശരണം അയ്യപ്പാ!!', org: 'അയ്യപ്പൻകാട് അയ്യപ്പ സേവാ സമിതി', behalf: 'അംഗങ്ങൾക്കുവേണ്ടി',
+      stepsTitle: 'ഞങ്ങളുടെ മുന്നോട്ടുള്ള വഴി',
+      steps: ['ദേവപ്രശ്ന നിർദ്ദേശം', 'ക്ഷേത്രഭൂമി സംരക്ഷണം', 'അവകാശങ്ങൾ സൗഹൃദമായി പരിഹരിക്കൽ', 'ക്ഷേത്ര പുനർനിർമ്മാണം'],
+      cta: 'സമിതിയെ ബന്ധപ്പെടുക',
+    },
+    contact: { title: 'ബന്ധപ്പെടുക', sub: 'അയ്യപ്പൻകാട് അയ്യപ്പ സേവാ സമിതി', name: 'പേര്', email: 'ഇമെയിൽ', msg: 'സന്ദേശം', send: 'സന്ദേശം അയയ്ക്കുക', address: 'അയ്യപ്പൻകാട്, കേരളം', thanks: 'നന്ദി! സ്വാമിയേ ശരണം.' },
+    quote: 'ഭക്തിയോടെ ദർശനം… മനസ്സിൽ സമാധാനം…',
+    footer: { rights: 'എല്ലാ അവകാശങ്ങളും സംരക്ഷിതം.', dev: 'Developed by Mpeoples', links: 'ലിങ്കുകൾ', contact: 'ബന്ധപ്പെടുക', follow: 'പിന്തുടരുക', om: 'സ്വാമിയേ ശരണം അയ്യപ്പാ' },
+  },
+
+  ta: {
+    brand: { name: 'ஐயப்பன்காடு தர்ம சாஸ்தா கோயில்', tag: 'பக்தி • பாரம்பரியம் • புனரமைப்பு' },
+    nav: { home: 'முகப்பு', about: 'கோயில்', renovation: 'புனரமைப்பு', gallery: 'படங்கள்', festivals: 'திருவிழாக்கள்', contact: 'தொடர்புக்கு' },
+    hero: {
+      slides: [
+        { eyebrow: 'சுவாமியே சரணம் ஐயப்பா', title: 'ஐயப்பன்காடு தர்ம சாஸ்தா கோயில்', text: 'பக்தர்களின் பக்தியால் மீண்டும் எழும் ஐயப்பனின் பழமையான சன்னதி.' },
+        { eyebrow: 'கோயில் புனரமைப்பு', title: 'நூற்றாண்டு பழமையான கோயிலை மீட்டெடுப்போம்', text: 'ஐயப்பன்காடு கோயிலை மீண்டும் கட்ட பக்தர்கள் ஒன்றிணைகிறார்கள். இப்புண்ணிய பணியில் இணையுங்கள்.' },
+        { eyebrow: 'பக்தியின் ஒளி', title: 'ஒவ்வொரு தீபத்திலும் ஒரு பிரார்த்தனை', text: 'தினசரி பூஜைகள், விளக்கு திருவிழாக்கள், கேரள கிராமத்தின் அமைதி.' },
+      ],
+      cta1: 'புனரமைப்புக்கு உதவுங்கள்', cta2: 'கோயிலை அறிக',
+    },
+    about: {
+      eyebrow: 'கோயில் அறிமுகம்', title: 'தர்ம சாஸ்தாவின் காலத்தை வென்ற சன்னதி',
+      p1: 'ஐயப்பன்காடு தர்ம சாஸ்தா கோயில் நூற்றாண்டுகளாக ஊர் மக்களின் நம்பிக்கை மையமாக உள்ளது. ஒரு காலத்தில் தினசரி வழிபாட்டால் செழித்த இப்புனித பூமி இன்று பக்தர்களின் கரங்களை எதிர்நோக்குகிறது.',
+      p2: 'பெண்களின் தலைமையில் ஒரு குழு பக்தர்கள் தேவப்பிரஷ்னம் மற்றும் பாரம்பரியத்தின் வழிகாட்டுதலுடன் கோயிலை புனரமைக்கத் தொடங்கியுள்ளனர்.',
+      deity: 'மூலவர்', deityV: 'ஸ்ரீ தர்ம சாஸ்தா (ஐயப்பன்)', location: 'இடம்', locationV: 'ஐயப்பன்காடு, கேரளா', est: 'தொன்மை', estV: 'நூற்றாண்டுகள் பழமை', more: 'மேலும் அறிக',
+      historyTitle: 'கோயில் வரலாறு', history: 'ஐயப்பன்காடு என்ற பெயரில் அறியப்படும் இக்கோயில் தலைமுறைகளாகப் பாதுகாக்கப்பட்டது. முற்காலத்தில் 40 சென்ட் நிலம் கோயிலுக்காக ஒதுக்கப்பட்டதாக ஊர் மக்கள் நினைவுகூர்கின்றனர். இன்று கோயில் முற்றிலும் சிதிலமடைந்துள்ளது; அதை மீண்டும் உயிர்ப்பிக்க ஊர் ஒன்றிணைந்துள்ளது.',
+    },
+    quick: ['கோயில் வரலாறு', 'பூஜைகளும் சடங்குகளும்', 'திருவிழா விவரங்கள்', 'படங்கள்', 'வந்தடைய'],
+    highlights: {
+      title: 'கோயில் சிறப்புகள்', sub: 'ஐயப்பன்காட்டின் தெய்வீக அழகையும் ஆன்மீகத்தையும் அனுபவியுங்கள்.',
+      items: [
+        { t: 'புனித பாரம்பரியம்', d: 'நூற்றாண்டுகளின் வழிபாடும் மரபும்.' },
+        { t: 'ஐயப்பன்', d: 'அனைத்து பக்தர்களுக்கும் தர்ம சாஸ்தாவின் அருள்.' },
+        { t: 'தினசரி பூஜைகள்', d: 'நாள்தோறும் பூஜைகளும் வழிபாடுகளும்.' },
+        { t: 'திருவிழாக்கள்', d: 'விளக்கு, மண்டல பூஜை மற்றும் பல.' },
+        { t: 'அமைதியான சூழல்', d: 'கேரள கிராமத்தின் அமைதி.' },
+        { t: 'சமூக சேவை', d: 'பக்தர்கள் வழிநடத்த, அனைவரும் ஆதரிக்கின்றனர்.' },
+      ],
+    },
+    gallery: { title: 'கோயில் படங்கள்', sub: 'கோயிலின் தெய்வீக தருணங்கள்.', all: 'அனைத்து படங்களையும் காண்க' },
+    festivals: {
+      title: 'திருவிழாக்கள்', sub: 'தெய்வீகத்தை கொண்டாட இணையுங்கள்.', all: 'அனைத்து திருவிழாக்களும்', learn: 'மேலும் அறிக',
+      items: [
+        { m: 'ஜன – பிப்', t: 'மகர விளக்கு', d: 'சிறப்பு தரிசனம், தீபங்கள், கலை நிகழ்ச்சிகள்.' },
+        { m: 'நவ – டிச', t: 'மண்டல பூஜை', d: 'நாற்பத்தொரு நாள் விரதமும் மகா பூஜையும்.' },
+        { m: 'கார்த்திகை', t: 'கார்த்திகை விளக்கு', d: 'கோயில் வளாகத்தில் தீபம் ஏற்றுதல்.' },
+        { m: 'டிச – ஜன', t: 'சபரிமலை யாத்திரை', d: 'இருமுடியுடன் புனித யாத்திரை தொடக்கம்.' },
+      ],
+    },
+    visit: {
+      title: 'தரிசனத்திற்கு', sub: 'தெய்வீக அருளுக்கான பயணம் இங்கே தொடங்குகிறது.', timingsT: 'தரிசன நேரம்', timings: 'தற்போதைய நேரத்திற்கு குழுவை தொடர்பு கொள்ளவும்', locT: 'இடம்', loc: 'ஐயப்பன்காடு, கேரளா', guideT: 'பார்வையாளர் வழிகாட்டி', guide: 'பாரம்பரிய உடை • கோயில் ஒழுக்கத்தைப் பின்பற்றவும்', directions: 'வழி காண்க',
+    },
+    reno: {
+      title: 'கோயில் புனரமைப்பு', sub: 'அனைத்து பக்தர்களுக்கும் உளமார்ந்த வேண்டுகோள்', greeting: 'அன்பான பக்தர்களே,',
+      paras: [
+        'நூற்றாண்டுகளாக ஐயப்பன்காடு என்ற பெயரில் அறியப்படும் ஐயப்பன்காடு தர்ம சாஸ்தா கோயில் இன்று முற்றிலும் சிதிலமடைந்த நிலையில் உள்ளது. இது ஐயப்ப பக்தர்களுக்குப் பெரும் வருத்தத்தை அளிக்கிறது.',
+        'பெண்களின் தலைமையில் ஒரு குழு பக்தர்கள் கோயிலைப் புனரமைக்கும் முயற்சிகளைத் தொடங்கியுள்ளனர். ஊர் மக்கள் தரும் தகவலின்படி, முற்காலத்தில் 40 சென்ட் நிலம் கோயிலுக்காக ஒதுக்கப்பட்டிருந்தது. முந்தைய உரிமையாளர்கள் இன்று உயிருடன் இல்லாவிட்டாலும், இந்நிலம் கோயில் சொத்தாகப் பராமரிக்கப்பட்டது என்பதை ஊர் மக்கள் அறிவர்.',
+        'கோயில் மறுகட்டுமானத்தைத் தொடங்கும் முன் நிலம் தொடர்பான விஷயங்களைத் தீர்க்க வேண்டும் என்று தேவப்பிரஷ்னத்தில் கூறப்பட்டது. அதன்படி பக்தர்கள் தேவையான நடவடிக்கைகளை மேற்கொண்டு வருகின்றனர்.',
+        'கோயில் சொத்தாக அடையாளம் காணப்பட்ட நிலம் தற்போது பாதுகாக்கப்படுகிறது. நிலத்தின் மீது உண்மையான உரிமை உள்ளவர்கள் உரிய ஆவணங்களுடன் முன்வருமாறு கேட்டுக்கொள்கிறோம்.',
+        'பரஸ்பர புரிதல், ஒத்துழைப்பு மற்றும் நட்புடன் கூடிய பேச்சுவார்த்தைகள் மூலம் அனைத்தையும் தீர்க்க முடியும் என்று உளமார நம்புகிறோம். இப்பிரச்சினைகளை சுமுகமாகத் தீர்க்க அனைவரும் ஒத்துழைக்குமாறு பணிவுடன் வேண்டுகிறோம்.',
+        'அருகிலுள்ளவர்கள், ஊர் மக்கள் மற்றும் அனைத்து பக்தர்களும் இவ்வறிவிப்பை ஒத்துழைப்புக்கான உளமார்ந்த வேண்டுகோளாகக் கருதி, கோயில் புனரமைப்புப் பணிகளுக்கு ஆதரவு அளிக்குமாறு பணிவுடன் கேட்டுக்கொள்கிறோம்.',
+      ],
+      saranam: 'சுவாமியே சரணம் ஐயப்பா!!', org: 'ஐயப்பன்காடு ஐயப்ப சேவா சமிதி', behalf: 'உறுப்பினர்கள் சார்பாக',
+      stepsTitle: 'எங்கள் அடுத்த படிகள்',
+      steps: ['தேவப்பிரஷ்ன வழிகாட்டுதல்', 'கோயில் நிலப் பாதுகாப்பு', 'உரிமைகளை நட்புடன் தீர்த்தல்', 'கோயில் மறுகட்டுமானம்'],
+      cta: 'சமிதியைத் தொடர்பு கொள்ளுங்கள்',
+    },
+    contact: { title: 'தொடர்புக்கு', sub: 'ஐயப்பன்காடு ஐயப்ப சேவா சமிதி', name: 'உங்கள் பெயர்', email: 'மின்னஞ்சல்', msg: 'உங்கள் செய்தி', send: 'செய்தி அனுப்பு', address: 'ஐயப்பன்காடு, கேரளா', thanks: 'நன்றி! சுவாமியே சரணம்.' },
+    quote: 'பக்தியுடன் தரிசனம்… மனதில் அமைதி…',
+    footer: { rights: 'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.', dev: 'Developed by Mpeoples', links: 'இணைப்புகள்', contact: 'தொடர்பு', follow: 'பின்தொடர', om: 'சுவாமியே சரணம் ஐயப்பா' },
+  },
+};
+export default translations;

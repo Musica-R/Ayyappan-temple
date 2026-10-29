@@ -1,0 +1,54 @@
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr .7fr;gap:44px;align-items:center}
+.about-img{aspect-ratio:4/3.2;border:3px solid var(--gold);box-shadow:0 0 0 8px var(--cream),0 0 0 9px var(--gold)}
+.about-grid p{margin-bottom:12px}
+.about-facts{border-left:1px solid rgba(201,153,63,.5);padding-left:30px;display:grid;gap:22px}
+.fact{display:flex;gap:14px;align-items:center}
+.fact span{width:44px;height:44px;border-radius:50%;background:var(--cream-2);border:1px solid var(--gold);color:var(--gold);display:grid;place-items:center;flex:0 0 auto}
+.fact strong{display:block;color:var(--maroon);font-size:.95rem}
+.fact small{color:var(--muted);font-size:.82rem}
+.quick{margin-top:60px;display:grid;grid-template-columns:repeat(5,1fr);background:#fff8ec;border:1px solid rgba(201,153,63,.5);border-radius:18px;padding:26px 10px}
+.quick-item{border-right:1px solid rgba(201,153,63,.4);text-align:center}
+.quick-item:last-child{border:none}
+.quick-item a{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--maroon);font-weight:500;font-size:.92rem;padding:0 8px}
+.quick-item span{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold-l),var(--gold));color:#fff;display:grid;place-items:center;font-size:1.5rem;transition:.4s}
+.quick-item a:hover span{transform:rotateY(180deg) scale(1.08)}
+.hl-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.hl{text-align:center;padding:0 12px;border-right:1px solid rgba(201,153,63,.35)}
+.hl:last-child{border:none}
+.hl-ic{width:68px;height:68px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;color:var(--gold-l);font-size:1.6rem;transition:.4s}
+.hl:hover .hl-ic{background:var(--gold);color:var(--maroon-d)}
+.hl h3{color:#fff;font-size:.98rem;margin-bottom:6px}
+.hl p{color:#e0c8b8;font-size:.82rem;line-height:1.5}
+.reno-card{display:flex;align-items:center;gap:30px;background:#fff;border:1px solid var(--gold);border-radius:20px;padding:36px;box-shadow:0 14px 40px rgba(91,18,54,.12)}
+.reno-ic{width:84px;height:84px;border-radius:50%;background:var(--maroon);color:var(--gold-l);display:grid;place-items:center;font-size:2.2rem;flex:0 0 auto}
+.reno-card h2{font-size:1.6rem;margin-bottom:6px}
+.reno-card>div{flex:1}
+.reno-card .btn{margin:0;white-space:nowrap}
+.visit{background:linear-gradient(rgba(58,10,34,.92),rgba(58,10,34,.92)),url('https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1600&q=60') center/cover;padding:56px 0}
+.visit-in{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:26px;align-items:center}
+.visit h2{color:#fff;font-size:1.7rem}
+.visit p{color:var(--gold-l)}
+.visit-box{display:flex;gap:12px;align-items:flex-start;color:var(--gold-l);border-left:1px solid rgba(201,153,63,.4);padding-left:20px}
+.visit-box svg{font-size:1.4rem;margin-top:4px;flex:0 0 auto}
+.visit-box strong{display:block;color:#fff;font-size:.95rem}
+.visit-box small{color:#e0c8b8;font-size:.82rem;line-height:1.5;display:block}
+.quote-band{background:linear-gradient(135deg,var(--maroon-d),var(--maroon-m));padding:46px 0;text-align:center;color:var(--gold-l)}
+.quote-band svg{font-size:1.6rem}
+.quote-band p{color:#fff;font-size:clamp(1.1rem,2.4vw,1.6rem);font-style:italic;margin-top:8px}
+@media (max-width:1024px){
+ .about-grid{grid-template-columns:1fr 1fr}.about-facts{grid-column:1/-1;grid-template-columns:repeat(3,1fr);border:none;padding:0}
+ .hl-grid{grid-template-columns:repeat(3,1fr);gap:30px 10px}.hl:nth-child(3){border:none}
+ .visit-in{grid-template-columns:1fr 1fr}
+}
+@media (max-width:768px){
+ .about-grid{grid-template-columns:1fr}.about-facts{grid-template-columns:1fr}
+ .quick{grid-template-columns:repeat(3,1fr);gap:22px 0}.quick-item:nth-child(3){border:none}
+ .reno-card{flex-direction:column;text-align:center}
+}
+@media (max-width:520px){
+ .quick{grid-template-columns:repeat(2,1fr);padding:20px 4px}.quick-item{border:none}
+ .hl-grid{grid-template-columns:repeat(2,1fr)}.hl{border:none}
+ .visit-in{grid-template-columns:1fr}.visit-box{border:none;padding-left:0}
+ .reno-card{padding:24px 18px}
+}
+@media (max-width:340px){.quick-item a{font-size:.8rem}.quick-item span{width:52px;height:52px}.hl-grid{grid-template-columns:1fr}.reno-card h2{font-size:1.3rem}}

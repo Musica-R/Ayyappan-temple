@@ -1,0 +1,16 @@
+.reno-grid{display:grid;grid-template-columns:1.8fr 1fr;gap:40px;align-items:start}
+.notice{background:#fff;border:1px solid rgba(201,153,63,.6);border-radius:20px;padding:40px;box-shadow:0 14px 40px rgba(91,18,54,.1)}
+.notice h3{font-size:1.4rem;margin-bottom:16px}
+.notice p{margin-bottom:16px;color:var(--ink)}
+.sign{margin-top:26px;padding-top:20px;border-top:1px dashed var(--gold)}
+.saranam{color:var(--maroon)!important;font-weight:700;font-size:1.15rem;display:flex;gap:10px;align-items:center}
+.sign strong{display:block;color:var(--maroon)}
+.sign small{color:var(--muted)}
+.steps{position:sticky;top:100px;background:linear-gradient(160deg,var(--maroon-d),var(--maroon));border-radius:20px;padding:32px;color:#fff}
+.steps h3{color:var(--gold-l);margin-bottom:18px}
+.step{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(201,153,63,.3)}
+.step svg{color:var(--gold-l);flex:0 0 auto}
+@media (max-width:1024px){.reno-grid{grid-template-columns:1.4fr 1fr;gap:26px}.notice{padding:30px}}
+@media (max-width:768px){.reno-grid{grid-template-columns:1fr}.steps{position:static}}
+@media (max-width:520px){.notice{padding:22px 18px}.steps{padding:24px 18px}}
+@media (max-width:340px){.notice{padding:16px 12px}.notice h3{font-size:1.15rem}}

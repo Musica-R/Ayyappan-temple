@@ -2,12 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import { LanguageProvider } from './utils/LanguageContext.jsx';
+import './stylesheet/global.css';
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

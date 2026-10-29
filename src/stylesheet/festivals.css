@@ -1,0 +1,12 @@
+.fest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.fest-card{position:relative;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 26px rgba(91,18,54,.12);transition:transform .8s,opacity .8s,box-shadow .3s}
+.fest-card .smart-img{border-radius:0;aspect-ratio:16/10}
+.fest-date{position:absolute;top:12px;left:12px;background:var(--maroon);color:var(--gold-l);font-size:.75rem;padding:5px 12px;border-radius:20px;display:flex;gap:6px;align-items:center}
+.fest-body{padding:18px}
+.fest-body h3{font-size:1.05rem;margin-bottom:6px}
+.fest-body p{font-size:.86rem;margin-bottom:10px}
+.more{color:var(--maroon);font-size:.85rem;font-weight:500;display:inline-flex;gap:8px;align-items:center}
+.more:hover{color:var(--gold)}
+@media (max-width:1024px){.fest-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.fest-grid{grid-template-columns:1fr}}
+@media (max-width:340px){.fest-body{padding:14px}}

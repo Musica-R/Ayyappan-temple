@@ -1,0 +1,14 @@
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:44px;align-items:start}
+.c-info{display:grid;gap:18px}
+.c-row{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid rgba(201,153,63,.5);border-radius:14px;padding:18px}
+.c-row svg{color:var(--gold);font-size:1.3rem;flex:0 0 auto}
+.c-row span{word-break:break-word}
+.c-form{background:#fff;border:1px solid rgba(201,153,63,.5);border-radius:18px;padding:30px;display:grid;gap:14px}
+.c-form input,.c-form textarea{font-family:inherit;padding:13px 16px;border:1px solid #e3cfa8;border-radius:10px;background:var(--cream);font-size:.92rem;outline:none;width:100%}
+.c-form input:focus,.c-form textarea:focus{border-color:var(--maroon)}
+.c-form .btn{justify-content:center;margin:0}
+.thanks{color:var(--maroon);font-weight:500}
+@media (max-width:1024px){.contact-grid{gap:28px}}
+@media (max-width:768px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.c-form{padding:20px 16px}}
+@media (max-width:340px){.c-row{padding:12px;font-size:.8rem}}
