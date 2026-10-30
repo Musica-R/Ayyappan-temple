@@ -1,37 +1,433 @@
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--maroon-d);border-bottom:2px solid var(--gold);box-shadow:0 4px 18px rgba(0,0,0,.3)}
-.header-in{display:flex;align-items:center;justify-content:space-between;min-height:80px;gap:14px;padding:8px 0}
-.logo{display:flex;align-items:center;gap:12px;color:#fff;min-width:0}
-.logo-icon{font-size:2rem;color:var(--gold-l);flex:0 0 auto}
-.logo-txt{display:flex;flex-direction:column;line-height:1.45;min-width:0}
-.logo strong{font-size:1rem;font-weight:600;color:#fff}
-.logo small{font-size:.72rem;color:var(--gold-l)}
-.nav{display:flex;align-items:center;gap:4px}
-.nav a{color:#fff;padding:8px 14px;border-radius:30px;font-size:.88rem;white-space:nowrap;transition:.3s;line-height:1.5}
-.nav a:hover{color:var(--gold-l)}
-.nav a.active{background:var(--maroon);color:var(--gold-l);box-shadow:inset 0 0 0 1px var(--gold)}
-.burger{display:none;color:#fff;font-size:1.5rem;padding:6px}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Noto+Serif+Malayalam:wght@500;600&family=Noto+Serif+Tamil:wght@500;600&display=swap');
+
+:root {
+    --tick-h: 36px
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--maroon-d);
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .3)
+}
+
+.header-spacer {
+    height: var(--tick-h)
+}
+
+/* ================= scrolling strip ================= */
+.ticker {
+    box-sizing: border-box;
+    height: var(--tick-h);
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    background: #fdf6ea;
+    color: #5b1236;
+    font-size: .8rem;
+    border-bottom: 1px solid rgba(91, 18, 54, .18)
+}
+
+.tick-label {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 28px 0 18px;
+    background: #5b1236;
+    color: #fdf6ea;
+    font-weight: 600;
+    font-size: .78rem;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%)
+}
+
+.tick-label svg {
+    font-size: .85rem
+}
+
+.tick-view {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%)
+}
+
+.tick-track {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    animation: tick 55s linear infinite;
+    will-change: transform
+}
+
+.tick-view:hover .tick-track {
+    animation-play-state: paused
+}
+
+.tick-group {
+    display: flex;
+    flex: none
+}
+
+.tick-item {
+    display: inline-flex;
+    align-items: center;
+    color: #5b1236;
+    font-weight: 500
+}
+
+.tick-item::after {
+    content: '\2726';
+    margin: 0 22px;
+    font-size: .7rem;
+    opacity: .6
+}
+
+@keyframes tick {
+    to {
+        transform: translateX(-50%)
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .tick-track {
+        animation: none
+    }
+
+    .tick-view {
+        overflow-x: auto
+    }
+}
+
+/* ================= navbar ================= */
+.header-in {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px;
+    gap: 14px;
+    padding: 8px 0
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    min-width: 0
+}
+
+.logo-icon {
+    font-size: 2.6rem;
+    color: var(--gold-l);
+    flex: 0 0 auto
+}
+
+.logo-txt {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+    min-width: 0
+}
+
+.logo strong {
+    font-family: 'Playfair Display', 'Noto Serif Malayalam', 'Noto Serif Tamil', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff
+}
+
+.logo small {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .64rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold-l)
+}
+
+.logo small i {
+    flex: 1;
+    min-width: 10px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold))
+}
+
+.logo small i:last-child {
+    background: linear-gradient(90deg, var(--gold), transparent)
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 6px
+}
+
+.nav a {
+    position: relative;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: .88rem;
+    white-space: nowrap;
+    transition: .3s;
+    line-height: 1.5
+}
+
+.nav a:hover {
+    color: var(--gold-l)
+}
+
+.nav a.active {
+    background: linear-gradient(180deg, var(--gold-l), var(--gold));
+    color: var(--maroon-d);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .25)
+}
+
+.nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 26px;
+    height: 2px;
+    border-radius: 2px;
+    transform: translateX(-50%);
+    background: var(--gold-l)
+}
+
+.burger {
+    display: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 6px
+}
 
 /* language dropdown */
-.lang-dd{position:relative;margin-left:10px}
-.lang-btn{display:flex;align-items:center;gap:8px;background:var(--gold);color:var(--maroon-d);padding:8px 14px;border-radius:30px;font-size:.84rem;font-weight:600;line-height:1.5;white-space:nowrap}
-.lang-btn svg:last-child{font-size:.65rem;transition:.3s}
-.lang-btn .rot{transform:rotate(180deg)}
-.lang-list{position:absolute;right:0;top:calc(100% + 8px);min-width:150px;background:#fff;border:1px solid var(--gold);border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.28);z-index:1100;animation:ddIn .2s ease}
-.lang-list button{width:100%;text-align:left;padding:11px 18px;color:var(--maroon);font-size:.9rem;transition:.2s;line-height:1.5}
-.lang-list button:hover{background:var(--cream-2)}
-.lang-list button.on{background:var(--maroon);color:var(--gold-l);font-weight:600}
-@keyframes ddIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-
-@media (max-width:1100px){.nav a{padding:8px 9px;font-size:.82rem}.logo strong{font-size:.9rem}}
-@media (max-width:900px){
- .burger{display:block}
- .nav{position:fixed;top:82px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--maroon-d);padding:18px 20px 24px;gap:4px;transform:translateY(-120%);visibility:hidden;transition:.4s;max-height:calc(100vh - 82px);overflow:auto;border-bottom:2px solid var(--gold)}
- .nav.open{transform:none;visibility:visible}
- .nav a{text-align:center;padding:12px}
- .lang-dd{margin:10px 0 0}
- .lang-btn{width:100%;justify-content:center}
- .lang-list{position:static;margin-top:8px;box-shadow:none}
+.lang-dd {
+    position: relative;
+    margin-left: 18px
 }
-@media (max-width:768px){.header-in{min-height:74px}.nav{top:76px}}
-@media (max-width:520px){.header-in{min-height:68px}.nav{top:70px}.logo-icon{font-size:1.6rem}.logo strong{font-size:.8rem}.logo small{display:none}}
-@media (max-width:340px){.logo strong{font-size:.7rem}.logo-icon{font-size:1.3rem}}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #fff;
+    padding: 8px 16px;
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+    font-size: .84rem;
+    font-weight: 500;
+    line-height: 1.5;
+    white-space: nowrap;
+    transition: .3s
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, .08)
+}
+
+.lang-btn svg:first-child {
+    color: var(--gold-l)
+}
+
+.lang-btn svg:last-child {
+    font-size: .65rem;
+    transition: .3s
+}
+
+.lang-btn .rot {
+    transform: rotate(180deg)
+}
+
+.lang-list {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    min-width: 150px;
+    background: #fff;
+    border: 1px solid var(--gold);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .28);
+    z-index: 1100;
+    animation: ddIn .2s ease
+}
+
+.lang-list button {
+    width: 100%;
+    text-align: left;
+    padding: 11px 18px;
+    color: var(--maroon);
+    font-size: .9rem;
+    transition: .2s;
+    line-height: 1.5
+}
+
+.lang-list button:hover {
+    background: var(--cream-2)
+}
+
+.lang-list button.on {
+    background: var(--maroon);
+    color: var(--gold-l);
+    font-weight: 600
+}
+
+@keyframes ddIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+@media (max-width:1100px) {
+    .nav a {
+        padding: 8px 10px;
+        font-size: .82rem
+    }
+
+    .lang-dd {
+        margin-left: 8px
+    }
+
+    .logo strong {
+        font-size: 1.05rem
+    }
+
+    .logo small {
+        font-size: .58rem
+    }
+}
+
+@media (max-width:900px) {
+    .burger {
+        display: block
+    }
+
+    .nav {
+        position: fixed;
+        top: calc(var(--tick-h) + 82px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--maroon-d);
+        padding: 18px 20px 24px;
+        gap: 4px;
+        transform: translateY(-120%);
+        visibility: hidden;
+        transition: .4s;
+        max-height: calc(100vh - 82px - var(--tick-h));
+        overflow: auto;
+        border-bottom: 2px solid var(--gold)
+    }
+
+    .nav.open {
+        transform: none;
+        visibility: visible
+    }
+
+    .nav a {
+        text-align: center;
+        padding: 12px
+    }
+
+    .nav a.active::after {
+        display: none
+    }
+
+    .lang-dd {
+        margin: 10px 0 0
+    }
+
+    .lang-btn {
+        width: 100%;
+        justify-content: center
+    }
+
+    .lang-list {
+        position: static;
+        margin-top: 8px;
+        box-shadow: none
+    }
+}
+
+@media (max-width:768px) {
+    .header-in {
+        min-height: 74px
+    }
+
+    .nav {
+        top: calc(var(--tick-h) + 76px)
+    }
+}
+
+@media (max-width:520px) {
+    :root {
+        --tick-h: 32px
+    }
+
+    .ticker {
+        font-size: .74rem
+    }
+
+    .tick-label {
+        padding: 0 22px 0 12px;
+        font-size: .72rem
+    }
+
+    .header-in {
+        min-height: 68px
+    }
+
+    .nav {
+        top: calc(var(--tick-h) + 70px)
+    }
+
+    .logo-icon {
+        font-size: 2rem
+    }
+
+    .logo strong {
+        font-size: .88rem
+    }
+
+    .logo small {
+        display: none
+    }
+}
+
+@media (max-width:340px) {
+    .logo strong {
+        font-size: .75rem
+    }
+
+    .logo-icon {
+        font-size: 1.6rem
+    }
+
+    .tick-label svg {
+        display: none
+    }
+}

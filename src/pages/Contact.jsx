@@ -3,6 +3,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaPaperPlane } from 'react-icon
 import Reveal from '../components/Reveal.jsx';
 import { useLang } from '../utils/LanguageContext.jsx';
 import '../stylesheet/contact.css';
+import LightALamp from '../components/LightALamp.jsx';
 
 export default function Contact() {
   const { t } = useLang();
@@ -29,6 +30,7 @@ export default function Contact() {
           </Reveal>
         </div>
       </section>
+      <LightALamp />
     </>
   );
 }
