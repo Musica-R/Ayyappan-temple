@@ -347,6 +347,66 @@
     color: var(--maroon-d)
 }
 
+/* ============ HERO – smooth one-by-one text reveal (namespace: hs-) ============ */
+
+/* hidden state for slides that are not active (no flash while fading) */
+.hslide:not(.active) .hs-item,
+.hslide:not(.active) .hs-word {
+  opacity: 0;
+}
+
+/* every element rises in softly, one after another (delay comes from --d) */
+.hslide.active .hs-item {
+  animation: hs-rise 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s) backwards;
+}
+
+/* Om icon pops in */
+.hslide.active .hs-pop {
+  animation: hs-pop 1s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s) backwards;
+}
+
+/* lotus divider opens from the centre */
+.hslide.active .hs-rule {
+  animation: hs-rule 1s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s) backwards;
+}
+
+/* title: word by word */
+.hs-title {
+  overflow-wrap: break-word;
+}
+.hs-word {
+  display: inline-block;
+}
+.hslide.active .hs-word {
+  animation: hs-word 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s) backwards;
+}
+
+@keyframes hs-rise {
+  from { opacity: 0; transform: translateY(26px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+@keyframes hs-pop {
+  from { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+  to   { opacity: 1; transform: scale(1)   rotate(0); }
+}
+@keyframes hs-rule {
+  from { opacity: 0; transform: scaleX(0.2); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+@keyframes hs-word {
+  from { opacity: 0; transform: translateY(34px); filter: blur(8px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hslide.active .hs-item,
+  .hslide.active .hs-pop,
+  .hslide.active .hs-rule,
+  .hslide.active .hs-word {
+    animation: none;
+  }
+}
+
 /* ---------- responsive ---------- */
 @media (max-width:1024px) {
     .hero {

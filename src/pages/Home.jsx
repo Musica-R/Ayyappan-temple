@@ -145,7 +145,7 @@ export default function Home() {
       <section className="section hp-about">
         <div className="container hp-about-grid">
           <Reveal dir="left">
-            <SmartImg src="/assets/g2.png" alt="temple" className="hp-about-img" />
+            <SmartImg src="/assets/a3.jpg" alt="temple" className="hp-about-img" />
           </Reveal>
 
           <div>

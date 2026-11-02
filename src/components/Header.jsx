@@ -6,9 +6,10 @@ import LangDropdown from './LangDropdown.jsx';
 import '../stylesheet/header.css';
 import { GiByzantinTemple } from "react-icons/gi";
 
+
 const LINKS = [['/', 'home'], ['/about', 'about'], ['/renovation', 'renovation'], ['/gallery', 'gallery'], ['/festivals', 'festivals'], ['/contact', 'contact']];
 
-/* small scrolling strip above the navbar (pooja / festival timings).
+ /* small scrolling strip above the navbar (pooja / festival timings).
    Everything comes from your existing translation keys – nothing new to add. */
 function Ticker({ t }) {
   const items = useMemo(

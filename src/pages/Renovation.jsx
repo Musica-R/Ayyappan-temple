@@ -257,8 +257,8 @@ export default function Renovation() {
               <span className="rn-frame-lotus rn-frame-lotus-b" aria-hidden="true"><GiLotusFlower /></span>
 
               {/* lamps hanging inside the frame */}
-              <Hang className="rn-hang-in1" />
-              <Hang className="rn-hang-in2" />
+              {/* <Hang className="rn-hang-in1" />
+              <Hang className="rn-hang-in2" /> */}
 
               <div className="rn-lamps-pic">
                 <img src="/assets/a2.png" alt={c.lampTitle} loading="lazy" />

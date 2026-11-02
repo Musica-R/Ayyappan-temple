@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import { FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
 import { useLang } from '../utils/LanguageContext.jsx';
-import { IMG } from '../data/images.js';
 import Reveal from './Reveal.jsx';
 import SmartImg from './SmartImg.jsx';
 
-const PICS = [IMG.lamps, IMG.deity, IMG.kerala, IMG.festival];
+const PICS = ["/images/Light4.jpg.jpeg", "/images/poojai2.jpg.jpeg", "/images/karthika vilakku 2.jpg.jpeg", "/images/yatra2.jpg.jpeg"];
 export default function FestivalCards() {
   const { t } = useLang();
   return (

@@ -3,10 +3,17 @@ import translations from '../data/translations.js';
 
 const Ctx = createContext(null);
 export const DEFAULT_LANG = 'ml';
+
+// export const LANGS = [
+//   { code: 'ml', label: 'മലയാളം' },
+//   { code: 'en', label: 'English' },
+//   { code: 'ta', label: 'தமிழ்' },
+// ];
+
 export const LANGS = [
-  { code: 'ml', label: 'മലയാളം' },
+  // { code: 'ml', label: 'മലയാളം' },
   { code: 'en', label: 'English' },
-  { code: 'ta', label: 'தமிழ்' },
+  // { code: 'ta', label: 'தமிழ்' },
 ];
 
 export function LanguageProvider({ children }) {
