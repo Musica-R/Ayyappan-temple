@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import translations from '../data/translations.js';
 
 const Ctx = createContext(null);
-export const DEFAULT_LANG = 'ml';
+export const DEFAULT_LANG = 'en';
 
 // export const LANGS = [
 //   { code: 'ml', label: 'മലയാളം' },
