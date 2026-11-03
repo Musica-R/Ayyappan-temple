@@ -17,6 +17,19 @@ const VIDEOS = [
   '/assets/video2.mp4',
   '/assets/video3.mp4',
   '/assets/video4.mp4',
+  '/assets/video5.mp4',
+  '/assets/video6.mp4',
+];
+
+// Second photo section (after the videos): put these in public/assets/
+const EXTRA_PHOTOS = [
+  '/assets/k4.jpeg',
+  '/assets/k2.jpeg',
+  '/assets/k3.jpeg',
+  '/assets/k5.jpeg',
+  '/assets/k6.jpeg',
+  '/assets/r7.jpeg',
+  '/assets/k1.jpeg',
 ];
 
 const STEP = 12; // photos shown first, and added per "load more"
@@ -153,178 +166,209 @@ export default function Gallery() {
 
   return (
     <>
-      {/* Page hero (unchanged) */}
-      <section className="page-hero">
-        <Reveal>
-          <h1>{g.title}</h1>
-          <p>{g.sub}</p>
-        </Reveal>
-      </section>
-
-      {/* Intro + tiger image */}
-      <section className="section gal-intro">
-        <div className="container gal-intro-grid">
+      <div className="gal-page">
+        {/* Page hero (unchanged) */}
+        <section className="page-hero">
           <Reveal>
-            <div className="gal-intro-text">
-              <span className="gal-eyebrow">{g.introEyebrow ?? 'Our Gallery'}</span>
-              <h2>{g.introTitle ?? 'Glimpses of a Sacred Abode'}</h2>
-              <p>
-                {g.introText ??
-                  'Browse photographs and videos from Ayyappankadu: daily poojas, festival lamps, the quiet village shrine and the devotion of the community working to restore it.'}
-              </p>
-              <p className="gal-intro-quote">{t.quote}</p>
-            </div>
+            <h1>{g.title}</h1>
+            <p>{g.sub}</p>
           </Reveal>
+        </section>
 
-          <Reveal index={1} className="gal-intro-img">
-            <div className="gal-tiger">
-              <img src="/assets/tiger.png" alt="Tiger" loading="lazy" />
+        {/* Intro + tiger image */}
+        <section className="section gal-intro">
+          <div className="container gal-intro-grid">
+            <Reveal>
+              <div className="gal-intro-text">
+                <span className="gal-eyebrow">{g.introEyebrow ?? 'Our Gallery'}</span>
+                <h2>{g.introTitle ?? 'Glimpses of a Sacred Abode'}</h2>
+                <p>
+                  {g.introText ??
+                    'Browse photographs and videos from Ayyappankadu: daily poojas, festival lamps, the quiet village shrine and the devotion of the community working to restore it.'}
+                </p>
+                <p className="gal-intro-quote">{t.quote}</p>
+              </div>
+            </Reveal>
+
+            <Reveal index={1} className="gal-intro-img">
+              <div className="gal-tiger">
+                <img src="/assets/tiger.png" alt="Tiger" loading="lazy" />
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Moments */}
+        <section className="section gal-moments-section">
+          <div className="container">
+            <Reveal>
+              <div className="gal-head">
+                <span className="gal-eyebrow">{g.momentsEyebrow ?? 'What You Will See'}</span>
+                <h2>{g.momentsTitle ?? 'Moments We Treasure'}</h2>
+                <span className="gal-divider"><i /></span>
+              </div>
+            </Reveal>
+
+            <div className="gal-moments">
+              {moments.map((m, k) => {
+                const Icon = MOMENT_ICONS[k % MOMENT_ICONS.length];
+                return (
+                  <Reveal key={k} index={k} className="gal-moment">
+                    <div className="gal-moment-card">
+                      <span className="gal-moment-ico"><Icon /></span>
+                      <h3>{m.t}</h3>
+                      <p>{m.d}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
             </div>
-          </Reveal>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Moments */}
-      <section className="section gal-moments-section">
-        <div className="container">
-          <Reveal>
-            <div className="gal-head">
-              <span className="gal-eyebrow">{g.momentsEyebrow ?? 'What You Will See'}</span>
-              <h2>{g.momentsTitle ?? 'Moments We Treasure'}</h2>
-              <span className="gal-divider"><i /></span>
-            </div>
-          </Reveal>
+        {/* Photo gallery (static: no click, no popup) */}
+        <section className="section">
+          <div className="container">
+            <Reveal>
+              <div className="gal-bar">
+                <div className="gal-bar-left">
+                  <span className="gal-eyebrow">{g.eyebrow}</span>
+                  <span className="gal-count">
+                    <b>{GALLERY.length}</b> {g.photos}
+                  </span>
+                </div>
 
-          <div className="gal-moments">
-            {moments.map((m, k) => {
-              const Icon = MOMENT_ICONS[k % MOMENT_ICONS.length];
-              return (
-                <Reveal key={k} index={k} className="gal-moment">
-                  <div className="gal-moment-card">
-                    <span className="gal-moment-ico"><Icon /></span>
-                    <h3>{m.t}</h3>
-                    <p>{m.d}</p>
-                  </div>
+                <div className="gal-toggle" role="tablist">
+                  <button
+                    type="button"
+                    className={mode === 'mosaic' ? 'on' : ''}
+                    onClick={() => setMode('mosaic')}
+                  >
+                    {g.mosaic}
+                  </button>
+                  <button
+                    type="button"
+                    className={mode === 'grid' ? 'on' : ''}
+                    onClick={() => setMode('grid')}
+                  >
+                    {g.grid}
+                  </button>
+                </div>
+              </div>
+            </Reveal>
+
+            <div className={`gal-board ${mode}`}>
+              {shown.map((src, k) => (
+                <Reveal
+                  key={k}
+                  index={k % 4}
+                  className={`gal-tile ${mode === 'mosaic' ? sizeOf(k) : ''}`}
+                >
+                  <figure className="gal-frame">
+                    <SmartImg src={src} alt={`gallery ${k + 1}`} />
+                    <span className="gal-shade" />
+                    <span className="gal-num">{pad(k)}</span>
+                  </figure>
                 </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+              ))}
+            </div>
 
-      {/* Photo gallery (static: no click, no popup) */}
-      <section className="section">
-        <div className="container">
-          <Reveal>
-            <div className="gal-bar">
-              <div className="gal-bar-left">
-                <span className="gal-eyebrow">{g.eyebrow}</span>
-                <span className="gal-count">
-                  <b>{GALLERY.length}</b> {g.photos}
-                </span>
-              </div>
-
-              <div className="gal-toggle" role="tablist">
-                <button
-                  type="button"
-                  className={mode === 'mosaic' ? 'on' : ''}
-                  onClick={() => setMode('mosaic')}
-                >
-                  {g.mosaic}
-                </button>
-                <button
-                  type="button"
-                  className={mode === 'grid' ? 'on' : ''}
-                  onClick={() => setMode('grid')}
-                >
-                  {g.grid}
+            {hasMore && (
+              <div className="gal-more">
+                <button type="button" onClick={() => setCount((c) => c + STEP)}>
+                  {g.loadMore}
                 </button>
               </div>
-            </div>
-          </Reveal>
-
-          <div className={`gal-board ${mode}`}>
-            {shown.map((src, k) => (
-              <Reveal
-                key={k}
-                index={k % 4}
-                className={`gal-tile ${mode === 'mosaic' ? sizeOf(k) : ''}`}
-              >
-                <figure className="gal-frame">
-                  <SmartImg src={src} alt={`gallery ${k + 1}`} />
-                  <span className="gal-shade" />
-                  <span className="gal-num">{pad(k)}</span>
-                </figure>
-              </Reveal>
-            ))}
+            )}
           </div>
+        </section>
 
-          {hasMore && (
-            <div className="gal-more">
-              <button type="button" onClick={() => setCount((c) => c + STEP)}>
-                {g.loadMore}
-              </button>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Video section: 2 per row, click a card to open the popup player */}
-      <section className="section gal-video-section">
-        <div className="container">
-          <Reveal>
-            <div className="gal-head">
-              <span className="gal-eyebrow">{g.videosEyebrow ?? 'Watch'}</span>
-              <h2>{g.videosTitle ?? 'Temple Videos'}</h2>
-              <p>{g.videosSub ?? 'Tap a video to watch it in full screen.'}</p>
-              <span className="gal-divider"><i /></span>
-            </div>
-          </Reveal>
-
-          <div className="gal-video-grid">
-            {VIDEOS.map((v, k) => (
-              <Reveal key={k} index={k % 2} className="gal-video-item">
-                <button
-                  type="button"
-                  className="gal-video-card"
-                  onClick={() => setActive(k)}
-                  aria-label={`${g.play ?? 'Play video'}: ${vTitle(k)}`}
-                >
-                  {/* thumbnail only: never plays inline */}
-                  <video src={`${v}#t=0.5`} preload="metadata" muted playsInline tabIndex={-1} />
-                  <span className="gal-video-shade" />
-                  <span className="gal-video-tag">{pad(k)}</span>
-                  <span className="gal-video-play"><FaPlay /></span>
-                  <span className="gal-video-title">{vTitle(k)}</span>
-                </button>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to action */}
-      <section className="section gal-cta-section">
-        <div className="container">
-          <Reveal>
-            <div className="gal-cta">
-              <h2>{g.ctaTitle ?? 'Be a Part of Our Story'}</h2>
-              <p>
-                {g.ctaText ??
-                  'Visit the temple, join the festivals and help bring the shrine back to life.'}
-              </p>
-              <div className="gal-cta-btns">
-                <Link to="/renovation" className="gal-cta-btn solid">
-                  {g.ctaBtn1 ?? 'Support Renovation'}
-                </Link>
-                <Link to="/contact" className="gal-cta-btn line">
-                  {g.ctaBtn2 ?? 'Contact the Samithi'}
-                </Link>
+        {/* Video section: 2 per row, click a card to open the popup player */}
+        <section className="section gal-video-section">
+          <div className="container">
+            <Reveal>
+              <div className="gal-head">
+                <span className="gal-eyebrow">{g.videosEyebrow ?? 'Watch'}</span>
+                <h2>{g.videosTitle ?? 'Temple Videos'}</h2>
+                <p>{g.videosSub ?? 'Tap a video to watch it in full screen.'}</p>
+                <span className="gal-divider"><i /></span>
               </div>
+            </Reveal>
+
+            <div className="gal-video-grid">
+              {VIDEOS.map((v, k) => (
+                <Reveal key={k} index={k % 2} className="gal-video-item">
+                  <button
+                    type="button"
+                    className="gal-video-card"
+                    onClick={() => setActive(k)}
+                    aria-label={`${g.play ?? 'Play video'}: ${vTitle(k)}`}
+                  >
+                    {/* thumbnail only: never plays inline */}
+                    <video src={`${v}#t=0.5`} preload="metadata" muted playsInline tabIndex={-1} />
+                    <span className="gal-video-shade" />
+                    <span className="gal-video-tag">{pad(k)}</span>
+                    <span className="gal-video-play"><FaPlay /></span>
+                    {/* <span className="gal-video-title">{vTitle(k)}</span> */}
+                  </button>
+                </Reveal>
+              ))}
             </div>
-          </Reveal>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        {/* More photos (7 images, always mosaic) */}
+        <section className="section gal-extra">
+          <div className="container">
+            <Reveal>
+              <div className="gal-head">
+                <span className="gal-eyebrow">{g.extraEyebrow ?? g.eyebrow}</span>
+                <h2>{g.extraTitle ?? 'More Glimpses'}</h2>
+                <span className="gal-divider"><i /></span>
+              </div>
+            </Reveal>
+
+            <div className="gal-board mosaic">
+              {EXTRA_PHOTOS.map((src, k) => (
+                <Reveal
+                  key={src}
+                  index={k % 4}
+                  className={`gal-tile ${sizeOf(k)}`}
+                >
+                  <figure className="gal-frame">
+                    <SmartImg src={src} alt={`temple photo ${k + 1}`} />
+                    <span className="gal-shade" />
+                    <span className="gal-num">{pad(k)}</span>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Call to action */}
+        <section className="section gal-cta-section">
+          <div className="container">
+            <Reveal>
+              <div className="gal-cta">
+                <h2>{g.ctaTitle ?? 'Be a Part of Our Story'}</h2>
+                <p>
+                  {g.ctaText ??
+                    'Visit the temple, join the festivals and help bring the shrine back to life.'}
+                </p>
+                <div className="gal-cta-btns">
+                  <Link to="/renovation" className="gal-cta-btn solid">
+                    {g.ctaBtn1 ?? 'Support Renovation'}
+                  </Link>
+                  <Link to="/contact" className="gal-cta-btn line">
+                    {g.ctaBtn2 ?? 'Contact the Samithi'}
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      </div>
 
       {/* Popup video player (portal to <body>) */}
       {modal && createPortal(modal, document.body)}

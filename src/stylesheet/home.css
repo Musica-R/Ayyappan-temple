@@ -1083,3 +1083,549 @@
         font-size: 1.2rem;
     }
 }
+
+/* ============ RECENT MOMENTS (hp-jr-) ============ */
+.hp-jr-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.hp-jr-card {
+    background: #fff;
+    border: 1px solid rgba(201, 153, 63, .45);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+
+.hp-jr-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 26px rgba(91, 18, 54, .13);
+}
+
+.hp-jr-img {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--maroon-d);
+}
+
+.hp-jr-pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.hp-jr-card:hover .hp-jr-pic {
+    transform: scale(1.06);
+}
+
+.hp-jr-card p {
+    margin: 0;
+    padding: 12px 14px 14px;
+    color: var(--maroon);
+    font-size: .84rem;
+    font-weight: 600;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px) {
+    .hp-jr-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .hp-jr-grid {
+        gap: 10px;
+    }
+
+    .hp-jr-card p {
+        padding: 9px 10px 11px;
+        font-size: .76rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .hp-jr-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ============ SILASTHAPANAM BANNER (hp-silas-) ============ */
+.hp-silas {
+    background: var(--cream-2);
+    padding: 34px 0 10px;
+}
+
+.hp-silas-card {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 34px;
+    padding: 34px 36px;
+    border-radius: 22px;
+    border: 1px solid var(--gold);
+    background:
+        radial-gradient(circle at 92% 8%, rgba(224, 180, 90, .28), transparent 42%),
+        linear-gradient(145deg, var(--maroon-d), var(--maroon-m));
+    box-shadow: 0 20px 44px rgba(58, 10, 34, .28);
+}
+
+.hp-silas-card::after {
+    content: "";
+    position: absolute;
+    left: -70px;
+    bottom: -70px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 2px solid rgba(201, 153, 63, .3);
+    box-shadow: 0 0 0 20px rgba(201, 153, 63, .07);
+    pointer-events: none;
+}
+
+.hp-silas-card > * {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.hp-silas-eyebrow {
+    color: var(--gold-l);
+}
+
+.hp-silas-main h2 {
+    color: #fff;
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    line-height: 1.15;
+    margin: 6px 0 2px;
+    overflow-wrap: anywhere;
+}
+
+.hp-silas-sub {
+    color: var(--gold-l);
+    font-size: 1rem;
+    letter-spacing: .04em;
+    margin-bottom: 10px;
+}
+
+.hp-silas-temple {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    color: #e0c8b8;
+    font-size: .9rem;
+    margin-bottom: 18px;
+}
+
+.hp-silas-temple svg {
+    color: var(--gold-l);
+    margin-top: 3px;
+    flex: 0 0 auto;
+}
+
+.hp-silas-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.hp-silas-meta-box {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(224, 180, 90, .4);
+    color: var(--gold-l);
+}
+
+.hp-silas-meta-box svg {
+    font-size: 1.2rem;
+    flex: 0 0 auto;
+}
+
+.hp-silas-meta-box small {
+    display: block;
+    color: #e0c8b8;
+    font-size: .7rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.hp-silas-meta-box strong {
+    display: block;
+    color: #fff;
+    font-size: .88rem;
+    line-height: 1.35;
+}
+
+.hp-silas-guests-t {
+    display: block;
+    color: var(--gold-l);
+    font-size: .76rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.hp-silas-guests ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.hp-silas-guests li {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding-left: 12px;
+    border-left: 2px solid var(--gold);
+    color: var(--gold-l);
+}
+
+.hp-silas-guests li svg {
+    flex: 0 0 auto;
+}
+
+.hp-silas-guests li strong {
+    display: block;
+    color: #fff;
+    font-size: .92rem;
+}
+
+.hp-silas-guests li small {
+    color: #e0c8b8;
+    font-size: .78rem;
+}
+
+/* right side */
+.hp-silas-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+    padding: 24px 20px;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, .18);
+    border: 1px dashed rgba(224, 180, 90, .55);
+}
+
+.hp-silas-cd-t {
+    color: var(--gold-l);
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.hp-silas-cd {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.hp-silas-cd div {
+    padding: 14px 4px 10px;
+    border-radius: 14px;
+    background: linear-gradient(160deg, #fffdf7, #fbefcf);
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
+}
+
+.hp-silas-cd b {
+    display: block;
+    color: var(--maroon-d);
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.hp-silas-cd small {
+    display: block;
+    margin-top: 6px;
+    color: var(--maroon);
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.hp-silas-done {
+    color: var(--gold-l);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 18px 0;
+}
+
+.hp-silas-invite {
+    color: #e0c8b8;
+    font-size: .88rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.hp-silas-org {
+    margin: 0;
+    color: #fff;
+    font-size: .84rem;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.hp-silas-org small {
+    display: block;
+    color: var(--gold-l);
+    font-size: .68rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.hp-silas-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.hp-silas-btns .btn {
+    margin: 0;
+}
+
+/* ============ SACRED FORM: mantra / chips / shaktis ============ */
+.hp-sacred {
+    background:
+        radial-gradient(circle at 8% 0%, rgba(201, 153, 63, .12), transparent 40%),
+        var(--cream);
+}
+
+.hp-mantra {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    max-width: 880px;
+    margin: 6px auto 22px;
+    padding: 24px 28px;
+    border-radius: 20px;
+    border: 1px solid var(--gold);
+    background: linear-gradient(135deg, var(--maroon-d), var(--maroon-m));
+    box-shadow: 0 16px 34px rgba(58, 10, 34, .22);
+}
+
+.hp-mantra-om {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, var(--gold-l), var(--gold));
+    color: var(--maroon-d);
+    box-shadow: 0 0 0 6px rgba(201, 153, 63, .2);
+}
+
+.hp-mantra-body {
+    min-width: 0;
+}
+
+.hp-mantra-body small {
+    display: block;
+    color: var(--gold-l);
+    font-size: .74rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.hp-mantra-body h3 {
+    color: #fff;
+    font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+    line-height: 1.3;
+    margin-bottom: 6px;
+    overflow-wrap: anywhere;
+}
+
+.hp-mantra-body p {
+    color: #e0c8b8;
+    font-size: .9rem;
+    line-height: 1.6;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* symbol chips */
+.hp-chips {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.hp-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    padding: 14px 8px;
+    border-radius: 14px;
+    background: #fff8ec;
+    border: 1px solid rgba(201, 153, 63, .5);
+    color: var(--gold);
+}
+
+.hp-chip svg {
+    font-size: 1.1rem;
+}
+
+.hp-chip strong {
+    display: block;
+    color: var(--maroon);
+    font-size: .88rem;
+    overflow-wrap: anywhere;
+}
+
+.hp-chip small {
+    display: block;
+    color: var(--muted);
+    font-size: .74rem;
+    overflow-wrap: anywhere;
+}
+
+/* shakti cards */
+.hp-shakti-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.hp-shakti {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 16px 16px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid rgba(201, 153, 63, .5);
+    border-top: 3px solid var(--gold);
+    transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+
+.hp-shakti:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 14px 30px rgba(91, 18, 54, .14);
+}
+
+.hp-shakti-num {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: rgba(201, 153, 63, .28);
+    line-height: 1;
+}
+
+.hp-shakti h4 {
+    color: var(--maroon);
+    font-size: .98rem;
+    margin: 0 28px 6px 0;
+    overflow-wrap: anywhere;
+}
+
+.hp-shakti p {
+    color: var(--muted);
+    font-size: .8rem;
+    line-height: 1.55;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ---------- responsive for new sections ---------- */
+@media (max-width: 1024px) {
+    .hp-chips {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hp-shakti-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .hp-silas-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hp-shakti-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hp-mantra {
+        flex-direction: column;
+        text-align: center;
+        padding: 22px 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    .hp-silas {
+        padding-top: 22px;
+    }
+
+    .hp-silas-meta {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hp-silas-side {
+        padding: 20px 14px;
+    }
+
+    .hp-chips {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hp-shakti-grid {
+        gap: 10px;
+    }
+
+    .hp-shakti {
+        padding: 16px 12px 12px;
+    }
+
+    .hp-shakti p {
+        font-size: .76rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .hp-shakti-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hp-silas-cd {
+        gap: 6px;
+    }
+}
+

@@ -1,3 +1,24 @@
+/* ---------- Page-level overflow guard ---------- */
+.gal-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip; /* clips sideways overflow without breaking sticky header */
+}
+
+.gal-page img,
+.gal-page video {
+    max-width: 100%
+}
+
+.gal-page h1,
+.gal-page h2,
+.gal-page h3,
+.gal-page p,
+.gal-page b,
+.gal-page span {
+    overflow-wrap: anywhere
+}
+
 /* ---------- Shared headings ---------- */
 .gal-eyebrow {
     font-size: .78rem;
@@ -7,7 +28,7 @@
     font-weight: 700
 }
 
-.gal-intro{
+.gal-intro {
     padding: 0px 0px !important;
 }
 
@@ -25,6 +46,7 @@
     align-items: center;
     justify-content: center;
     width: 140px;
+    max-width: 100%;
     margin-top: 14px
 }
 
@@ -47,9 +69,13 @@
 /* ---------- Intro + tiger image ---------- */
 .gal-intro-grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
     gap: 40px;
     align-items: center
+}
+
+.gal-intro-grid > * {
+    min-width: 0
 }
 
 .gal-intro-text h2 {
@@ -70,7 +96,8 @@
 
 .gal-intro-img {
     display: flex;
-    justify-content: center
+    justify-content: center;
+    min-width: 0
 }
 
 .gal-tiger {
@@ -79,7 +106,8 @@
     place-items: center;
     width: 100%;
     max-width: 440px;
-    padding: 18px
+    padding: 18px;
+    box-sizing: border-box
 }
 
 .gal-tiger::before {
@@ -114,12 +142,17 @@
 
 .gal-moments {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px
+}
+
+.gal-moments > * {
+    min-width: 0
 }
 
 .gal-moment-card {
     height: 100%;
+    box-sizing: border-box;
     padding: 26px 20px;
     text-align: center;
     border-radius: 16px;
@@ -176,7 +209,8 @@
 .gal-bar-left {
     display: flex;
     flex-direction: column;
-    gap: 4px
+    gap: 4px;
+    min-width: 0
 }
 
 .gal-count b {
@@ -186,6 +220,7 @@
 
 .gal-toggle {
     display: inline-flex;
+    max-width: 100%;
     border: 1.5px solid var(--gold);
     border-radius: 999px;
     overflow: hidden
@@ -205,11 +240,16 @@
 /* ---------- Photo board ---------- */
 .gal-board {
     display: grid;
-    gap: 16px
+    gap: 16px;
+    width: 100%
+}
+
+.gal-board > * {
+    min-width: 0
 }
 
 .gal-board.mosaic {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-auto-rows: 210px;
     grid-auto-flow: dense
 }
@@ -228,7 +268,7 @@
 }
 
 .gal-board.grid {
-    grid-template-columns: repeat(4, 1fr)
+    grid-template-columns: repeat(4, minmax(0, 1fr))
 }
 
 .gal-board.grid .gal-frame {
@@ -237,7 +277,8 @@
 
 .gal-tile {
     height: 100%;
-    min-height: 0
+    min-height: 0;
+    min-width: 0
 }
 
 .gal-frame {
@@ -357,18 +398,24 @@
 /* ---------- Video grid: 2 per row ---------- */
 .gal-video-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px
 }
 
+.gal-video-grid > * {
+    min-width: 0
+}
+
 .gal-video-item {
-    min-height: 0
+    min-height: 0;
+    min-width: 0
 }
 
 .gal-video-card {
     position: relative;
     display: block;
     width: 100%;
+    max-width: 100%;
     padding: 0;
     overflow: hidden;
     border-radius: 14px;
@@ -376,7 +423,8 @@
     border: 2px solid transparent;
     box-shadow: 0 10px 26px rgba(0, 0, 0, .18);
     cursor: pointer;
-    transition: .3s
+    transition: .3s;
+    box-sizing: border-box
 }
 
 .gal-video-card:hover {
@@ -412,6 +460,7 @@
     display: grid;
     place-items: center;
     padding-left: 4px;
+    box-sizing: border-box;
     border-radius: 50%;
     background: var(--gold);
     color: #fff;
@@ -449,6 +498,11 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, .6)
 }
 
+/* ---------- Extra photos (after the videos) ---------- */
+.gal-extra {
+    background: rgba(0, 0, 0, .025)
+}
+
 /* ---------- CTA ---------- */
 .gal-cta {
     text-align: center;
@@ -457,7 +511,9 @@
     color: #fff;
     background: linear-gradient(135deg, var(--maroon, #5a0f2e), #2b0716);
     border: 2px solid var(--gold);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, .25)
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .25);
+    box-sizing: border-box;
+    max-width: 100%
 }
 
 .gal-cta h2 {
@@ -483,7 +539,9 @@
     border-radius: 999px;
     font-weight: 700;
     border: 2px solid var(--gold);
-    transition: .3s
+    transition: .3s;
+    max-width: 100%;
+    box-sizing: border-box
 }
 
 .gal-cta-btn.solid {
@@ -509,6 +567,9 @@
     justify-content: center;
     gap: 14px;
     padding: 70px 20px 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+    overscroll-behavior: contain;
     background: rgba(20, 3, 12, .95);
     animation: galFade .3s ease
 }
@@ -533,7 +594,8 @@
     margin: 0 auto;
     border-radius: 12px;
     border: 2px solid var(--gold);
-    background: #000
+    background: #000;
+    box-sizing: border-box
 }
 
 .gal-modal-cap {
@@ -542,13 +604,20 @@
     justify-content: space-between;
     gap: 12px;
     margin-top: 12px;
-    color: #fff
+    color: #fff;
+    min-width: 0
+}
+
+.gal-modal-cap b {
+    min-width: 0;
+    overflow-wrap: anywhere
 }
 
 .gal-modal-cap span {
     color: var(--gold);
     font-weight: 700;
-    letter-spacing: .1em
+    letter-spacing: .1em;
+    flex: none
 }
 
 .gal-modal-close {
@@ -590,7 +659,7 @@
 /* ---------- Responsive ---------- */
 @media (max-width:1024px) {
     .gal-intro-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: minmax(0, 1fr)
     }
 
     .gal-tiger {
@@ -598,16 +667,16 @@
     }
 
     .gal-moments {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, minmax(0, 1fr))
     }
 
     .gal-board.mosaic {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-auto-rows: 190px
     }
 
     .gal-board.grid {
-        grid-template-columns: repeat(3, 1fr)
+        grid-template-columns: repeat(3, minmax(0, 1fr))
     }
 }
 
@@ -617,12 +686,12 @@
     }
 
     .gal-board.mosaic {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-auto-rows: 160px
     }
 
     .gal-board.grid {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, minmax(0, 1fr))
     }
 
     .gal-video-grid {
@@ -650,6 +719,10 @@
 
     .gal-bar-left {
         align-items: center
+    }
+
+    .gal-cta {
+        padding: 36px 16px
     }
 
     .gal-modal {
@@ -699,6 +772,10 @@
         gap: 12px
     }
 
+    .gal-moment-card {
+        padding: 22px 14px
+    }
+
     .gal-video-grid {
         gap: 10px
     }
@@ -709,20 +786,24 @@
         padding: 2px 8px;
         font-size: .7rem
     }
+
+    .gal-cta-btn {
+        padding: 11px 22px
+    }
 }
 
 @media (max-width:340px) {
     .gal-moments {
-        grid-template-columns: 1fr
+        grid-template-columns: minmax(0, 1fr)
     }
 
     .gal-video-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: minmax(0, 1fr)
     }
 
     .gal-board.mosaic,
     .gal-board.grid {
-        grid-template-columns: 1fr
+        grid-template-columns: minmax(0, 1fr)
     }
 
     .gal-board.mosaic {

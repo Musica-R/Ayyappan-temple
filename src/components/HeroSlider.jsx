@@ -7,7 +7,7 @@ import { useLang } from '../utils/LanguageContext.jsx';
 import '../stylesheet/hero.css';
 
 /* Background image: public/assets/bg.png (plain <img>, so a missing file never breaks the build) */
-const BG = `${process.env.PUBLIC_URL || ''}/assets/bg.png`;
+const BG = `${process.env.PUBLIC_URL || ''}/assets/back.png`;
 
 /* ───────── Reveal timing (seconds) ───────── */
 const T_OM = 0.1;

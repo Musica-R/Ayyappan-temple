@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 import {
   FaPlaceOfWorship, FaPrayingHands, FaFire, FaCalendarAlt, FaImages, FaMapMarkerAlt,
   FaLeaf, FaUsers, FaOm, FaClock, FaArrowRight, FaHandHoldingHeart, FaHandsHelping,
+  FaPhoneAlt, FaRegGem,
 } from 'react-icons/fa';
 import HeroSlider from '../components/HeroSlider.jsx';
 import SectionTitle from '../components/SectionTitle.jsx';
@@ -26,6 +27,13 @@ const HI = [FaPlaceOfWorship, FaPrayingHands, FaFire, FaCalendarAlt, FaLeaf, FaU
 const WAYS_ICONS = [FaHandHoldingHeart, FaHandsHelping, FaCalendarAlt, FaMapMarkerAlt];
 const WAYS_LINKS = ['/renovation', '/contact', '/festivals', '/contact'];
 const FEST_ICONS = [FaFire, FaOm, FaCalendarAlt, FaPrayingHands];
+
+/* last 4 journey moments shown on Home (same order as the LAST 4 of t.abx.journey) */
+const JR_IMGS = ['/assets/r17.jpeg', '/assets/r18.jpeg', '/assets/r19.jpeg', '/assets/r20.jpeg'];
+
+/* Silasthapanam: Thursday 5 Nov 2026, auspicious window starts 7:10 AM IST */
+const SILAS_START = new Date('2026-11-05T07:10:00+05:30').getTime();
+const SILAS_END = new Date('2026-11-05T09:20:00+05:30').getTime();
 
 /* ───────── Lottie settings ───────── */
 const LOTTIE_SPEED = 0.5;                    // 1 = original speed, lower = slower
@@ -129,17 +137,106 @@ function usePrefersReducedMotion() {
   return reduced;
 }
 
+/* Live countdown to the ceremony (updates every 15 s) */
+function useCountdown(target) {
+  const calc = () => {
+    const diff = target - Date.now();
+    if (diff <= 0) return { d: 0, h: 0, m: 0, done: true };
+    return {
+      d: Math.floor(diff / 86400000),
+      h: Math.floor((diff % 86400000) / 3600000),
+      m: Math.floor((diff % 3600000) / 60000),
+      done: false,
+    };
+  };
+  const [left, setLeft] = useState(calc);
+  useEffect(() => {
+    const id = setInterval(() => setLeft(calc()), 15000);
+    return () => clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [target]);
+  return left;
+}
+
+const pad = (n) => String(n).padStart(2, '0');
+
 export default function Home() {
   const { t } = useLang();
   const h = { ...HOME_DEFAULT, ...(t.home || {}) };
+  const s = t.silas;
+  const recent = t.abx.journey.slice(-4);
   const [featFest, ...otherFest] = t.festivals.items;
   const FeatIcon = FEST_ICONS[0];
   const reduceMotion = usePrefersReducedMotion();
   const lottieRef = useRef(null);
+  const cd = useCountdown(SILAS_START);
+  const ceremonyOver = Date.now() > SILAS_END + 6 * 3600000; // hide banner the evening after
 
   return (
     <>
       <HeroSlider />
+
+      {/* ───────── UPCOMING CEREMONY: SILASTHAPANAM ───────── */}
+      {/* {!ceremonyOver && (
+        <section className="hp-silas">
+          <div className="container">
+            <Reveal className="hp-silas-card">
+              <div className="hp-silas-main">
+                <span className="eyebrow hp-silas-eyebrow"><FaCalendarAlt /> {s.eyebrow}</span>
+                <h2>{s.title}</h2>
+                <p className="hp-silas-sub">{s.subtitle}</p>
+                <p className="hp-silas-temple"><FaMapMarkerAlt /> {s.temple}</p>
+
+                <div className="hp-silas-meta">
+                  <div className="hp-silas-meta-box">
+                    <FaCalendarAlt />
+                    <div><small>{s.dateL}</small><strong>{s.date}</strong></div>
+                  </div>
+                  <div className="hp-silas-meta-box">
+                    <FaClock />
+                    <div><small>{s.timeL}</small><strong>{s.time}</strong></div>
+                  </div>
+                </div>
+
+                <div className="hp-silas-guests">
+                  <span className="hp-silas-guests-t">{s.guestsT}</span>
+                  <ul>
+                    {s.guests.map((g, k) => (
+                      <li key={k}>
+                        <FaPrayingHands />
+                        <div><strong>{g.n}</strong><small>{g.r}</small></div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="hp-silas-side">
+                <span className="hp-silas-cd-t">{s.cdT}</span>
+                {cd.done ? (
+                  <p className="hp-silas-done">{s.done}</p>
+                ) : (
+                  <div className="hp-silas-cd">
+                    <div><b>{pad(cd.d)}</b><small>{s.dLabel}</small></div>
+                    <div><b>{pad(cd.h)}</b><small>{s.hLabel}</small></div>
+                    <div><b>{pad(cd.m)}</b><small>{s.mLabel}</small></div>
+                  </div>
+                )}
+
+                <p className="hp-silas-invite">{s.invite}</p>
+                <p className="hp-silas-org"><small>{s.orgL}</small>{s.org}</p>
+
+                <div className="hp-silas-btns">
+                  <a href={`tel:${s.phone}`} className="btn btn-gold">
+                    <FaPhoneAlt /> {s.phone}
+                  </a>
+                  <Link to="/renovation" className="hp-btn-ghost">{s.cta2} <FaArrowRight /></Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      )} */}
 
       {/* ───────── ABOUT + QUICK LINKS (original look) ───────── */}
       <section className="section hp-about">
@@ -172,13 +269,6 @@ export default function Home() {
           </div>
         </div>
         <br />
-        {/* <div className="container hp-quick">
-          {QUICK.map(([Ic, to], k) => (
-            <Reveal key={k} index={k} className="hp-quick-item">
-              <Link to={to}><span><Ic /></span>{t.quick[k]}</Link>
-            </Reveal>
-          ))}
-        </div> */}
       </section>
 
       {/* ───────── HIGHLIGHTS ───────── */}
@@ -196,6 +286,45 @@ export default function Home() {
                 </Reveal>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ───────── THE SACRED FORM: mantra, symbols & 12 shaktis ───────── */}
+      <section className="hp-sec hp-sacred">
+        <div className="container">
+          <SectionTitle title={t.abx.shaktiTitle} sub={t.abx.shaktiSub} />
+
+          <Reveal className="hp-mantra">
+            <span className="hp-mantra-om"><FaOm /></span>
+            <div className="hp-mantra-body">
+              <small>{t.abx.tattvaEyebrow}</small>
+              <h3>{t.abx.mantra}</h3>
+              <p>{t.abx.mantraMeaning}</p>
+            </div>
+          </Reveal>
+
+          <div className="hp-chips">
+            {t.abx.chips.map(([a, b], k) => (
+              <Reveal key={k} index={k} className="hp-chip">
+                <FaRegGem />
+                <div><strong>{a}</strong><small>{b}</small></div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="hp-shakti-grid">
+            {t.abx.shaktis.map((sh, k) => (
+              <Reveal key={k} index={k % 4} className="hp-shakti">
+                <span className="hp-shakti-num">{pad(k + 1)}</span>
+                <h4>{sh.t}</h4>
+                <p>{sh.d}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="hp-center">
+            <Link to="/about" className="btn btn-maroon">{t.about.more} <FaArrowRight /></Link>
           </div>
         </div>
       </section>
@@ -243,6 +372,25 @@ export default function Home() {
       {/* ───────── GALLERY ───────── */}
       <GalleryStrip />
 
+      {/* ───────── RECENT MOMENTS (latest journey photos) ───────── */}
+      <section className="hp-sec hp-jr">
+        <div className="container">
+          <SectionTitle title={s.jrTitle} sub={s.jrSub} />
+          <div className="hp-jr-grid">
+            {recent.map((title, k) => (
+              <Reveal key={k} index={k} className="hp-jr-card">
+                <div className="hp-jr-img">
+                  <SmartImg src={JR_IMGS[k]} alt={title} className="hp-jr-pic" />
+                </div>
+                <p>{title}</p>
+              </Reveal>
+            ))}
+          </div>
+          <div className="hp-center">
+            <Link to="/about" className="btn btn-maroon">{s.jrAll} <FaArrowRight /></Link>
+          </div>
+        </div>
+      </section>
 
       {/* ───────── RENOVATION: appeal + path ───────── */}
       <section className="hp-sec hp-reno">
@@ -260,17 +408,16 @@ export default function Home() {
             <Reveal><span className="eyebrow hp-center-eyebrow"><FaOm /> {h.pathEyebrow}</span></Reveal>
             <Reveal index={1}><h3 className="hp-path-title">{t.reno.stepsTitle}</h3></Reveal>
             <ol className="hp-path-list">
-              {t.reno.steps.map((s, k) => (
+              {t.reno.steps.map((st, k) => (
                 <Reveal key={k} index={k} className="hp-path-step">
                   <span className="hp-path-num">{k + 1}</span>
-                  <p>{s}</p>
+                  <p>{st}</p>
                 </Reveal>
               ))}
             </ol>
           </div>
         </div>
       </section>
-
 
       {/* ───────── PLAN YOUR VISIT ───────── */}
       <section className="hp-visit">
@@ -312,16 +459,16 @@ export default function Home() {
               <span className="hp-cta-ring" />
               <span className="hp-cta-ring hp-cta-ring-dots" />
 
-              {SPARKS.map((s, k) => (
+              {SPARKS.map((sp, k) => (
                 <span
                   key={k}
                   className="hp-cta-spark"
                   style={{
-                    top: s.top,
-                    left: s.left,
-                    width: s.size,
-                    height: s.size,
-                    animationDelay: `${s.delay}s`,
+                    top: sp.top,
+                    left: sp.left,
+                    width: sp.size,
+                    height: sp.size,
+                    animationDelay: `${sp.delay}s`,
                   }}
                 />
               ))}

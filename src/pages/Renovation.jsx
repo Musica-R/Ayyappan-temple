@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaOm, FaArrowRight, FaLandmark, FaMapMarkedAlt, FaScroll, FaFemale,
   FaQuoteLeft, FaHandHoldingHeart, FaSyncAlt, FaLeaf,
+  FaHome, FaColumns, FaGem, FaLayerGroup, FaMonument, FaTree,
+  FaPencilRuler, FaSearchPlus, FaTimes,
 } from 'react-icons/fa';
 import { GiLotusFlower } from 'react-icons/gi';
 import Reveal from '../components/Reveal.jsx';
@@ -10,8 +12,11 @@ import { useLang } from '../utils/LanguageContext.jsx';
 import '../stylesheet/renovation.css';
 
 const FACT_ICONS = [FaLandmark, FaMapMarkedAlt, FaScroll, FaFemale];
+const STRUCT_ICONS = [FaMonument, FaHome, FaColumns, FaGem, FaLayerGroup, FaTree];
 const LAMPS = 7;
 const HANG_LAMP = '/assets/lamp1.png';
+const IMG_RENDER = '/assets/back.png';
+const IMG_BLUEPRINT = '/assets/blueprint.jpeg';
 
 /* English fallback – used only if t.renoPage is missing in translations */
 const RENO_DEFAULT = {
@@ -23,6 +28,28 @@ const RENO_DEFAULT = {
     { v: 'Women-led', l: 'Devotee group at the helm' },
   ],
   noticeTag: 'Important Notice',
+
+  /* ── NEW: temple structure ── */
+  structEyebrow: 'The New Shrine',
+  structTitle: 'The Temple Structure',
+  structSub: 'This is how the restored shrine will look once construction is complete, in the traditional Kerala style.',
+  renderTag: 'After Construction',
+  renderCap: 'Artist’s impression of the completed shrines',
+  blueprintTag: 'Original Plan',
+  blueprintCap: 'Hand-drawn blueprint prepared for the construction',
+  zoomHint: 'Tap an image to enlarge',
+  closeLabel: 'Close',
+  structFeaturesT: 'Highlights of the Design',
+  structFeatures: [
+    { t: 'Twin Shrines', d: 'Two sreekovils side by side: one for Lord Dharma Sastha and one for Devi.' },
+    { t: 'Tiled Roof', d: 'A four-sided sloping roof of red clay tiles with graceful upturned corners.' },
+    { t: 'Wooden Pillars', d: 'Turned and polished timber pillars with carved wooden walls and eaves.' },
+    { t: 'Golden Kalasam', d: 'A golden finial crowns each roof, the sacred mark of a Kerala shrine.' },
+    { t: 'Granite Base', d: 'A stepped granite base (adhishthanam) raises each shrine above the ground.' },
+    { t: 'Open Courtyard', d: 'A sandy courtyard shaded by coconut palms and greenery for a peaceful setting.' },
+  ],
+  structNote: 'The images are for reference. The final construction may vary slightly as guided by the Deva Prashnam and the temple tantri.',
+
   lampEyebrow: 'Offer a Prayer',
   lampTitle: 'Light a Lamp for the Temple',
   lampSub: 'Tap a lamp to light it with your prayer. Every flame is a wish for the shrine to rise again.',
@@ -82,42 +109,23 @@ function LampDefs() {
 function Lamp() {
   return (
     <svg className="rn-lamp-svg" viewBox="0 0 80 130" aria-hidden="true" focusable="false">
-      {/* warm glow behind the flame */}
       <circle className="rn-lamp-glow" cx="40" cy="48" r="58" fill="url(#rn-glow)" />
 
-      {/* base + stem + knob */}
       <ellipse cx="40" cy="124" rx="25" ry="4.5" fill="url(#rn-brass)" />
       <path d="M20 124 C20 114 30 108 40 108 C50 108 60 114 60 124 Z" fill="url(#rn-brass)" />
       <path d="M35 96 L45 96 L43.5 109 L36.5 109 Z" fill="url(#rn-brass)" />
       <ellipse cx="40" cy="102" rx="7.5" ry="3.5" fill="url(#rn-brass)" />
       <ellipse cx="40" cy="109" rx="9" ry="2.4" fill="#f6dc8b" opacity=".55" />
 
-      {/* bowl */}
       <path d="M13 72 C13 88 27 96 40 96 C53 96 67 88 67 72 Z" fill="url(#rn-brass)" />
-      <path
-        d="M18 82 C26 88 54 88 62 82"
-        stroke="#5a3508"
-        strokeOpacity=".35"
-        strokeWidth="1"
-        fill="none"
-      />
-      <path
-        d="M20 77 C20 84 25 89 31 91"
-        stroke="#fff"
-        strokeOpacity=".4"
-        strokeWidth="2"
-        strokeLinecap="round"
-        fill="none"
-      />
+      <path d="M18 82 C26 88 54 88 62 82" stroke="#5a3508" strokeOpacity=".35" strokeWidth="1" fill="none" />
+      <path d="M20 77 C20 84 25 89 31 91" stroke="#fff" strokeOpacity=".4" strokeWidth="2" strokeLinecap="round" fill="none" />
 
-      {/* rim + oil */}
       <ellipse cx="40" cy="72" rx="27" ry="6.5" fill="url(#rn-brass)" />
       <ellipse className="rn-oil" cx="40" cy="72" rx="22.5" ry="4.4" />
 
-      {/* wick */}
       <rect x="38.4" y="62" width="3.2" height="10" rx="1.4" fill="#2a1408" />
 
-      {/* flame */}
       <g className="rn-flame">
         <path
           d="M40 24 C48 37 53 46 51 55 C50 62 45 66 40 66 C35 66 30 62 29 55 C27 46 32 37 40 24 Z"
@@ -157,6 +165,21 @@ export default function Renovation() {
   const toggle = (i) => setLit((l) => l.map((v, k) => (k === i ? !v : v)));
   const lightAll = () => setLit(Array(LAMPS).fill(true));
   const reset = () => setLit(Array(LAMPS).fill(false));
+
+  /* image zoom (lightbox) */
+  const [zoom, setZoom] = useState(null); // { src, alt } | null
+
+  useEffect(() => {
+    if (!zoom) return undefined;
+    const onKey = (e) => { if (e.key === 'Escape') setZoom(null); };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [zoom]);
 
   const last = r.paras.length - 1;
 
@@ -232,16 +255,82 @@ export default function Renovation() {
         </div>
       </section>
 
+      {/* ───────── TEMPLE STRUCTURE (NEW) ───────── */}
+      <section className="section rn-struct">
+        <div className="container">
+          <Reveal className="rn-struct-head">
+            <span className="rn-eyebrow"><FaLandmark /> {c.structEyebrow}</span>
+            <h2 className="rn-struct-title">{c.structTitle}</h2>
+            <p className="rn-struct-sub">{c.structSub}</p>
+          </Reveal>
+
+          <div className="rn-struct-grid">
+            {/* finished look */}
+            <Reveal className="rn-fig rn-fig-main">
+              <button
+                type="button"
+                className="rn-fig-frame"
+                onClick={() => setZoom({ src: IMG_RENDER, alt: c.renderCap })}
+                aria-label={`${c.renderCap} – ${c.zoomHint}`}
+              >
+                <img src={IMG_RENDER} alt={c.renderCap} loading="lazy" />
+                <span className="rn-fig-tag"><FaLandmark /> {c.renderTag}</span>
+                <span className="rn-fig-zoom" aria-hidden="true"><FaSearchPlus /></span>
+              </button>
+              <figcaption>{c.renderCap}</figcaption>
+            </Reveal>
+
+            {/* blueprint */}
+            <Reveal index={1} className="rn-fig rn-fig-plan">
+              <button
+                type="button"
+                className="rn-fig-frame"
+                onClick={() => setZoom({ src: IMG_BLUEPRINT, alt: c.blueprintCap })}
+                aria-label={`${c.blueprintCap} – ${c.zoomHint}`}
+              >
+                <img src={IMG_BLUEPRINT} alt={c.blueprintCap} loading="lazy" />
+                <span className="rn-fig-tag rn-fig-tag-plan"><FaPencilRuler /> {c.blueprintTag}</span>
+                <span className="rn-fig-zoom" aria-hidden="true"><FaSearchPlus /></span>
+              </button>
+              <figcaption>{c.blueprintCap}</figcaption>
+            </Reveal>
+          </div>
+
+          <p className="rn-zoom-hint"><FaSearchPlus /> {c.zoomHint}</p>
+
+          <Reveal>
+            <h3 className="rn-feat-title"><span className="rn-orn-dark" aria-hidden="true" />{c.structFeaturesT}<span className="rn-orn-dark rn-orn-dark-r" aria-hidden="true" /></h3>
+          </Reveal>
+
+          <div className="rn-feat-grid">
+            {c.structFeatures.map((f, k) => {
+              const Icon = STRUCT_ICONS[k % STRUCT_ICONS.length];
+              return (
+                <Reveal key={k} index={k % 3} className="rn-feat">
+                  <span className="rn-feat-ic"><Icon /></span>
+                  <div>
+                    <strong>{f.t}</strong>
+                    <p>{f.d}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <Reveal>
+            <p className="rn-struct-note"><FaScroll /> {c.structNote}</p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ───────── LIGHT A LAMP ───────── */}
       <section className="rn-lamps">
         <LampDefs />
 
-        {/* hanging lamps – section corners */}
         <Hang className="rn-hang-tl" />
         <Hang className="rn-hang-tr1" />
         {/* <Hang className="rn-hang-tr2" /> */}
 
-        {/* gold leaf sprigs – bottom corners */}
         <span className="rn-leaves rn-leaves-l" aria-hidden="true">
           <FaLeaf /><FaLeaf /><FaLeaf />
         </span>
@@ -250,15 +339,10 @@ export default function Renovation() {
         </span>
 
         <div className="container rn-lamps-grid">
-          {/* left: framed image */}
           <Reveal className="rn-lamps-media">
             <div className="rn-lamps-frame">
               <span className="rn-frame-lotus rn-frame-lotus-t" aria-hidden="true"><GiLotusFlower /></span>
               <span className="rn-frame-lotus rn-frame-lotus-b" aria-hidden="true"><GiLotusFlower /></span>
-
-              {/* lamps hanging inside the frame */}
-              {/* <Hang className="rn-hang-in1" />
-              <Hang className="rn-hang-in2" /> */}
 
               <div className="rn-lamps-pic">
                 <img src="/assets/a2.png" alt={c.lampTitle} loading="lazy" />
@@ -266,7 +350,6 @@ export default function Renovation() {
             </div>
           </Reveal>
 
-          {/* right: heading + lamps */}
           <div className="rn-lamps-body">
             <Reveal>
               <div className="rn-eyebrow-wrap">
@@ -321,7 +404,6 @@ export default function Renovation() {
           </div>
         </div>
 
-        {/* curved cream bottom edge + lotus */}
         <div className="rn-wave" aria-hidden="true">
           <svg viewBox="0 0 1440 90" preserveAspectRatio="none" focusable="false">
             <path className="rn-wave-fill" d="M0 38 C180 10 360 56 720 58 C1080 60 1260 10 1440 38 L1440 90 L0 90 Z" />
@@ -351,6 +433,27 @@ export default function Renovation() {
           </Reveal>
         </div>
       </section>
+
+      {/* ───────── IMAGE LIGHTBOX ───────── */}
+      {zoom && (
+        <div
+          className="rn-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={zoom.alt}
+          onClick={() => setZoom(null)}
+        >
+          <button
+            type="button"
+            className="rn-lightbox-close"
+            onClick={() => setZoom(null)}
+            aria-label={c.closeLabel}
+          >
+            <FaTimes />
+          </button>
+          <img src={zoom.src} alt={zoom.alt} onClick={(e) => e.stopPropagation()} />
+        </div>
+      )}
     </>
   );
 }

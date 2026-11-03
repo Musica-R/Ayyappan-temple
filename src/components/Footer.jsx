@@ -45,7 +45,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="f-temple-img" aria-hidden="true">
-          <img src={TEMPLE_IMG} alt="" onError={hideIfMissing} />
+          <img src="/assets/back.png" alt="" onError={hideIfMissing} />
         </div>
       </div>
 
@@ -83,7 +83,7 @@ export default function Footer() {
             <h4><MdTempleHindu className="h-ico" />{f.info}</h4>
             <ul className="f-contact">
               <li><span className="ico-ring"><FaMapMarkerAlt /></span>{t.contact.address}</li>
-              <li><span className="ico-ring"><FaPhoneAlt /></span>+91 98765 43210</li>
+              <li><span className="ico-ring"><FaPhoneAlt /></span>+91 9447354285</li>
               <li><span className="ico-ring"><FaEnvelope /></span>info@ayyappankadutemple.org</li>
             </ul>
             <div className="f-sep" />
