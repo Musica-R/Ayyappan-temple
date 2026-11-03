@@ -84,7 +84,7 @@ export default function Footer() {
             <ul className="f-contact">
               <li><span className="ico-ring"><FaMapMarkerAlt /></span>{t.contact.address}</li>
               <li><span className="ico-ring"><FaPhoneAlt /></span>+91 9447354285</li>
-              <li><span className="ico-ring"><FaEnvelope /></span>info@ayyappankadutemple.org</li>
+              {/* <li><span className="ico-ring"><FaEnvelope /></span>info@ayyappankadutemple.org</li> */}
             </ul>
             <div className="f-sep" />
             <h5>{f.follow}</h5>

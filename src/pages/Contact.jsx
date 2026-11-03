@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaPaperPlane, FaDirections } from 'react-icons/fa';
 import Reveal from '../components/Reveal.jsx';
 import { useLang } from '../utils/LanguageContext.jsx';
 import '../stylesheet/contact.css';
@@ -10,7 +10,13 @@ const PHONE_RAW = '9447354285';
 const PHONE_SHOW = '+91 94473 54285';
 const PHONE_HREF = `tel:+91${PHONE_RAW}`;
 const WHATSAPP_NUMBER = `91${PHONE_RAW}`; // country code + number, no "+" or spaces
-const EMAIL = 'info@ayyappankaadutemple.org';
+
+/* Location – your Google Maps link */
+const MAP_LINK = 'https://maps.app.goo.gl/c9hU6RK27voWvDrF9?g_st=awb';
+/* Embedded map. For an exact pin, replace with the src from
+   Google Maps > Share > Embed a map */
+const MAP_EMBED =
+  'https://www.google.com/maps?q=Ayyappankadu+Dharma+Sastha+Temple+Kerala&output=embed';
 
 const EMPTY_FORM = { name: '', email: '', message: '' };
 
@@ -44,11 +50,10 @@ export default function Contact() {
     setForm(EMPTY_FORM);
   };
 
-  /* [icon, text, link (optional)] */
+  /* [icon, text, link (optional), opens in new tab?] */
   const rows = [
-    [FaMapMarkerAlt, t.contact.address, null],
-    [FaPhoneAlt, PHONE_SHOW, PHONE_HREF],
-    [FaEnvelope, EMAIL, `mailto:${EMAIL}`],
+    [FaMapMarkerAlt, t.contact.address, MAP_LINK, true],
+    [FaPhoneAlt, PHONE_SHOW, PHONE_HREF, false],
   ];
 
   return (
@@ -60,12 +65,41 @@ export default function Contact() {
       <section className="section">
         <div className="container contact-grid">
           <div className="c-info">
-            {rows.map(([Ic, tx, href], k) => (
+            {rows.map(([Ic, tx, href, external], k) => (
               <Reveal key={k} index={k} className="c-row">
                 <Ic />
-                {href ? <a className="c-link" href={href}>{tx}</a> : <span>{tx}</span>}
+                {href ? (
+                  <a
+                    className="c-link"
+                    href={href}
+                    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    {tx}
+                  </a>
+                ) : (
+                  <span>{tx}</span>
+                )}
               </Reveal>
             ))}
+
+            {/* Location map */}
+            <Reveal index={2} className="c-map">
+              <iframe
+                title="Temple location"
+                src={MAP_EMBED}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <a
+                className="btn btn-maroon c-map-btn"
+                href={MAP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaDirections /> Open in Google Maps
+              </a>
+            </Reveal>
           </div>
 
           <Reveal index={1}>
