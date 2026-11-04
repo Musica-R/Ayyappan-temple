@@ -69,7 +69,6 @@ export default function About() {
 
   const facts = [
     [FaPrayingHands, t.about.deity, t.about.deityV],
-    [FaMapMarkerAlt, t.about.location, t.about.locationV],
     [FaClock, t.about.est, t.about.estV],
   ];
 

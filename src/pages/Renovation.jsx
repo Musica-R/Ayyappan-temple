@@ -5,6 +5,7 @@ import {
   FaQuoteLeft, FaHandHoldingHeart, FaSyncAlt, FaLeaf,
   FaHome, FaColumns, FaGem, FaLayerGroup, FaMonument, FaTree,
   FaPencilRuler, FaSearchPlus, FaTimes,
+  FaStar, FaMountain, FaFire,
 } from 'react-icons/fa';
 import { GiLotusFlower } from 'react-icons/gi';
 import Reveal from '../components/Reveal.jsx';
@@ -13,10 +14,19 @@ import '../stylesheet/renovation.css';
 
 const FACT_ICONS = [FaLandmark, FaMapMarkedAlt, FaScroll, FaFemale];
 const STRUCT_ICONS = [FaMonument, FaHome, FaColumns, FaGem, FaLayerGroup, FaTree];
+const JY_ICONS = [FaStar, FaMountain, FaHandHoldingHeart];
 const LAMPS = 7;
 const HANG_LAMP = '/assets/lamp1.png';
 const IMG_RENDER = '/assets/back.png';
 const IMG_BLUEPRINT = '/assets/blueprint.jpeg';
+
+/* fixed star positions for the Makara Jyothi night scene: [x, y, radius, delay] */
+const STARS = [
+  [40, 30, 1.6, 0], [95, 62, 1.1, 1.2], [150, 24, 1.4, .6], [210, 70, 1, 2.1],
+  [262, 38, 1.7, .3], [330, 22, 1.2, 1.6], [385, 66, 1.5, .9], [440, 34, 1, 2.4],
+  [500, 58, 1.6, .2], [558, 26, 1.3, 1.4], [70, 110, 1, 1.9], [180, 120, 1.2, .5],
+  [420, 112, 1.1, 1.1], [535, 104, 1.4, 2.2], [290, 96, 1, .8],
+];
 
 /* English fallback – used only if t.renoPage is missing in translations */
 const RENO_DEFAULT = {
@@ -29,7 +39,7 @@ const RENO_DEFAULT = {
   ],
   noticeTag: 'Important Notice',
 
-  /* ── NEW: temple structure ── */
+  /* ── temple structure ── */
   structEyebrow: 'The New Shrine',
   structTitle: 'The Temple Structure',
   structSub: 'This is how the restored shrine will look once construction is complete, in the traditional Kerala style.',
@@ -60,6 +70,34 @@ const RENO_DEFAULT = {
   ctaTitle: 'Be Part of the Restoration',
   ctaText: 'Come forward with your prayers, your presence and your support.',
   ctaBtn2: 'Learn about the temple',
+};
+
+/* English fallback for the Makara Jyothi section – used only if t.jyothi is missing */
+const JY_DEFAULT = {
+  eyebrow: 'Faith of the Elders',
+  title: 'Makara Jyothi Darshan at Ayyappankadu',
+  sub: 'A belief and tradition handed down by the elders of the village.',
+  tag: 'Makara Jyothi',
+  intro: 'The elders recall that the Makara Jyothi darshan was once a part of life at Ayyappankadu too.',
+  beats: [
+    {
+      tag: 'The Belief',
+      t: 'Uthram, the Lord’s birth star',
+      d: 'The Uthram star of the month of Makaram is believed to be the birth star of Lord Ayyappa. On this holy day, the sages of the Sabarimala ashrams and the tribal communities worshipped the Lord with camphor aarti and chants of Saranam, and devotees bowed to that light from afar. We know that this custom continues even today.',
+    },
+    {
+      tag: 'The Sight',
+      t: 'The light from Ayyappanmala',
+      d: 'On Makara Vilakku day, the devotees of Ayyappankadu would behold the glow of the camphor aarti lit at the forest shrine known as Ayyappanmala in Palakkad. They saw that divine light with devotion, called out Saranam and bowed to the Lord, say the elders.',
+    },
+    {
+      tag: 'The Hope',
+      t: 'To be revived after the rebuilding',
+      d: 'Once the reconstruction of the Ayyappankadu temple is complete, it is the wish of the devotees to revive this sacred Jyothi darshan and make it a grand spiritual celebration.',
+    },
+  ],
+  quote: 'In the darkness of adharma in Kali Yuga, may the Ayyappa Jyothi lead people into the light of hope and dharma, and bring the light of devotion and goodness to every heart.',
+  saranam: 'Swamiye Saranam Ayyappa!',
 };
 
 /* Shared gradients – rendered once, referenced by every lamp */
@@ -141,6 +179,113 @@ function Lamp() {
   );
 }
 
+/* Night scene: the Jyothi glowing on a distant forest ridge, the shrine in the foreground */
+function JyothiScene() {
+  return (
+    <svg className="rn-jy-svg" viewBox="0 0 600 380" role="img" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="jy-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#12061a" />
+          <stop offset=".55" stopColor="#3a0f2c" />
+          <stop offset="1" stopColor="#7a2a2a" />
+        </linearGradient>
+        <radialGradient id="jy-glow" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stopColor="#fff3b0" stopOpacity=".95" />
+          <stop offset=".25" stopColor="#ffbe46" stopOpacity=".55" />
+          <stop offset="1" stopColor="#ff8a1f" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="jy-flame-out" cx=".5" cy=".75" r=".75">
+          <stop offset="0" stopColor="#ffe27a" />
+          <stop offset=".6" stopColor="#ff9a1f" />
+          <stop offset="1" stopColor="#ff5a00" />
+        </radialGradient>
+        <radialGradient id="jy-flame-core" cx=".5" cy=".8" r=".8">
+          <stop offset="0" stopColor="#fff" />
+          <stop offset="1" stopColor="#ffd34d" />
+        </radialGradient>
+      </defs>
+
+      <rect width="600" height="380" fill="url(#jy-sky)" />
+
+      {STARS.map(([x, y, r, d], i) => (
+        <circle
+          key={i}
+          className="rn-jy-star"
+          cx={x}
+          cy={y}
+          r={r}
+          fill="#fff3d0"
+          style={{ animationDelay: `${d}s` }}
+        />
+      ))}
+
+      {/* the Jyothi: halo, rays and flame above the far ridge */}
+      <g className="rn-jy-light">
+        <circle className="rn-jy-halo" cx="410" cy="188" r="120" fill="url(#jy-glow)" />
+        <g className="rn-jy-rays" stroke="#ffd98a" strokeLinecap="round">
+          <path d="M410 120 V96" strokeWidth="2" opacity=".55" />
+          <path d="M410 256 V280" strokeWidth="2" opacity=".0" />
+          <path d="M355 140 L338 122" strokeWidth="2" opacity=".5" />
+          <path d="M465 140 L482 122" strokeWidth="2" opacity=".5" />
+          <path d="M340 188 H314" strokeWidth="2" opacity=".45" />
+          <path d="M480 188 H506" strokeWidth="2" opacity=".45" />
+        </g>
+        <g className="rn-jy-flame">
+          <path
+            d="M410 150 C422 170 428 182 426 194 C425 204 418 210 410 210 C402 210 395 204 394 194 C392 182 398 170 410 150 Z"
+            fill="url(#jy-flame-out)"
+          />
+          <path
+            d="M410 174 C416 184 418 192 415 199 C413.5 203 412 205 410 205 C408 205 406.5 203 405 199 C402 192 404 184 410 174 Z"
+            fill="url(#jy-flame-core)"
+          />
+        </g>
+      </g>
+
+      {/* far ridge (Ayyappanmala) */}
+      <path
+        d="M0 262 C60 236 120 250 190 226 C260 202 330 236 410 214 C470 198 530 226 600 206 L600 380 L0 380 Z"
+        fill="#2b0d22"
+      />
+      {/* nearer hill */}
+      <path
+        d="M0 306 C90 280 170 300 250 288 C340 274 430 300 520 284 C560 278 585 282 600 286 L600 380 L0 380 Z"
+        fill="#1a0814"
+      />
+
+      {/* tree line */}
+      <g fill="#120510">
+        <path d="M30 300 l14 -46 l14 46 Z" />
+        <path d="M58 304 l12 -38 l12 38 Z" />
+        <path d="M520 296 l14 -44 l14 44 Z" />
+        <path d="M548 300 l12 -36 l12 36 Z" />
+        <path d="M574 298 l10 -30 l10 30 Z" />
+      </g>
+
+      {/* the shrine: twin tiled roofs with golden kalasam */}
+      <g fill="#0c030a">
+        <path d="M168 330 L200 292 L232 330 Z" />
+        <rect x="178" y="328" width="44" height="30" />
+        <path d="M236 334 L262 304 L288 334 Z" />
+        <rect x="244" y="332" width="36" height="26" />
+        <rect x="0" y="356" width="600" height="24" />
+      </g>
+      <circle cx="200" cy="290" r="2.6" fill="#f6dc8b" />
+      <circle cx="262" cy="302" r="2.2" fill="#f6dc8b" />
+      <rect x="196" y="338" width="8" height="12" rx="4" fill="#ffbe46" opacity=".85" />
+      <rect x="258" y="340" width="7" height="10" rx="3.5" fill="#ffbe46" opacity=".85" />
+
+      {/* a few devotees' lamps near the shrine */}
+      <g className="rn-jy-tiny" fill="#ffbe46">
+        <circle cx="318" cy="350" r="2" />
+        <circle cx="334" cy="353" r="1.6" />
+        <circle cx="350" cy="350" r="2" />
+        <circle cx="366" cy="353" r="1.6" />
+      </g>
+    </svg>
+  );
+}
+
 /* Hanging brass lamp image (decorative) */
 function Hang({ className }) {
   return (
@@ -159,6 +304,7 @@ export default function Renovation() {
   const { t } = useLang();
   const r = t.reno;
   const c = { ...RENO_DEFAULT, ...(t.renoPage || {}) };
+  const j = { ...JY_DEFAULT, ...(t.jyothi || {}) };
 
   const [lit, setLit] = useState(() => Array(LAMPS).fill(false));
   const count = lit.filter(Boolean).length;
@@ -255,7 +401,7 @@ export default function Renovation() {
         </div>
       </section>
 
-      {/* ───────── TEMPLE STRUCTURE (NEW) ───────── */}
+      {/* ───────── TEMPLE STRUCTURE ───────── */}
       <section className="section rn-struct">
         <div className="container">
           <Reveal className="rn-struct-head">
@@ -319,6 +465,49 @@ export default function Renovation() {
 
           <Reveal>
             <p className="rn-struct-note"><FaScroll /> {c.structNote}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ───────── MAKARA JYOTHI (NEW) ───────── */}
+      <section className="section rn-jy">
+        <div className="container">
+          <Reveal className="rn-jy-head">
+            <span className="rn-eyebrow"><FaFire /> {j.eyebrow}</span>
+            <h2 className="rn-jy-title">{j.title}</h2>
+            <p className="rn-jy-sub">{j.sub}</p>
+          </Reveal>
+
+          <div className="rn-jy-stage">
+            <Reveal className="rn-jy-scene">
+              <div className="rn-jy-frame">
+                <JyothiScene />
+                <span className="rn-fig-tag rn-jy-tag"><FaFire /> {j.tag}</span>
+              </div>
+              <p className="rn-jy-intro">{j.intro}</p>
+            </Reveal>
+
+            <div className="rn-jy-beats">
+              {j.beats.map((b, k) => {
+                const Icon = JY_ICONS[k % JY_ICONS.length];
+                return (
+                  <Reveal key={k} index={k} className="rn-jy-beat">
+                    <span className="rn-jy-beat-ic"><Icon /></span>
+                    <div>
+                      <span className="rn-jy-beat-tag">{b.tag}</span>
+                      <h3>{b.t}</h3>
+                      <p>{b.d}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+
+          <Reveal className="rn-jy-quote">
+            <FaQuoteLeft className="rn-jy-quote-q" />
+            <p>{j.quote}</p>
+            <strong><FaOm /> {j.saranam}</strong>
           </Reveal>
         </div>
       </section>

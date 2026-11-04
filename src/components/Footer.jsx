@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaInstagram, FaYoutube, FaBell, FaArrowRight, FaAngleRight, FaRegCopyright } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaFacebookF, FaInstagram, FaYoutube, FaAngleRight, FaRegCopyright } from 'react-icons/fa';
 import { MdTempleHindu } from 'react-icons/md';
-import { GiLotus } from 'react-icons/gi';
+import { GiLotus, GiByzantinTemple } from 'react-icons/gi';
 import { useLang } from '../utils/LanguageContext.jsx';
 import '../stylesheet/footer.css';
-import { GiByzantinTemple } from "react-icons/gi";
 
 /* small four-diamond ornament used in the dividers */
 const Ornament = ({ size = 14 }) => (
@@ -14,7 +13,6 @@ const Ornament = ({ size = 14 }) => (
 );
 
 const PUBLIC = process.env.PUBLIC_URL || '';
-const TEMPLE_IMG = `${PUBLIC}/assets/t1.jpg`;
 const LAMP_IMG = `${PUBLIC}/images/t3.jpg`;
 const hideIfMissing = (e) => { e.currentTarget.style.display = 'none'; };
 
@@ -82,9 +80,15 @@ export default function Footer() {
           <div className="f-col">
             <h4><MdTempleHindu className="h-ico" />{f.info}</h4>
             <ul className="f-contact">
-              <li><span className="ico-ring"><FaMapMarkerAlt /></span>{t.contact.address}</li>
+              <li>
+                <span className="ico-ring"><FaMapMarkerAlt /></span>
+                <span>
+                  {f.addr1}<br />
+                  {f.addr2}<br />
+                  {f.addr3}
+                </span>
+              </li>
               <li><span className="ico-ring"><FaPhoneAlt /></span>+91 9447354285</li>
-              {/* <li><span className="ico-ring"><FaEnvelope /></span>info@ayyappankadutemple.org</li> */}
             </ul>
             <div className="f-sep" />
             <h5>{f.follow}</h5>
@@ -93,17 +97,6 @@ export default function Footer() {
               <a href="#!" aria-label="Instagram"><FaInstagram /></a>
               <a href="#!" aria-label="YouTube"><FaYoutube /></a>
             </div>
-          </div>
-
-          {/* Subscribe card */}
-          <div className="f-card">
-            <span className="card-top"><GiLotus /></span>
-            <h4>{f.stay1}<br />{f.stay2}</h4>
-            <p>{f.stayText}</p>
-            <button type="button" className="f-btn">
-              <FaBell /> {f.subscribe} <FaArrowRight />
-            </button>
-            <span className="card-bot"><Ornament size={16} /></span>
           </div>
         </div>
       </div>

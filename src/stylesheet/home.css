@@ -582,7 +582,7 @@
 
 .hp-visit-in {
     display: grid;
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr); /* FIX */
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1.2fr); /* FIX */
     gap: 22px;
     align-items: center;
 }

@@ -22,6 +22,7 @@ const EMPTY_FORM = { name: '', email: '', message: '' };
 
 export default function Contact() {
   const { t } = useLang();
+  const f = t.footer; // address lines live in the footer translations
   const [form, setForm] = useState(EMPTY_FORM);
   const [sent, setSent] = useState(false);
 
@@ -50,9 +51,18 @@ export default function Contact() {
     setForm(EMPTY_FORM);
   };
 
-  /* [icon, text, link (optional), opens in new tab?] */
+  /* Three-line address */
+  const address = (
+    <>
+      {f.addr1}<br />
+      {f.addr2}<br />
+      {f.addr3}
+    </>
+  );
+
+  /* [icon, content, link (optional), opens in new tab?] */
   const rows = [
-    [FaMapMarkerAlt, t.contact.address, MAP_LINK, true],
+    [FaMapMarkerAlt, address, MAP_LINK, true],
     [FaPhoneAlt, PHONE_SHOW, PHONE_HREF, false],
   ];
 

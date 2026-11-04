@@ -258,7 +258,6 @@ export default function Home() {
           <div className="hp-about-facts">
             {[
               [FaPrayingHands, t.about.deity, t.about.deityV],
-              [FaMapMarkerAlt, t.about.location, t.about.locationV],
               [FaClock, t.about.est, t.about.estV],
             ].map(([Ic, a, b], k) => (
               <Reveal key={k} index={k + 1} className="hp-fact">
@@ -430,9 +429,9 @@ export default function Home() {
           <Reveal index={1} className="hp-visit-box">
             <FaClock /><div><strong>{t.visit.timingsT}</strong><small>{t.visit.timings}</small></div>
           </Reveal>
-          <Reveal index={2} className="hp-visit-box">
+          {/* <Reveal index={2} className="hp-visit-box">
             <FaMapMarkerAlt /><div><strong>{t.visit.locT}</strong><small>{t.visit.loc}</small></div>
-          </Reveal>
+          </Reveal> */}
           <Reveal index={3} className="hp-visit-box">
             <FaUsers /><div><strong>{t.visit.guideT}</strong><small>{t.visit.guide}</small></div>
           </Reveal>

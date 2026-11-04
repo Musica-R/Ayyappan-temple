@@ -141,7 +141,7 @@
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.35fr .85fr 1.25fr 1.2fr;
+    grid-template-columns: 1.35fr .85fr 1.25fr;
     gap: 36px;
     align-items: start;
 }

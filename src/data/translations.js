@@ -264,6 +264,33 @@ const translations = {
       ],
       structNote: 'The images are for reference. The final construction may vary slightly as guided by the Deva Prashnam and the temple tantri.',
     },
+    jyothi: {
+      eyebrow: 'Faith of the Elders',
+      title: 'Makara Jyothi Darshan at Ayyappankadu',
+      sub: 'A belief and tradition handed down by the elders of the village.',
+      tag: 'Makara Jyothi',
+      intro: 'The elders recall that the Makara Jyothi darshan was once a part of life at Ayyappankadu too.',
+      beats: [
+        {
+          tag: 'The Belief',
+          t: 'Uthram, the Lord’s birth star',
+          d: 'The Uthram star of the month of Makaram is believed to be the birth star of Lord Ayyappa. On this holy day, the sages of the Sabarimala ashrams and the tribal communities worshipped the Lord with camphor aarti and chants of Saranam, and devotees bowed to that light from afar. We know that this custom continues even today.',
+        },
+        {
+          tag: 'The Sight',
+          t: 'The light from Ayyappanmala',
+          d: 'On Makara Vilakku day, the devotees of Ayyappankadu would behold the glow of the camphor aarti lit at the forest shrine known as Ayyappanmala in Palakkad. They saw that divine light with devotion, called out Saranam and bowed to the Lord, say the elders.',
+        },
+        {
+          tag: 'The Hope',
+          t: 'To be revived after the rebuilding',
+          d: 'Once the reconstruction of the Ayyappankadu temple is complete, it is the wish of the devotees to revive this sacred Jyothi darshan and make it a grand spiritual celebration.',
+        },
+      ],
+      quote: 'In the darkness of adharma in Kali Yuga, may the Ayyappa Jyothi lead people into the light of hope and dharma, and bring the light of devotion and goodness to every heart.',
+      saranam: 'Swamiye Saranam Ayyappa!',
+    },
+
     contact: { title: 'Contact Us', sub: 'Reach the Ayyappankadu Ayyappa Seva Samithi', name: 'Your Name', email: 'Email', msg: 'Your Message', send: 'Send Message', address: 'Ayyappankadu, Kerala, India', thanks: 'Thank you! Swamiye Saranam.' },
     quote: 'Devotion in darshan… peace in the heart…',
     home: {
@@ -299,8 +326,12 @@ const translations = {
       devBy: 'Developed by',
       dev: 'Developed by Mpeoples',
       om: 'Swamiye Saranam Ayyappa',
+      addr1: 'Ayyappankadu Ayyappan Kshetram,',
+      addr2: 'Pudussery, Palakkad.',
+      addr3: '678623',
+
     },
-    
+
   },
 
   ml: {
@@ -567,6 +598,33 @@ const translations = {
       ],
       structNote: 'ചിത്രങ്ങൾ സൂചനയ്ക്കുവേണ്ടിയുള്ളവയാണ്. ദേവപ്രശ്നത്തിന്റെയും തന്ത്രിയുടെയും നിർദ്ദേശമനുസരിച്ച് അന്തിമ നിർമ്മാണത്തിൽ ചെറിയ മാറ്റങ്ങൾ ഉണ്ടാകാം.',
     },
+    jyothi: {
+      eyebrow: 'പഴമയുടെ വിശ്വാസം',
+      title: 'അയ്യപ്പൻകാട്ടിലെ മകരജ്യോതി ദർശനം',
+      sub: 'പഴമക്കാരിൽ നിന്ന് കൈമാറിവന്ന വിശ്വാസവും പാരമ്പര്യവും.',
+      tag: 'മകരജ്യോതി',
+      intro: 'മകരജ്യോതി ദർശനം പണ്ട് അയ്യപ്പൻകാട്ടിലും ഉണ്ടായിരുന്നുവെന്ന് പഴമക്കാർ പറഞ്ഞുകേട്ടിട്ടുണ്ട്.',
+      beats: [
+        {
+          tag: 'വിശ്വാസം',
+          t: 'ഉത്രം: ഭഗവാന്റെ ജന്മനക്ഷത്രം',
+          d: 'മകരമാസത്തിലെ ഉത്രം നക്ഷത്രം അയ്യപ്പഭഗവാന്റെ ജന്മനക്ഷത്രമായി വിശ്വസിക്കപ്പെടുന്നു. ഈ പുണ്യദിനത്തിൽ ശബരിമലയിലെ ആശ്രമങ്ങളിൽ വസിച്ചിരുന്ന സന്യാസിമാരും ആദിവാസി ജനവിഭാഗങ്ങളും കർപ്പൂരം കത്തിച്ച് ആരതി ഉഴിഞ്ഞ് ശരണഘോഷങ്ങളോടെ ഭഗവാനെ ആരാധിച്ചിരുന്നു. ആ പ്രകാശം ദൂരെനിന്ന് ദർശിച്ച് ഭക്തർ തൊഴുതിരുന്നു; ഈ ആചാരം ഇപ്പോഴും തുടരുന്നുവെന്ന് നമുക്കറിയാം.',
+        },
+        {
+          tag: 'ദർശനം',
+          t: 'അയ്യപ്പൻമലയിലെ ജ്യോതി',
+          d: 'പാലക്കാട് മകരവിളക്ക് ദിനത്തിൽ അയ്യപ്പൻമല എന്ന പേരിലുള്ള കാനന ക്ഷേത്രത്തിൽ തെളിഞ്ഞിരുന്ന കർപ്പൂരാരതിയുടെ ജ്യോതിദർശനമായിരുന്നു അയ്യപ്പൻകാട്ടിലെ ഭക്തർക്ക് ലഭിച്ചിരുന്നത്. ആ ദിവ്യപ്രകാശം ഭക്തിപൂർവം ദർശിച്ച് അവർ ശരണം വിളിച്ച് ഭഗവാനെ വണങ്ങിയിരുന്നുവെന്നാണ് പഴമക്കാർ പറയുന്നത്.',
+        },
+        {
+          tag: 'പ്രത്യാശ',
+          t: 'പുനർനിർമാണത്തിനു ശേഷം പുനരാരംഭിക്കണം',
+          d: 'അയ്യപ്പൻകാട് ക്ഷേത്രത്തിന്റെ പുനർനിർമാണം പൂർത്തിയായാൽ, ഈ പുണ്യജ്യോതി ദർശനം പുനരാരംഭിച്ച് ഒരു മഹത്തായ ആത്മീയാഘോഷമാക്കി മാറ്റണമെന്നാണ് ഭക്തജനങ്ങളുടെ ആഗ്രഹം.',
+        },
+      ],
+      quote: 'കലിയുഗത്തിലെ അധർമ്മത്തിന്റെ അന്ധകാരത്തിൽ കഴിയുന്ന മനുഷ്യരെ പ്രത്യാശയുടെയും ധർമ്മത്തിന്റെയും പ്രകാശത്തിലേക്ക് നയിക്കുന്ന അയ്യപ്പജ്യോതി ഓരോ ഹൃദയത്തിലും ഭക്തിയുടെയും നന്മയുടെയും വെളിച്ചം പകരട്ടെ.',
+      saranam: 'സ്വാമിയേ ശരണം അയ്യപ്പാ!',
+    },
+
     contact: { title: 'ബന്ധപ്പെടുക', sub: 'അയ്യപ്പൻകാട് അയ്യപ്പ സേവാ സമിതി', name: 'പേര്', email: 'ഇമെയിൽ', msg: 'സന്ദേശം', send: 'സന്ദേശം അയയ്ക്കുക', address: 'അയ്യപ്പൻകാട്, കേരളം', thanks: 'നന്ദി! സ്വാമിയേ ശരണം.' },
     quote: 'ഭക്തിയോടെ ദർശനം… മനസ്സിൽ സമാധാനം…',
     home: {
@@ -602,6 +660,10 @@ const translations = {
       devBy: 'Developed by',
       dev: 'Developed by Mpeoples',
       om: 'സ്വാമിയേ ശരണം അയ്യപ്പാ',
+      addr1: 'അയ്യപ്പൻകാട് അയ്യപ്പൻ ക്ഷേത്രം,',
+      addr2: 'പുതുശ്ശേരി, പാലക്കാട്.',
+      addr3: '678623',
+
     },
   },
 
@@ -869,6 +931,32 @@ const translations = {
       ],
       structNote: 'படங்கள் குறிப்புக்காக மட்டுமே. தேவப்பிரஷ்னம் மற்றும் தந்திரியின் வழிகாட்டுதலின்படி இறுதி கட்டுமானத்தில் சிறிய மாற்றங்கள் இருக்கலாம்.',
     },
+    jyothi: {
+      eyebrow: 'முன்னோர்களின் நம்பிக்கை',
+      title: 'ஐயப்பன்காட்டில் மகரஜோதி தரிசனம்',
+      sub: 'ஊரின் முதியவர்கள் வழியாகத் தொடர்ந்து வந்த நம்பிக்கையும் பாரம்பரியமும்.',
+      tag: 'மகரஜோதி',
+      intro: 'மகரஜோதி தரிசனம் முற்காலத்தில் ஐயப்பன்காட்டிலும் இருந்ததாக முதியவர்கள் நினைவுகூர்கின்றனர்.',
+      beats: [
+        {
+          tag: 'நம்பிக்கை',
+          t: 'உத்திரம்: பகவானின் ஜென்ம நட்சத்திரம்',
+          d: 'மகர மாதத்தின் உத்திர நட்சத்திரம் ஐயப்பனின் ஜென்ம நட்சத்திரமாக நம்பப்படுகிறது. இந்தப் புனித நாளில் சபரிமலை ஆசிரமங்களில் வாழ்ந்த துறவிகளும் பழங்குடி மக்களும் கற்பூரம் ஏற்றி ஆரத்தி எடுத்து சரண கோஷத்துடன் பகவானை வழிபட்டனர்; அந்த ஒளியை தொலைவிலிருந்து தரிசித்து பக்தர்கள் வணங்கினர். இந்த வழக்கம் இன்றும் தொடர்கிறது என்பதை நாம் அறிவோம்.',
+        },
+        {
+          tag: 'தரிசனம்',
+          t: 'ஐயப்பன்மலையின் ஒளி',
+          d: 'மகரவிளக்கு நாளில் பாலக்காட்டில் ஐயப்பன்மலை என்ற பெயருடைய வனக் கோயிலில் ஏற்றப்படும் கற்பூர ஆரத்தியின் ஜோதியை ஐயப்பன்காட்டு பக்தர்கள் தரிசித்து வந்தனர். அந்தத் தெய்வீக ஒளியைப் பக்தியுடன் கண்டு சரணம் முழங்கி பகவானை வணங்கினர் என்று முதியவர்கள் கூறுகின்றனர்.',
+        },
+        {
+          tag: 'நம்பிக்கை ஒளி',
+          t: 'மறுகட்டுமானத்திற்குப் பின் மீண்டும் தொடங்க வேண்டும்',
+          d: 'ஐயப்பன்காடு கோயிலின் மறுகட்டுமானம் நிறைவடைந்ததும் இந்தப் புனித ஜோதி தரிசனத்தை மீண்டும் தொடங்கி, ஒரு மாபெரும் ஆன்மீகக் கொண்டாட்டமாக மாற்ற வேண்டும் என்பதே பக்தர்களின் விருப்பம்.',
+        },
+      ],
+      quote: 'கலியுகத்தின் அதர்ம இருளில் வாழும் மனிதர்களை நம்பிக்கை மற்றும் தர்மத்தின் ஒளியை நோக்கி வழிநடத்தும் ஐயப்ப ஜோதி, ஒவ்வொரு இதயத்திலும் பக்தியின் மற்றும் நன்மையின் ஒளியைப் பரப்பட்டும்.',
+      saranam: 'சுவாமியே சரணம் ஐயப்பா!',
+    },
     contact: { title: 'தொடர்புக்கு', sub: 'ஐயப்பன்காடு ஐயப்ப சேவா சமிதி', name: 'உங்கள் பெயர்', email: 'மின்னஞ்சல்', msg: 'உங்கள் செய்தி', send: 'செய்தி அனுப்பு', address: 'ஐயப்பன்காடு, கேரளா', thanks: 'நன்றி! சுவாமியே சரணம்.' },
     quote: 'பக்தியுடன் தரிசனம்… மனதில் அமைதி…',
     home: {
@@ -904,7 +992,12 @@ const translations = {
       devBy: 'Developed by',
       dev: 'Developed by Mpeoples',
       om: 'சுவாமியே சரணம் ஐயப்பா',
+      addr1: 'ஐயப்பன்காடு ஐயப்பன் கோயில்,',
+      addr2: 'புதுசேரி, பாலக்காடு.',
+      addr3: '678623',
     },
   },
 };
 export default translations;
+
+
