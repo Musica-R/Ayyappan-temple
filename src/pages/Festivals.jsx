@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import {
   FaCalendarAlt, FaArrowRight, FaCheckCircle,
   FaOm, FaFire, FaPrayingHands, FaTshirt, FaUsers,
+  FaOilCan, FaCalendarCheck,
 } from 'react-icons/fa';
 import Reveal from '../components/Reveal.jsx';
 import SmartImg from '../components/SmartImg.jsx';
@@ -26,6 +27,15 @@ const FEST_MONTHS = [
 
 const GUIDE_ICONS = [FaOm, FaTshirt, FaFire, FaUsers];
 
+/* Special Vazhipad: only images and icons live here.
+   All text comes from t.festPage (vzEyebrow, vzTitle, vzSub, vzNote, vzItems),
+   in the same order: Neyvilakku, Ezhuthiri Kathikkal, Neeranjanam */
+const VZ_MEDIA = [
+  { img: '/assets/n1.jpg.jpeg', Icon: FaOilCan },
+  { img: '/assets/n2.jpg.jpeg', Icon: FaCalendarCheck },
+  { img: '/assets/y3.jpg.jpeg', Icon: FaFire },
+];
+
 export default function Festivals() {
   const { t } = useLang();
   const fp = t.festPage;
@@ -41,22 +51,47 @@ export default function Festivals() {
         </Reveal>
       </section>
 
-      {/* INTRO + STATS */}
+      {/* INTRO */}
       <section className="section">
         <div className="container">
           <Reveal className="fp-intro">
             <FaPrayingHands className="fp-intro-icon" />
             <p>{fp.intro}</p>
           </Reveal>
+        </div>
+      </section>
 
-          <div className="fp-stats">
-            {fp.stats.map((s, k) => (
-              <Reveal key={k} index={k} className="fp-stat">
-                <strong>{s.v}</strong>
-                <span>{s.l}</span>
-              </Reveal>
-            ))}
+      {/* SPECIAL VAZHIPAD (OFFERINGS) */}
+      <section className="section fp-vz-sec">
+        <div className="container">
+          <Reveal className="fp-head">
+            <span className="fp-eyebrow fp-eyebrow--dark">{fp.vzEyebrow}</span>
+            <h2>{fp.vzTitle}</h2>
+            <p>{fp.vzSub}</p>
+          </Reveal>
+
+          <div className="fp-vz">
+            {fp.vzItems.map((v, k) => {
+              const media = VZ_MEDIA[k] || VZ_MEDIA[0];
+              const VzIcon = media.Icon;
+              return (
+                <Reveal key={k} index={k} className="fp-vz-card">
+                  <div className="fp-vz-media">
+                    <SmartImg src={media.img} alt={v.t} />
+                    <span className="fp-vz-tag"><FaCalendarAlt /> {v.tag}</span>
+                  </div>
+
+                  <div className="fp-vz-body">
+                    <span className="fp-vz-icon"><VzIcon /></span>
+                    <h3>{v.t}</h3>
+                    <p>{v.d}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
+
+          <p className="fp-note">{fp.vzNote}</p>
         </div>
       </section>
 

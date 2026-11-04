@@ -11,4 +11,4 @@ export const IMG = {
   kerala: u('photo-1602216056096-3b40cc0c9944', 800),
   festival: u('photo-1590050752117-238cb0fb12b1', 800),
 };
-export const GALLERY = ["/assets/a2.png", "/assets/m10.jpg", "/assets/m9.jpg", "/assets/m4.jpg", "/assets/m7.jpg", "/assets/m6.jpg", "/assets/m3.jpg"];
+export const GALLERY = ["/assets/s2.jpeg", "/assets/m10.jpg", "/assets/m9.jpg", "/assets/m4.jpg", "/assets/m7.jpg", "/assets/m6.jpg", "/assets/m3.jpg"];

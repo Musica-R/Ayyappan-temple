@@ -106,6 +106,15 @@ const translations = {
         { t: 'Community Seva', d: 'Led by devotees, supported by all.' },
       ],
     },
+    deities: {
+      title: 'Deities of the Temple',
+      sub: 'The presiding and accompanying deities who bless every devotee at Ayyappankadu.',
+      items: [
+        { tag: 'Main Deity', name: 'Lord Ayyappa', d: 'Lord Dharma Sastha, the meditating yogi, upholder of dharma and guardian of the forest.' },
+        { tag: 'Deity 1', name: 'Devi', d: 'The Divine Mother, enshrined beside the main sanctum, who showers compassion on all devotees.' },
+        { tag: 'Deity 2', name: 'Lord Ganapathy', d: 'The remover of obstacles, invoked at the beginning of every pooja and auspicious work.' },
+      ],
+    },
     silas: {
       eyebrow: 'Ceremony',
       title: 'Silasthapanam',
@@ -120,7 +129,7 @@ const translations = {
         { n: 'Dr. Shyam Prasad', r: 'Melshanti, Anicode Anbumurthi Temple' },
       ],
       orgL: 'Organised by', org: 'Sandeepani Sadhanalaya Charitable & Welfare Trust',
-      phone: '9447354285',
+      phone: '9847960323',
       invite: 'All devotees are warmly invited to take part and receive the blessings.',
       cdT: 'Time to the ceremony', dLabel: 'Days', hLabel: 'Hours', mLabel: 'Mins',
       done: 'The auspicious hour has arrived. Swamiye Saranam Ayyappa!',
@@ -160,6 +169,24 @@ const translations = {
       ],
     },
     festPage: {
+      vzEyebrow: 'Special Vazhipad',
+      vzTitle: 'Special Vazhipad (Offerings)',
+      vzSub: 'Devotees may offer these special vazhipads at the temple.',
+      vzItems: [
+        {
+          t: 'Neyvilakku', ml: 'നെയ്‌വിളക്ക്', tag: 'Offering',
+          d: 'A lamp lit with pure ghee before the Lord as an offering of light, devotion and prayer.',
+        },
+        {
+          t: 'Ezhuthiri Kathikkal', ml: 'എഴുതിരി കത്തിക്കൽ', tag: 'Every Saturday',
+          d: 'The lighting of the multi-wick lamp before the deity, offered every Saturday.',
+        },
+        {
+          t: 'Neeranjanam', ml: 'നീരാഞ്ജനം', tag: 'Pooja',
+          d: 'A traditional lamp offering to the Lord, performed with prayer for the removal of obstacles and the blessings of Lord Ayyappa.',
+        },
+      ],
+      vzNote: 'Please contact the Samithi to book these vazhipads and confirm the timings.',
       eyebrow: 'Sacred Observances',
       intro: 'Throughout the year the temple comes alive with lamps, vratham and prayer. Each festival is a chance for devotees to gather, give and receive the blessings of Lord Dharma Sastha.',
       stats: [
@@ -289,6 +316,20 @@ const translations = {
       ],
       quote: 'In the darkness of adharma in Kali Yuga, may the Ayyappa Jyothi lead people into the light of hope and dharma, and bring the light of devotion and goodness to every heart.',
       saranam: 'Swamiye Saranam Ayyappa!',
+    },
+
+    committee: {
+      eyebrow: 'Our Office Bearers',
+      head: ['No.', 'Position', 'Name'],
+      title: 'The Temple Committee',
+      sub: 'Devotees who lead the restoration with faith and dedication.',
+      groups: [
+        { role: 'President', names: ['Prof. Shobha Rani'] },
+        { role: 'Vice President', names: ['Prasanna Vasudevan'] },
+        { role: 'Secretaries', names: ['Sreemathy Radha Ramanunni', 'Premakumari', 'Maheshwari Mani'] },
+        { role: 'Treasurer', names: ['Saritha Ramdas'] },
+        { role: 'Joint Treasurer', names: ['Bhamini Murali'] },
+      ],
     },
 
     contact: { title: 'Contact Us', sub: 'Reach the Ayyappankadu Ayyappa Seva Samithi', name: 'Your Name', email: 'Email', msg: 'Your Message', send: 'Send Message', address: 'Ayyappankadu, Kerala, India', thanks: 'Thank you! Swamiye Saranam.' },
@@ -440,6 +481,15 @@ const translations = {
         { t: 'സമൂഹ സേവനം', d: 'ഭക്തർ നയിക്കുന്നു, എല്ലാവരും പിന്തുണയ്ക്കുന്നു.' },
       ],
     },
+    deities: {
+      title: 'ക്ഷേത്രത്തിലെ പ്രതിഷ്ഠകൾ',
+      sub: 'അയ്യപ്പൻകാടിൽ ഓരോ ഭക്തനെയും അനുഗ്രഹിക്കുന്ന പ്രധാന, ഉപദേവതകൾ.',
+      items: [
+        { tag: 'മുഖ്യ പ്രതിഷ്ഠ', name: 'ശ്രീ അയ്യപ്പൻ', d: 'ധ്യാനനിരതനായ യോഗിയും ധർമ്മത്തിന്റെ സംരക്ഷകനും വനത്തിന്റെ കാവലാളുമായ ധർമ്മശാസ്താവ്.' },
+        { tag: 'പ്രതിഷ്ഠ 1', name: 'ദേവി', d: 'ശ്രീകോവിലിനടുത്ത് കുടികൊള്ളുന്ന, എല്ലാ ഭക്തർക്കും കാരുണ്യം ചൊരിയുന്ന ജഗദംബ.' },
+        { tag: 'പ്രതിഷ്ഠ 2', name: 'ശ്രീ ഗണപതി', d: 'വിഘ്നങ്ങൾ നീക്കുന്ന ദേവൻ; ഓരോ പൂജയുടെയും ശുഭകർമ്മത്തിന്റെയും തുടക്കത്തിൽ സ്മരിക്കപ്പെടുന്നു.' },
+      ],
+    },
     silas: {
       eyebrow: 'വരാനിരിക്കുന്ന ചടങ്ങ്',
       title: 'ശിലാസ്ഥാപനം',
@@ -454,7 +504,7 @@ const translations = {
         { n: 'ഡോ. ശ്യാം പ്രസാദ്', r: 'മേൽശാന്തി, ആനിക്കോട് അൻപുമൂർത്തി ക്ഷേത്രം' },
       ],
       orgL: 'സംഘാടകർ', org: 'സാന്ദീപനി സാധനാലയം ചാരിറ്റബിൾ & വെൽഫെയർ ട്രസ്റ്റ്',
-      phone: '9447354285',
+      phone: '9847960323',
       invite: 'ചടങ്ങിൽ പങ്കെടുത്ത് അനുഗ്രഹം നേടാൻ എല്ലാ ഭക്തജനങ്ങളെയും സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു.',
       cdT: 'ചടങ്ങിലേക്കുള്ള സമയം', dLabel: 'ദിവസം', hLabel: 'മണിക്കൂർ', mLabel: 'മിനിറ്റ്',
       done: 'ശുഭമുഹൂർത്തം സമാഗതമായി. സ്വാമിയേ ശരണം അയ്യപ്പാ!',
@@ -494,6 +544,24 @@ const translations = {
       ],
     },
     festPage: {
+      vzEyebrow: 'വിശേഷ വഴിപാടുകൾ',
+      vzTitle: 'വിശേഷ വഴിപാടുകൾ',
+      vzSub: 'ക്ഷേത്രത്തിൽ ഭക്തർക്ക് സമർപ്പിക്കാവുന്ന വിശേഷ വഴിപാടുകൾ.',
+      vzItems: [
+        {
+          t: 'നെയ്‌വിളക്ക്', ml: '', tag: 'വഴിപാട്',
+          d: 'ഭക്തിയുടെയും പ്രാർത്ഥനയുടെയും പ്രകാശമായി ഭഗവാന്റെ മുന്നിൽ ശുദ്ധമായ നെയ്യ് കൊണ്ട് വിളക്ക് തെളിയിക്കുന്നു.',
+        },
+        {
+          t: 'എഴുതിരി കത്തിക്കൽ', ml: '', tag: 'എല്ലാ ശനിയാഴ്ചയും',
+          d: 'എല്ലാ ശനിയാഴ്ചയും ദേവന്റെ മുന്നിൽ എഴുതിരി വിളക്ക് തെളിയിക്കുന്ന വഴിപാട്.',
+        },
+        {
+          t: 'നീരാഞ്ജനം', ml: '', tag: 'പൂജ',
+          d: 'വിഘ്നങ്ങൾ നീങ്ങാനും അയ്യപ്പസ്വാമിയുടെ അനുഗ്രഹത്തിനുമായി പ്രാർത്ഥനയോടെ സമർപ്പിക്കുന്ന പരമ്പരാഗത ദീപവഴിപാട്.',
+        },
+      ],
+      vzNote: 'വഴിപാടുകൾ ബുക്ക് ചെയ്യാനും സമയം അറിയാനും സമിതിയെ ബന്ധപ്പെടുക.',
       eyebrow: 'ചടങ്ങ്',
       intro: 'വർഷം മുഴുവൻ ദീപങ്ങളും വ്രതവും പ്രാർത്ഥനയും കൊണ്ട് ക്ഷേത്രം ഉണർന്നിരിക്കുന്നു. ഓരോ ഉത്സവവും ഭക്തർക്ക് ഒത്തുചേരാനും ധർമ്മശാസ്താവിന്റെ അനുഗ്രഹം നേടാനുമുള്ള അവസരമാണ്.',
       stats: [
@@ -623,6 +691,20 @@ const translations = {
       ],
       quote: 'കലിയുഗത്തിലെ അധർമ്മത്തിന്റെ അന്ധകാരത്തിൽ കഴിയുന്ന മനുഷ്യരെ പ്രത്യാശയുടെയും ധർമ്മത്തിന്റെയും പ്രകാശത്തിലേക്ക് നയിക്കുന്ന അയ്യപ്പജ്യോതി ഓരോ ഹൃദയത്തിലും ഭക്തിയുടെയും നന്മയുടെയും വെളിച്ചം പകരട്ടെ.',
       saranam: 'സ്വാമിയേ ശരണം അയ്യപ്പാ!',
+    },
+
+    committee: {
+      eyebrow: 'ഭാരവാഹികൾ',
+      head: ['നം.', 'സ്ഥാനം', 'പേര്'],
+      title: 'ക്ഷേത്ര സമിതി',
+      sub: 'വിശ്വാസത്തോടെയും സമർപ്പണത്തോടെയും പുനരുദ്ധാരണത്തിന് നേതൃത്വം നൽകുന്ന ഭക്തർ.',
+      groups: [
+        { role: 'പ്രസിഡന്റ്', names: ['പ്രൊഫ. ശോഭ റാണി'] },
+        { role: 'വൈസ് പ്രസിഡന്റ്', names: ['പ്രസന്ന വാസുദേവൻ'] },
+        { role: 'സെക്രട്ടറിമാർ', names: ['ശ്രീമതി രാധ രാമനുണ്ണി', 'പ്രേമകുമാരി', 'മഹേശ്വരി മണി'] },
+        { role: 'ട്രഷറർ', names: ['സരിത രാംദാസ്'] },
+        { role: 'ജോയിന്റ് ട്രഷറർ', names: ['ഭാമിനി മുരളി'] },
+      ],
     },
 
     contact: { title: 'ബന്ധപ്പെടുക', sub: 'അയ്യപ്പൻകാട് അയ്യപ്പ സേവാ സമിതി', name: 'പേര്', email: 'ഇമെയിൽ', msg: 'സന്ദേശം', send: 'സന്ദേശം അയയ്ക്കുക', address: 'അയ്യപ്പൻകാട്, കേരളം', thanks: 'നന്ദി! സ്വാമിയേ ശരണം.' },
@@ -775,7 +857,7 @@ const translations = {
         { n: 'டாக்டர் ஷியாம் பிரசாத்', r: 'மேல்சாந்தி, ஆனிக்கோடு அன்புமூர்த்தி கோயில்' },
       ],
       orgL: 'ஏற்பாடு', org: 'சாந்தீபனி சாதனாலயம் சாரிட்டபிள் & வெல்ஃபேர் டிரஸ்ட்',
-      phone: '9447354285',
+      phone: '9847960323',
       invite: 'அனைத்து பக்தர்களும் வருகை தந்து அருள் பெற அன்புடன் அழைக்கிறோம்.',
       cdT: 'நிகழ்வுக்கு மீதமுள்ள நேரம்', dLabel: 'நாள்', hLabel: 'மணி', mLabel: 'நிமிடம்',
       done: 'புனித நேரம் வந்துவிட்டது. சுவாமியே சரணம் ஐயப்பா!',
@@ -794,6 +876,15 @@ const translations = {
         { t: 'திருவிழாக்கள்', d: 'விளக்கு, மண்டல பூஜை மற்றும் பல.' },
         { t: 'அமைதியான சூழல்', d: 'கேரள கிராமத்தின் அமைதி.' },
         { t: 'சமூக சேவை', d: 'பக்தர்கள் வழிநடத்த, அனைவரும் ஆதரிக்கின்றனர்.' },
+      ],
+    },
+    deities: {
+      title: 'கோயில் தெய்வங்கள்',
+      sub: 'ஐயப்பன்காட்டில் ஒவ்வொரு பக்தரையும் அருளும் மூலவரும் உபதெய்வங்களும்.',
+      items: [
+        { tag: 'மூலவர்', name: 'ஸ்ரீ ஐயப்பன்', d: 'தியானத்தில் ஆழ்ந்த யோகியும், தர்மத்தை நிலைநாட்டுபவரும், வனத்தின் காவலருமான தர்ம சாஸ்தா.' },
+        { tag: 'தெய்வம் 1', name: 'தேவி', d: 'மூலஸ்தானத்தின் அருகில் எழுந்தருளி, அனைத்து பக்தர்களுக்கும் கருணை பொழியும் அன்னை.' },
+        { tag: 'தெய்வம் 2', name: 'ஸ்ரீ கணபதி', d: 'தடைகளை நீக்குபவர்; ஒவ்வொரு பூஜையின் தொடக்கத்திலும் சுப காரியத்திலும் வணங்கப்படுபவர்.' },
       ],
     },
     gallery: {
@@ -827,6 +918,24 @@ const translations = {
       ],
     },
     festPage: {
+      vzEyebrow: 'சிறப்பு வழிபாடுகள்',
+      vzTitle: 'சிறப்பு வழிபாடுகள் (காணிக்கைகள்)',
+      vzSub: 'கோயிலில் பக்தர்கள் செலுத்தக்கூடிய சிறப்பு வழிபாடுகள்.',
+      vzItems: [
+        {
+          t: 'நெய் விளக்கு', ml: 'നെയ്‌വിളക്ക്', tag: 'காணிக்கை',
+          d: 'பக்தி, பிரார்த்தனையின் ஒளியாக பகவானின் முன் தூய நெய்யால் விளக்கு ஏற்றுதல்.',
+        },
+        {
+          t: 'எழுதிரி கத்திக்கல்', ml: 'എഴുതിരി കത്തിക്കൽ', tag: 'ஒவ்வொரு சனிக்கிழமையும்',
+          d: 'ஒவ்வொரு சனிக்கிழமையும் தெய்வத்தின் முன் பல திரி விளக்கு ஏற்றும் வழிபாடு.',
+        },
+        {
+          t: 'நீராஞ்ஜனம்', ml: 'നീരാഞ്ജനം', tag: 'பூஜை',
+          d: 'தடைகள் நீங்கவும் ஐயப்பனின் அருள் பெறவும் பிரார்த்தனையுடன் செய்யும் பாரம்பரிய தீப வழிபாடு.',
+        },
+      ],
+      vzNote: 'வழிபாடுகளை முன்பதிவு செய்யவும் நேரங்களை உறுதிசெய்யவும் சமிதியைத் தொடர்பு கொள்ளுங்கள்.',
       eyebrow: 'புனித வழிபாடுகள்',
       intro: 'ஆண்டு முழுவதும் தீபங்களாலும் விரதத்தாலும் பிரார்த்தனையாலும் கோயில் உயிர்பெறுகிறது. ஒவ்வொரு திருவிழாவும் பக்தர்கள் ஒன்றுகூடி தர்ம சாஸ்தாவின் அருளைப் பெறும் வாய்ப்பாகும்.',
       stats: [
@@ -956,6 +1065,20 @@ const translations = {
       ],
       quote: 'கலியுகத்தின் அதர்ம இருளில் வாழும் மனிதர்களை நம்பிக்கை மற்றும் தர்மத்தின் ஒளியை நோக்கி வழிநடத்தும் ஐயப்ப ஜோதி, ஒவ்வொரு இதயத்திலும் பக்தியின் மற்றும் நன்மையின் ஒளியைப் பரப்பட்டும்.',
       saranam: 'சுவாமியே சரணம் ஐயப்பா!',
+    },
+
+    committee: {
+      eyebrow: 'நிர்வாகிகள்',
+      head: ['எண்', 'பதவி', 'பெயர்'],
+      title: 'கோயில் சமிதி',
+      sub: 'நம்பிக்கையுடனும் அர்ப்பணிப்புடனும் புனரமைப்புக்குத் தலைமை தாங்கும் பக்தர்கள்.',
+      groups: [
+        { role: 'தலைவர்', names: ['பேராசிரியர் ஷோபா ராணி'] },
+        { role: 'துணைத் தலைவர்', names: ['பிரசன்னா வாசுதேவன்'] },
+        { role: 'செயலாளர்கள்', names: ['ஸ்ரீமதி ராதா ராமனுண்ணி', 'பிரேமகுமாரி', 'மகேஸ்வரி மணி'] },
+        { role: 'பொருளாளர்', names: ['சரிதா ராம்தாஸ்'] },
+        { role: 'இணைப் பொருளாளர்', names: ['பாமினி முரளி'] },
+      ],
     },
     contact: { title: 'தொடர்புக்கு', sub: 'ஐயப்பன்காடு ஐயப்ப சேவா சமிதி', name: 'உங்கள் பெயர்', email: 'மின்னஞ்சல்', msg: 'உங்கள் செய்தி', send: 'செய்தி அனுப்பு', address: 'ஐயப்பன்காடு, கேரளா', thanks: 'நன்றி! சுவாமியே சரணம்.' },
     quote: 'பக்தியுடன் தரிசனம்… மனதில் அமைதி…',

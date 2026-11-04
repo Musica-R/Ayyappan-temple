@@ -57,7 +57,7 @@ export default function HeroSlider() {
   return (
     <section ref={heroRef} className="hero">
       <div className="hero-stage">
-        <img className="hero-img" src={BG} alt="" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+        <img className="hero-img" src="/assets/bc1.png" alt="" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
       </div>
       <div className="hero-shade" />
 

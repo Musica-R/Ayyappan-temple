@@ -64,6 +64,11 @@
     font-size: 20px;
 }
 
+.fab-location {
+  background: #ea4335; /* Google Maps red */
+  color: #fff;
+}
+
 @keyframes fab-pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55), 0 4px 14px rgba(0, 0, 0, 0.3);

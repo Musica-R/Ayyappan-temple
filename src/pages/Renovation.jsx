@@ -6,6 +6,7 @@ import {
   FaHome, FaColumns, FaGem, FaLayerGroup, FaMonument, FaTree,
   FaPencilRuler, FaSearchPlus, FaTimes,
   FaStar, FaMountain, FaFire,
+  FaUsers,
 } from 'react-icons/fa';
 import { GiLotusFlower } from 'react-icons/gi';
 import Reveal from '../components/Reveal.jsx';
@@ -17,7 +18,7 @@ const STRUCT_ICONS = [FaMonument, FaHome, FaColumns, FaGem, FaLayerGroup, FaTree
 const JY_ICONS = [FaStar, FaMountain, FaHandHoldingHeart];
 const LAMPS = 7;
 const HANG_LAMP = '/assets/lamp1.png';
-const IMG_RENDER = '/assets/back.png';
+const IMG_RENDER = '/assets/bc1.png';
 const IMG_BLUEPRINT = '/assets/blueprint.jpeg';
 
 /* fixed star positions for the Makara Jyothi night scene: [x, y, radius, delay] */
@@ -98,6 +99,21 @@ const JY_DEFAULT = {
   ],
   quote: 'In the darkness of adharma in Kali Yuga, may the Ayyappa Jyothi lead people into the light of hope and dharma, and bring the light of devotion and goodness to every heart.',
   saranam: 'Swamiye Saranam Ayyappa!',
+};
+
+/* English fallback for the committee section – used only if t.committee is missing */
+const COM_DEFAULT = {
+  eyebrow: 'Our Office Bearers',
+  title: 'The Temple Committee',
+  sub: 'Devotees who lead the restoration with faith and dedication.',
+  head: ['No.', 'Position', 'Name'],
+  groups: [
+    { role: 'President', names: ['Prof. Shobha Rani'] },
+    { role: 'Vice President', names: ['Prasanna Vasudevan'] },
+    { role: 'Secretaries', names: ['Sreemathy Radha Ramanunni', 'Premakumari', 'Maheshwari Mani'] },
+    { role: 'Treasurer', names: ['Saritha Ramdas'] },
+    { role: 'Joint Treasurer', names: ['Bhamini Murali'] },
+  ],
 };
 
 /* Shared gradients – rendered once, referenced by every lamp */
@@ -305,6 +321,11 @@ export default function Renovation() {
   const r = t.reno;
   const c = { ...RENO_DEFAULT, ...(t.renoPage || {}) };
   const j = { ...JY_DEFAULT, ...(t.jyothi || {}) };
+  const cm = { ...COM_DEFAULT, ...(t.committee || {}) };
+  /* flatten groups into table rows; the role cell spans all names of a group */
+  const comRows = cm.groups.flatMap((g) =>
+    g.names.map((name, i) => ({ role: g.role, name, first: i === 0, span: g.names.length }))
+  );
 
   const [lit, setLit] = useState(() => Array(LAMPS).fill(false));
   const count = lit.filter(Boolean).length;
@@ -401,6 +422,43 @@ export default function Renovation() {
         </div>
       </section>
 
+      {/* ───────── TEMPLE COMMITTEE ───────── */}
+      <section className="section rn-com">
+        <div className="container">
+          <Reveal className="rn-com-head">
+            <span className="rn-eyebrow"><FaUsers /> {cm.eyebrow}</span>
+            <h2 className="rn-com-title">{cm.title}</h2>
+            <p className="rn-com-sub">{cm.sub}</p>
+          </Reveal>
+
+          <Reveal className="rn-com-wrap">
+            <table className="rn-com-table">
+              <caption className="rn-sr">{cm.title}</caption>
+              <thead>
+                <tr>
+                  <th scope="col" className="rn-com-no">{cm.head[0]}</th>
+                  <th scope="col">{cm.head[1]}</th>
+                  <th scope="col">{cm.head[2]}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comRows.map((row, k) => (
+                  <tr key={k} className={row.first ? 'rn-com-start' : undefined}>
+                    <td className="rn-com-no"><span>{k + 1}</span></td>
+                    {row.first && (
+                      <th scope="rowgroup" rowSpan={row.span} className="rn-com-pos">
+                        {row.role}
+                      </th>
+                    )}
+                    <td className="rn-com-person">{row.name}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ───────── TEMPLE STRUCTURE ───────── */}
       <section className="section rn-struct">
         <div className="container">
@@ -469,7 +527,7 @@ export default function Renovation() {
         </div>
       </section>
 
-      {/* ───────── MAKARA JYOTHI (NEW) ───────── */}
+      {/* ───────── MAKARA JYOTHI ───────── */}
       <section className="section rn-jy">
         <div className="container">
           <Reveal className="rn-jy-head">

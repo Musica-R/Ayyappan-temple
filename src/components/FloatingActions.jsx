@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { FaArrowUp, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import '../stylesheet/floating.css';
 
-/* Number: +91 9447354285 */
-const PHONE_HREF = 'tel:+919447354285';
-const WHATSAPP_HREF = `https://wa.me/919447354285?text=${encodeURIComponent(
+/* Number: +91 9847960323 */
+const PHONE_HREF = 'tel:+919847960323';
+const WHATSAPP_HREF = `https://wa.me/919847960323?text=${encodeURIComponent(
   'Namaskaram, I would like to know more about the temple.'
 )}`;
 

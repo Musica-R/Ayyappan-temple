@@ -88,7 +88,7 @@ export default function Footer() {
                   {f.addr3}
                 </span>
               </li>
-              <li><span className="ico-ring"><FaPhoneAlt /></span>+91 9447354285</li>
+              <li><span className="ico-ring"><FaPhoneAlt /></span>+91 9847960323</li>
             </ul>
             <div className="f-sep" />
             <h5>{f.follow}</h5>

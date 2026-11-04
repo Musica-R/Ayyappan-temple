@@ -6,8 +6,8 @@ import '../stylesheet/contact.css';
 import LightALamp from '../components/LightALamp.jsx';
 
 /* Contact details – change them here only */
-const PHONE_RAW = '9447354285';
-const PHONE_SHOW = '+91 94473 54285';
+const PHONE_RAW = '9847960323';
+const PHONE_SHOW = '+91 9847960323';
 const PHONE_HREF = `tel:+91${PHONE_RAW}`;
 const WHATSAPP_NUMBER = `91${PHONE_RAW}`; // country code + number, no "+" or spaces
 

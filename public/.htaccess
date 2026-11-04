@@ -3,7 +3,7 @@ Options -MultiViews
 
 # Force HTTPS
 RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://ayyappankadu.mpeoplesnet.com%{REQUEST_URI} [R=301,L]
+RewriteRule ^ https://www.ayyappankadutemplepudussery.in%{REQUEST_URI} [R=301,L]
 
 # React Routing Fix
 RewriteBase /

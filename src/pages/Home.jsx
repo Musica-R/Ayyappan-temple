@@ -31,6 +31,13 @@ const FEST_ICONS = [FaFire, FaOm, FaCalendarAlt, FaPrayingHands];
 /* last 4 journey moments shown on Home (same order as the LAST 4 of t.abx.journey) */
 const JR_IMGS = ['/assets/r17.jpeg', '/assets/r18.jpeg', '/assets/r19.jpeg', '/assets/r20.jpeg'];
 
+/* Deity images – order: Main Deity (Ayyappa), Deity 1 (Devi), Deity 2 (Ganapathy) */
+const DEITY_IMGS = [
+  '/assets/s2.jpeg',
+  '/assets/y4.jpg.jpeg',
+  '/assets/y5.jpg.jpeg',
+];
+
 /* Silasthapanam: Thursday 5 Nov 2026, auspicious window starts 7:10 AM IST */
 const SILAS_START = new Date('2026-11-05T07:10:00+05:30').getTime();
 const SILAS_END = new Date('2026-11-05T09:20:00+05:30').getTime();
@@ -124,6 +131,18 @@ const HOME_DEFAULT = {
   ctaBtn2: 'Contact the Samithi',
 };
 
+/* English fallback for the deities section – used only if t.deities is missing */
+const DEITIES_DEFAULT = {
+  eyebrow: 'The Sacred Shrines',
+  title: 'Deities of the Temple',
+  sub: 'The presiding and accompanying deities who bless every devotee at Ayyappankadu.',
+  items: [
+    { tag: 'Main Deity', name: 'Lord Ayyappa', d: 'Lord Dharma Sastha, the meditating yogi, upholder of dharma and guardian of the forest.' },
+    { tag: 'Deity 1', name: 'Devi', d: 'The Divine Mother, enshrined beside the main sanctum, who showers compassion on all devotees.' },
+    { tag: 'Deity 2', name: 'Lord Ganapathy', d: 'The remover of obstacles, invoked at the beginning of every pooja and auspicious work.' },
+  ],
+};
+
 /* Respect users who prefer reduced motion – animation stays on first frame */
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -163,6 +182,7 @@ const pad = (n) => String(n).padStart(2, '0');
 export default function Home() {
   const { t } = useLang();
   const h = { ...HOME_DEFAULT, ...(t.home || {}) };
+  const dty = { ...DEITIES_DEFAULT, ...(t.deities || {}) };
   const s = t.silas;
   const recent = t.abx.journey.slice(-4);
   const [featFest, ...otherFest] = t.festivals.items;
@@ -242,7 +262,7 @@ export default function Home() {
       <section className="section hp-about">
         <div className="container hp-about-grid">
           <Reveal dir="left">
-            <SmartImg src="/assets/a3.jpg" alt="temple" className="hp-about-img" />
+            <SmartImg src="/assets/s2.jpeg" alt="temple" className="hp-about-img" />
           </Reveal>
 
           <div>
@@ -285,6 +305,32 @@ export default function Home() {
                 </Reveal>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ───────── DEITIES: Main Deity, Deity 1, Deity 2 ───────── */}
+      <section className="hp-sec hp-deities">
+        <div className="container">
+          <SectionTitle title={dty.title} sub={dty.sub} />
+
+          <div className="hp-deity-grid">
+            {dty.items.map((dt, k) => (
+              <Reveal
+                key={k}
+                index={k}
+                className={`hp-deity${k === 0 ? ' hp-deity-main' : ''}`}
+              >
+                <div className="hp-deity-frame">
+                  <div className="hp-deity-img">
+                    <SmartImg src={DEITY_IMGS[k]} alt={dt.name} className="hp-deity-pic" />
+                  </div>
+                </div>
+                <span className="hp-deity-tag">{k === 0 ? <FaOm /> : <FaRegGem />} {dt.tag}</span>
+                <h3>{dt.name}</h3>
+                {/* <p>{dt.d}</p> */}
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
