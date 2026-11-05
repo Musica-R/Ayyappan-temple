@@ -43,7 +43,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="f-temple-img" aria-hidden="true">
-          <img src="/assets/back.png" alt="" onError={hideIfMissing} />
+          <img src="/assets/back.webp" alt="" onError={hideIfMissing} />
         </div>
       </div>
 
@@ -90,13 +90,14 @@ export default function Footer() {
               </li>
               <li><span className="ico-ring"><FaPhoneAlt /></span>+91 9847960323</li>
             </ul>
-            <div className="f-sep" />
+            {/* <div className="f-sep" />
+            
             <h5>{f.follow}</h5>
             <div className="socials">
               <a href="#!" aria-label="Facebook"><FaFacebookF /></a>
               <a href="#!" aria-label="Instagram"><FaInstagram /></a>
               <a href="#!" aria-label="YouTube"><FaYoutube /></a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@ const JR_IMGS = ['/assets/r17.jpeg', '/assets/r18.jpeg', '/assets/r19.jpeg', '/a
 
 /* Deity images – order: Main Deity (Ayyappa), Deity 1 (Devi), Deity 2 (Ganapathy) */
 const DEITY_IMGS = [
-  '/assets/s2.jpeg',
+  '/assets/s2.webp',
   '/assets/y4.jpg.jpeg',
   '/assets/y5.jpg.jpeg',
 ];
@@ -262,7 +262,7 @@ export default function Home() {
       <section className="section hp-about">
         <div className="container hp-about-grid">
           <Reveal dir="left">
-            <SmartImg src="/assets/s2.jpeg" alt="temple" className="hp-about-img" />
+            <SmartImg src="/assets/s2.webp" alt="temple" className="hp-about-img" />
           </Reveal>
 
           <div>

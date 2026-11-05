@@ -11,7 +11,7 @@ import { useLang } from '../utils/LanguageContext.jsx';
 import '../stylesheet/about.css';
 
 const PUBLIC = process.env.PUBLIC_URL || '';
-const HERO_BG = `${PUBLIC}/assets/bg.png`;
+const HERO_BG = `${PUBLIC}/assets/bc1.webp`;
 
 /* one icon for each highlight card (same order as t.highlights.items) */
 const HL_ICONS = [FaPlaceOfWorship, FaPrayingHands, FaOm, FaCalendarAlt, FaTree, FaHandsHelping];
@@ -19,8 +19,8 @@ const HL_ICONS = [FaPlaceOfWorship, FaPrayingHands, FaOm, FaCalendarAlt, FaTree,
 /* journey photos (same order as t.abx.journey)
    if any file has a different name or extension, edit it in this list */
 const JOURNEY_IMGS = [
-  '/assets/r1.jpeg', '/assets/r2.png', '/assets/r3.jpeg', '/assets/r4.jpeg',
-  '/assets/r5.jpeg', '/assets/r6.png', '/assets/r7.jpeg', '/assets/r8.jpeg',
+  '/assets/r1.jpeg', '/assets/r2.webp', '/assets/r3.jpeg', '/assets/r4.jpeg',
+  '/assets/r5.jpeg', '/assets/r6.webp', '/assets/r7.jpeg', '/assets/r8.jpeg',
   '/assets/r9.jpeg', '/assets/r10.jpeg', '/assets/r11.jpeg', '/assets/r12.jpeg',
   '/assets/r13.jpeg', '/assets/m10.jpg', '/assets/r15.jpeg', '/assets/r16.jpeg',
   '/assets/r17.jpeg','/assets/r18.jpeg', '/assets/r19.jpeg', '/assets/r20.jpeg',
@@ -89,7 +89,7 @@ export default function About() {
       <section className="ab-sec">
         <div className="container ab-intro">
           <Reveal dir="left" className="ab-photos">
-            <SmartImg src="/assets/back.png" alt="temple" className="ab-p ab-p1" />
+            <SmartImg src="/assets/back.webp" alt="temple" className="ab-p ab-p1" />
             <SmartImg src="/assets/r3.jpeg" alt="" className="ab-p ab-p2" />
             <SmartImg src="/assets/a4.jpg" alt="" className="ab-p ab-p3" />
             <div className="ab-badge">
@@ -169,7 +169,7 @@ export default function About() {
                 </ul>
 
                 <p className="ab-sil-org"><small>{s.orgL}</small><strong>{s.org}</strong></p>
-                <p className="ab-sil-invite">{s.invite}</p>
+                {/* <p className="ab-sil-invite">{s.invite}</p> */}
 
                 <div className="ab-sil-btns">
                   <a href={`tel:${s.phone}`} className="ab-sil-call"><FaPhoneAlt /> {s.phone}</a>

@@ -6,8 +6,8 @@ import { GiLotus } from 'react-icons/gi';
 import { useLang } from '../utils/LanguageContext.jsx';
 import '../stylesheet/hero.css';
 
-/* Background image: public/assets/bg.png (plain <img>, so a missing file never breaks the build) */
-const BG = `${process.env.PUBLIC_URL || ''}/assets/back.png`;
+
+const BG = `${process.env.PUBLIC_URL || ''}/assets/back.webp`;
 
 /* ───────── Reveal timing (seconds) ───────── */
 const T_OM = 0.1;
@@ -57,7 +57,7 @@ export default function HeroSlider() {
   return (
     <section ref={heroRef} className="hero">
       <div className="hero-stage">
-        <img className="hero-img" src="/assets/bc1.png" alt="" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+        <img className="hero-img" src="/assets/bc1.webp" alt="" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
       </div>
       <div className="hero-shade" />
 

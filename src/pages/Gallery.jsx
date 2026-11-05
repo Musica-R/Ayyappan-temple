@@ -23,7 +23,7 @@ const VIDEOS = [
 
 // Second photo section (after the videos): put these in public/assets/
 const EXTRA_PHOTOS = [
-  '/assets/k4.jpeg',
+  '/assets/k4.webp',
   '/assets/k2.jpeg',
   '/assets/k3.jpeg',
   '/assets/k5.jpeg',
@@ -192,7 +192,7 @@ export default function Gallery() {
 
             <Reveal index={1} className="gal-intro-img">
               <div className="gal-tiger">
-                <img src="/assets/tiger.png" alt="Tiger" loading="lazy" />
+                <img src="/assets/tiger.webp" alt="Tiger" loading="lazy" />
               </div>
             </Reveal>
           </div>

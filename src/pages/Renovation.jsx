@@ -17,8 +17,8 @@ const FACT_ICONS = [FaLandmark, FaMapMarkedAlt, FaScroll, FaFemale];
 const STRUCT_ICONS = [FaMonument, FaHome, FaColumns, FaGem, FaLayerGroup, FaTree];
 const JY_ICONS = [FaStar, FaMountain, FaHandHoldingHeart];
 const LAMPS = 7;
-const HANG_LAMP = '/assets/lamp1.png';
-const IMG_RENDER = '/assets/bc1.png';
+const HANG_LAMP = '/assets/lamp1.webp';
+const IMG_RENDER = '/assets/bc1.webp';
 const IMG_BLUEPRINT = '/assets/blueprint.jpeg';
 
 /* fixed star positions for the Makara Jyothi night scene: [x, y, radius, delay] */
@@ -592,7 +592,7 @@ export default function Renovation() {
               <span className="rn-frame-lotus rn-frame-lotus-b" aria-hidden="true"><GiLotusFlower /></span>
 
               <div className="rn-lamps-pic">
-                <img src="/assets/a2.png" alt={c.lampTitle} loading="lazy" />
+                <img src="/assets/a2.webp" alt={c.lampTitle} loading="lazy" />
               </div>
             </div>
           </Reveal>
