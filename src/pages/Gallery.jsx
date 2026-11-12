@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import {
   FaPlay, FaTimes, FaChevronLeft, FaChevronRight,
   FaPrayingHands, FaFire, FaMonument, FaHandsHelping,
+  FaCalendarAlt, FaClock, FaMapMarkerAlt, FaOm, FaLaptop,
+  FaMicrophoneAlt, FaAward, FaCheckCircle,
 } from 'react-icons/fa';
 import Reveal from '../components/Reveal.jsx';
 import SmartImg from '../components/SmartImg.jsx';
@@ -32,6 +34,18 @@ const EXTRA_PHOTOS = [
   '/assets/k1.jpeg',
 ];
 
+/* Silasthapanam photos (5). Captions come from t.festPage.sl.captions in the same order. */
+const SL_PICS = [
+  '/assets/c1.jpeg',
+  '/assets/c2.jpeg',
+  '/assets/c3.jpeg',
+  '/assets/c4.jpeg',
+  '/assets/c5.jpeg',
+];
+
+/* Website inauguration image (shown beside the Website Inauguration text) */
+const WEB_IMG = '/assets/web1.webp';
+
 const STEP = 12; // photos shown first, and added per "load more"
 const MOMENT_ICONS = [FaPrayingHands, FaFire, FaMonument, FaHandsHelping];
 
@@ -49,6 +63,7 @@ const pad = (n) => String(n + 1).padStart(2, '0');
 export default function Gallery() {
   const { t } = useLang();
   const g = t.gallery;
+  const sl = t.festPage.sl;
 
   const [mode, setMode] = useState('mosaic');
   const [count, setCount] = useState(STEP);
@@ -223,6 +238,81 @@ export default function Gallery() {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* SILASTHAPANAM (FOUNDATION STONE LAYING) - moved from the Festivals page */}
+        <section className="fp-sl-sec">
+          <div className="container">
+            <Reveal className="fp-head">
+              <span className="fp-eyebrow fp-eyebrow--dark">{sl.eyebrow}</span>
+              <h2>{sl.title}</h2>
+              <p>{sl.sub}</p>
+            </Reveal>
+
+            <Reveal className="fp-sl-meta">
+              <span><FaCalendarAlt /> {sl.date}</span>
+              <span><FaClock /> {sl.time}</span>
+              <span><FaMapMarkerAlt /> {sl.place}</span>
+            </Reveal>
+
+            {/* 5-image gallery */}
+            <div className="fp-sl-gallery">
+              {SL_PICS.map((src, k) => (
+                <Reveal key={k} index={k} className={`fp-sl-pic fp-sl-pic--${k}`}>
+                  <SmartImg src={src} alt={sl.captions[k]} />
+                  {/* <span className="fp-sl-cap">{sl.captions[k]}</span> */}
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Report text */}
+            <Reveal className="fp-sl-story">
+              <p className="fp-sl-lead">{sl.p1}</p>
+              <p>{sl.p2}</p>
+            </Reveal>
+
+            {/* Acharyas */}
+            <Reveal className="fp-sl-block">
+              <h3 className="fp-sl-h"><FaOm /> {sl.acharyasT}</h3>
+              <div className="fp-sl-people">
+                {sl.acharyas.map((a, k) => (
+                  <div key={k} className="fp-sl-person">
+                    <strong>{a.n}</strong>
+                    <span>{a.r}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            {/* Website launch (image + text) + speakers */}
+            <Reveal className="fp-sl-block">
+              <div className="fp-sl-web">
+                <div className="fp-sl-web-img">
+                  <SmartImg src={WEB_IMG} alt={sl.webT} />
+                </div>
+                <div className="fp-sl-web-copy">
+                  <h3 className="fp-sl-h"><FaLaptop /> {sl.webT}</h3>
+                  <p>{sl.p3}</p>
+                </div>
+              </div>
+
+              <h4 className="fp-sl-h4"><FaMicrophoneAlt /> {sl.speakersT}</h4>
+              <ul className="fp-points">
+                {sl.speakers.map((s, k) => (
+                  <li key={k}><FaCheckCircle /> <span><strong>{s.n}</strong>, {s.r}</span></li>
+                ))}
+              </ul>
+              <p className="fp-sl-small">{sl.devNote}</p>
+            </Reveal>
+
+            {/* Honouring + archana */}
+            <Reveal className="fp-sl-block">
+              <h3 className="fp-sl-h"><FaAward /> {sl.honourT}</h3>
+              <p>{sl.p4}</p>
+            </Reveal>
+
+            <p className="fp-note">{sl.saranam}</p>
           </div>
         </section>
 
