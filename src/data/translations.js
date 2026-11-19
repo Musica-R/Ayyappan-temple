@@ -158,6 +158,8 @@ const translations = {
       play: 'Play video',
       ctaTitle: 'Be a Part of Our Story', ctaText: 'Visit the temple, join the festivals and help bring the shrine back to life.',
       ctaBtn1: 'Support Renovation', ctaBtn2: 'Contact the Samithi',
+      bpEyebrow: 'Sacred Beginnings',
+      bpTitle: 'Bhoomi Pooja & Kuttiyadikkal',
     },
     festivals: {
       title: 'Festivals & Events', sub: 'Join us in celebrating the divine.', all: 'View All Festivals', learn: 'Learn More',
@@ -369,6 +371,62 @@ const translations = {
       ],
     },
 
+    officers: {
+      eyebrow: 'Guiding Hands',
+      title: 'Our Office Bearers',
+      sub: 'The devotees leading the restoration of the shrine.',
+      members: [
+        { role: 'President', name: 'Prof. G. Sobharani', detail: 'Retd. Principal, Govt. College Malappuram' },
+        { role: 'Secretary', name: 'Radha Ramanunni', detail: '' },
+        { role: 'Treasurer', name: 'Saraswathi Antharjanam', detail: '' },
+      ],
+    },
+
+    sponsor: {
+      eyebrow: 'Offer Your Seva',
+      title: 'Sponsor the Temple Stone Works',
+      sub: 'Devotees who wish to can take up and sponsor any of the following works for the new shrine.',
+      alert: 'The temple pratishta is to be held on 14 January. Please consider and let us know at the earliest.',
+      priceTag: 'Approx. cost',
+      items: [
+        { t: 'Granite Door Frame', d: 'Karinkal kattila', p: '₹23,000' },
+        { t: 'Thalakkallu', d: '', p: '₹19,500' },
+        { t: 'Ovu Kallu', d: 'Stone outlet for the abhisheka water', p: '₹9,000' },
+        { t: 'Peedam', d: 'Pedestal', p: '₹11,000' },
+        { t: 'Bali Kallu', d: 'Offering stone, price per piece', p: '₹2,600 each' },
+        { t: 'Deepasthambham', d: 'Five-tier lamp pillar', p: '₹20,000' },
+        { t: 'Coconut Stone', d: 'Nalikera kallu', p: '₹8,000' },
+      ],
+      priceNote: 'Amounts are approximate and include vehicle hire to deliver the stones safely at the site. Small variations may occur.',
+      notes: [
+        'Interested devotees may sponsor any of the works.',
+        'These must be made to exact measurements, so stones brought ready-made may not fit. Please inform us first if you are interested.',
+        'The work can be done as advised by the sculptor.',
+      ],
+      cta: 'Contact to Sponsor',
+      kalTag: 'Brass',
+      kalTitle: 'Golden Kalasam (Thazhikakkudam)',
+      kalText: 'It is best made of brass to the exact measurement, as copper turns black. If you wish to sponsor it, the sculptor can be entrusted to make it neatly to the size of the roof.',
+      kalPrice: '₹20,000',
+      kalNote: 'Approximate cost. Small variations may occur.',
+    },
+
+    tantri: {
+      eyebrow: 'Spiritual Guidance',
+      title: 'Our Tantri',
+      name: 'Dr. Shyam Chaitanya',
+      role: 'Tantri · Melshanthi, Anju Moorthy Temple',
+      bio: 'Melshanthi of Anju Moorthy Temple and the tantric supervisor of the reconstruction work.',
+    },
+
+    planGallery: {
+      eyebrow: 'Design Drawings',
+      title: 'Plan & Design Gallery',
+      sub: 'Drawings and plans prepared for the construction of the new shrine.',
+      capLabel: 'Drawing',
+      caps: [],
+    },
+
     contact: { title: 'Contact Us', sub: 'Reach the Ayyappankadu Ayyappa Seva Samithi', name: 'Your Name', email: 'Email', msg: 'Your Message', send: 'Send Message', address: 'Ayyappankadu, Kerala, India', thanks: 'Thank you! Swamiye Saranam.' },
     quote: 'Devotion in darshan… peace in the heart…',
     home: {
@@ -569,7 +627,8 @@ const translations = {
       play: 'വീഡിയോ പ്ലേ ചെയ്യുക',
       ctaTitle: 'ഞങ്ങളുടെ കഥയുടെ ഭാഗമാകൂ', ctaText: 'ക്ഷേത്രം സന്ദർശിക്കൂ, ഉത്സവങ്ങളിൽ പങ്കുചേരൂ, ക്ഷേത്രത്തെ വീണ്ടും ജീവിപ്പിക്കാൻ സഹായിക്കൂ.',
       ctaBtn1: 'പുനരുദ്ധാരണത്തിന് സഹായിക്കുക', ctaBtn2: 'സമിതിയെ ബന്ധപ്പെടുക',
-
+      bpEyebrow: 'പുണ്യാരംഭം',
+      bpTitle: 'ഭൂമി പൂജയും കുറ്റി അടിക്കലും',
     },
     festivals: {
       title: 'ഉത്സവങ്ങൾ', sub: 'ക്ഷേത്രത്തിലെ വിശേഷ ഉത്സവങ്ങൾ.', all: 'എല്ലാ ഉത്സവങ്ങളും കാണുക', learn: 'കൂടുതൽ അറിയുക',
@@ -781,6 +840,62 @@ const translations = {
       ],
     },
 
+    officers: {
+      eyebrow: 'വഴികാട്ടികൾ',
+      title: 'ക്ഷേത്ര ഭാരവാഹികൾ',
+      sub: 'ക്ഷേത്ര പുനരുദ്ധാരണത്തിന് മുന്നിൽ നിന്ന് നയിക്കുന്ന ഭക്തർ.',
+      members: [
+        { role: 'പ്രസിഡന്റ്', name: 'പ്രൊഫ. ജി. ശോഭ റാണി', detail: 'റിട്ട. പ്രിൻസിപ്പൽ, ഗവ. കോളേജ് മലപ്പുറം' },
+        { role: 'സെക്രട്ടറി', name: 'രാധ രാമനുണ്ണി', detail: '' },
+        { role: 'ട്രഷറർ', name: 'സരസ്വതി അന്തർജനം', detail: '' },
+      ],
+    },
+
+    sponsor: {
+      eyebrow: 'സേവനം സമർപ്പിക്കാം',
+      title: 'ക്ഷേത്ര ശിലാപണികൾ സമർപ്പിക്കാം',
+      sub: 'പുതിയ ശ്രീകോവിലിനായുള്ള ഈ പണികളിൽ താൽപര്യമുള്ളവർക്ക് ഏതും സ്പോൺസർ ചെയ്യാം.',
+      alert: 'ജനുവരി 14-ന് ക്ഷേത്ര പ്രതിഷ്ഠ നടക്കേണ്ടതുണ്ട്. അതിനാൽ ആലോചിച്ച് എത്രയും വേഗം വിവരം അറിയിക്കുക.',
+      priceTag: 'ഏകദേശ തുക',
+      items: [
+        { t: 'കരിങ്കൽ കട്ടിള', d: '', p: '₹23,000' },
+        { t: 'തളക്കല്ല്', d: '', p: '₹19,500' },
+        { t: 'ഓവ് കല്ല്', d: 'അഭിഷേകജലം ഒഴുകിപ്പോകാനുള്ള കല്ല്', p: '₹9,000' },
+        { t: 'പീഠം', d: '', p: '₹11,000' },
+        { t: 'ബലിക്കല്ല്', d: 'ഒന്നിന്റെ വില', p: 'ഒന്നിന് ₹2,600' },
+        { t: 'ദീപസ്തംഭം', d: '5 തട്ട്', p: '₹20,000' },
+        { t: 'നാളികേര കല്ല്', d: '', p: '₹8,000' },
+      ],
+      priceNote: 'സ്ഥലത്ത് കേടുകൂടാതെ എത്തിച്ചുതരാനുള്ള വണ്ടിവാടക ഉൾപ്പെടെയുള്ള ഏകദേശ തുകയാണിത്. ചെറിയ വ്യത്യാസങ്ങൾ വരാം.',
+      notes: [
+        'താൽപര്യമുള്ളവർക്ക് ഓരോ പണിയും സ്പോൺസർ ചെയ്യാം.',
+        'കൃത്യമായ അളവിൽ ചെയ്യേണ്ടതുകൊണ്ട് ചെയ്തുകൊണ്ടുവന്നാൽ ശരിയാകണമെന്നില്ല. അതിനാൽ താൽപര്യമുള്ളവർ ആദ്യം വിവരം അറിയിക്കുക.',
+        'ശിൽപിയുടെ അഭിപ്രായം അനുസരിച്ച് ചെയ്തുതരാൻ കഴിയും.',
+      ],
+      cta: 'സ്പോൺസർ ചെയ്യാൻ ബന്ധപ്പെടുക',
+      kalTag: 'പിച്ചള',
+      kalTitle: 'താഴികക്കുടം (സ്വർണ്ണ കലശം)',
+      kalText: 'കൃത്യമായ അളവിൽ പിച്ചള കൊണ്ട് ചെയ്താൽ നന്നായിരിക്കും; ചെമ്പ് കറുത്തുപോകും. വേണ്ടവർ അറിയിച്ചാൽ മേൽക്കൂരയുടെ അളവനുസരിച്ച് ഭംഗിയായി ചെയ്തുതരാൻ ശിൽപിയെ ഏൽപ്പിക്കാം.',
+      kalPrice: '₹20,000',
+      kalNote: 'ഏകദേശ തുക. ചെറിയ വ്യത്യാസം വരാം.',
+    },
+
+    tantri: {
+      eyebrow: 'ആത്മീയ മാർഗദർശനം',
+      title: 'ക്ഷേത്ര തന്ത്രി',
+      name: 'ഡോ. ശ്യാം ചൈതന്യ',
+      role: 'തന്ത്രി · മേൽശാന്തി, അഞ്ചുമൂർത്തി ക്ഷേത്രം',
+      bio: 'അഞ്ചുമൂർത്തി ക്ഷേത്രത്തിലെ മേൽശാന്തിയും പുനർനിർമ്മാണ പ്രവർത്തനങ്ങളുടെ താന്ത്രിക മേൽനോട്ടക്കാരനും.',
+    },
+
+    planGallery: {
+      eyebrow: 'രൂപകല്പന ചിത്രങ്ങൾ',
+      title: 'പ്ലാൻ & ഡിസൈൻ ഗാലറി',
+      sub: 'പുതിയ ശ്രീകോവിലിന്റെ നിർമ്മാണത്തിനായി തയ്യാറാക്കിയ പ്ലാനുകളും ചിത്രങ്ങളും.',
+      capLabel: 'ചിത്രം',
+      caps: [],
+    },
+
     contact: { title: 'ബന്ധപ്പെടുക', sub: 'അയ്യപ്പൻകാട് അയ്യപ്പ സേവാ സമിതി', name: 'പേര്', email: 'ഇമെയിൽ', msg: 'സന്ദേശം', send: 'സന്ദേശം അയയ്ക്കുക', address: 'അയ്യപ്പൻകാട്, കേരളം', thanks: 'നന്ദി! സ്വാമിയേ ശരണം.' },
     quote: 'ഭക്തിയോടെ ദർശനം… മനസ്സിൽ സമാധാനം…',
     home: {
@@ -981,6 +1096,8 @@ const translations = {
       play: 'வீடியோவை இயக்கு',
       ctaTitle: 'எங்கள் கதையின் பகுதியாகுங்கள்', ctaText: 'கோயிலுக்கு வாருங்கள், திருவிழாக்களில் இணையுங்கள், சன்னதியை மீண்டும் உயிர்ப்பிக்க உதவுங்கள்.',
       ctaBtn1: 'புனரமைப்புக்கு உதவுங்கள்', ctaBtn2: 'சமிதியைத் தொடர்பு கொள்ளுங்கள்',
+      bpEyebrow: 'புனித தொடக்கம்',
+      bpTitle: 'பூமி பூஜையும் குற்றியடிக்கலும்',
     },
     festivals: {
       title: 'திருவிழாக்கள்', sub: 'தெய்வீகத்தை கொண்டாட இணையுங்கள்.', all: 'அனைத்து திருவிழாக்களும்', learn: 'மேலும் அறிக',
@@ -1010,7 +1127,7 @@ const translations = {
         },
       ],
       vzNote: 'வழிபாடுகளை முன்பதிவு செய்யவும் நேரங்களை உறுதிசெய்யவும் சமிதியைத் தொடர்பு கொள்ளுங்கள்.',
-            sl: {
+      sl: {
         eyebrow: 'நடைபெற்ற விழா',
         title: 'சிலாஸ்தாபனம்',
         sub: 'அடிக்கல் நாட்டு விழா',
@@ -1191,6 +1308,63 @@ const translations = {
         { role: 'இணைப் பொருளாளர்', names: ['பாமினி முரளி'] },
       ],
     },
+
+    officers: {
+      eyebrow: 'வழிகாட்டிகள்',
+      title: 'கோயில் நிர்வாகிகள்',
+      sub: 'சன்னதி புனரமைப்புக்குத் தலைமை தாங்கும் பக்தர்கள்.',
+      members: [
+        { role: 'தலைவர்', name: 'பேராசிரியர் ஜி. ஷோபா ராணி', detail: 'ஓய்வுபெற்ற முதல்வர், அரசுக் கல்லூரி, மலப்புரம்' },
+        { role: 'செயலாளர்', name: 'ராதா ராமனுண்ணி', detail: '' },
+        { role: 'பொருளாளர்', name: 'சரஸ்வதி அந்தர்ஜனம்', detail: '' },
+      ],
+    },
+
+    sponsor: {
+      eyebrow: 'சேவையை அர்ப்பணியுங்கள்',
+      title: 'கோயில் கற்பணிகளை ஏற்கலாம்',
+      sub: 'புதிய சன்னதிக்கான பின்வரும் பணிகளில் விருப்பமுள்ள பக்தர்கள் எதையும் ஏற்று வழங்கலாம்.',
+      alert: 'ஜனவரி 14 அன்று கோயில் பிரதிஷ்டை நடைபெற வேண்டும். எனவே யோசித்து விரைவில் தெரிவிக்கவும்.',
+      priceTag: 'தோராயமான தொகை',
+      items: [
+        { t: 'கருங்கல் கட்டிள', d: '', p: '₹23,000' },
+        { t: 'தளக்கல்லு', d: '', p: '₹19,500' },
+        { t: 'ஓவு கல்லு', d: 'அபிஷேக நீர் வெளியேறும் கல்', p: '₹9,000' },
+        { t: 'பீடம்', d: '', p: '₹11,000' },
+        { t: 'பலிக்கல்', d: 'ஒன்றின் விலை', p: 'ஒன்று ₹2,600' },
+        { t: 'தீபஸ்தம்பம்', d: '5 அடுக்கு', p: '₹20,000' },
+        { t: 'தேங்காய் கல்', d: '', p: '₹8,000' },
+      ],
+      priceNote: 'இடத்திற்கு சேதமின்றிக் கொண்டு சேர்க்கும் வாகன வாடகை உட்பட தோராயமான தொகை இது. சிறிய வேறுபாடுகள் வரலாம்.',
+      notes: [
+        'விருப்பமுள்ளவர்கள் எந்தப் பணியையும் ஏற்கலாம்.',
+        'துல்லியமான அளவில் செய்ய வேண்டியிருப்பதால், செய்து கொண்டு வந்தால் பொருந்தாமல் போகலாம். எனவே விருப்பமுள்ளவர்கள் முதலில் தெரிவிக்கவும்.',
+        'சிற்பியின் ஆலோசனைப்படி செய்து தர இயலும்.',
+      ],
+      cta: 'ஏற்க தொடர்பு கொள்ளுங்கள்',
+      kalTag: 'பித்தளை',
+      kalTitle: 'தங்கக் கலசம் (தாழிகக்குடம்)',
+      kalText: 'துல்லியமான அளவில் பித்தளையால் செய்வது சிறந்தது; செம்பு கருத்துவிடும். விருப்பமுள்ளவர்கள் தெரிவித்தால் கூரையின் அளவுக்கேற்ப அழகாகச் செய்ய சிற்பியிடம் ஒப்படைக்கலாம்.',
+      kalPrice: '₹20,000',
+      kalNote: 'தோராயமான தொகை. சிறிய வேறுபாடு வரலாம்.',
+    },
+
+    tantri: {
+      eyebrow: 'ஆன்மீக வழிகாட்டுதல்',
+      title: 'கோயில் தந்திரி',
+      name: 'டாக்டர் ஷியாம் சைதன்யா',
+      role: 'தந்திரி · மேல்சாந்தி, அஞ்சுமூர்த்தி கோயில்',
+      bio: 'அஞ்சுமூர்த்தி கோயிலின் மேல்சாந்தியும் மறுகட்டுமானப் பணிகளின் தாந்திரிக மேற்பார்வையாளரும்.',
+    },
+
+    planGallery: {
+      eyebrow: 'வடிவமைப்பு வரைபடங்கள்',
+      title: 'திட்டம் & வடிவமைப்பு படங்கள்',
+      sub: 'புதிய சன்னதியின் கட்டுமானத்திற்காகத் தயாரிக்கப்பட்ட வரைபடங்களும் திட்டங்களும்.',
+      capLabel: 'வரைபடம்',
+      caps: [],
+    },
+
     contact: { title: 'தொடர்புக்கு', sub: 'ஐயப்பன்காடு ஐயப்ப சேவா சமிதி', name: 'உங்கள் பெயர்', email: 'மின்னஞ்சல்', msg: 'உங்கள் செய்தி', send: 'செய்தி அனுப்பு', address: 'ஐயப்பன்காடு, கேரளா', thanks: 'நன்றி! சுவாமியே சரணம்.' },
     quote: 'பக்தியுடன் தரிசனம்… மனதில் அமைதி…',
     home: {

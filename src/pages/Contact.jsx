@@ -12,11 +12,11 @@ const PHONE_HREF = `tel:+91${PHONE_RAW}`;
 const WHATSAPP_NUMBER = `91${PHONE_RAW}`; // country code + number, no "+" or spaces
 
 /* Location – your Google Maps link */
-const MAP_LINK = 'https://maps.app.goo.gl/c9hU6RK27voWvDrF9?g_st=awb';
+const MAP_LINK = 'https://www.google.com/maps?q=10.7825761,76.7001539&z=17&hl=en';
 /* Embedded map. For an exact pin, replace with the src from
    Google Maps > Share > Embed a map */
 const MAP_EMBED =
-  'https://www.google.com/maps?q=Ayyappankadu+Dharma+Sastha+Temple+Kerala&output=embed';
+  'https://www.google.com/maps?q=10.7825761,76.7001539&z=17&hl=en&output=embed';
 
 const EMPTY_FORM = { name: '', email: '', message: '' };
 

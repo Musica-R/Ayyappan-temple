@@ -12,7 +12,7 @@ const PHONE_HREF = 'tel:+919847960323';
 const WHATSAPP_HREF = `https://wa.me/919847960323?text=${encodeURIComponent(
   'Namaskaram, I would like to know more about the temple.'
 )}`;
-const LOCATION_HREF = 'https://maps.app.goo.gl/c9hU6RK27voWvDrF9?g_st=awb';
+const LOCATION_HREF = 'https://www.google.com/maps?q=10.7825761,76.7001539&z=17&hl=en';
 
 export default function FloatingActions() {
   const [showTop, setShowTop] = useState(false);

@@ -1084,3 +1084,138 @@
         grid-row: auto
     }
 }
+
+/* ============ Bhoomi Pooja & Kuttiyadikkal (bp-): 8 photos, 4 per row ============ */
+.bp-sec {
+    background: rgba(0, 0, 0, .025)
+}
+
+.bp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px
+}
+
+.bp-grid > * {
+    min-width: 0
+}
+
+.bp-item {
+    min-width: 0
+}
+
+.bp-frame {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .14)
+}
+
+.bp-frame .smart-img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    border: 0
+}
+
+.bp-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .7s ease
+}
+
+.bp-item:hover .bp-frame img {
+    transform: scale(1.08)
+}
+
+.bp-frame::before,
+.bp-frame::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 2px solid var(--gold);
+    opacity: 0;
+    transition: .4s;
+    z-index: 3;
+    pointer-events: none
+}
+
+.bp-frame::before {
+    top: 10px;
+    left: 10px;
+    border-right: 0;
+    border-bottom: 0
+}
+
+.bp-frame::after {
+    bottom: 10px;
+    right: 10px;
+    border-left: 0;
+    border-top: 0
+}
+
+.bp-item:hover .bp-frame::before,
+.bp-item:hover .bp-frame::after {
+    width: 30px;
+    height: 30px;
+    opacity: 1
+}
+
+.bp-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(30, 5, 18, .65), transparent 55%);
+    opacity: 0;
+    transition: .4s;
+    pointer-events: none;
+    z-index: 2
+}
+
+.bp-item:hover .bp-shade {
+    opacity: 1
+}
+
+.bp-num {
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+    z-index: 4;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: .4s
+}
+
+.bp-item:hover .bp-num {
+    opacity: 1;
+    transform: none
+}
+
+@media (max-width:1024px) {
+    .bp-grid {
+        gap: 12px
+    }
+}
+
+/* tablet and mobile: 2 per row (4 rows) */
+@media (max-width:768px) {
+    .bp-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px
+    }
+}
+
+@media (max-width:340px) {
+    .bp-grid {
+        grid-template-columns: minmax(0, 1fr)
+    }
+}

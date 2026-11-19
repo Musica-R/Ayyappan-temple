@@ -6,7 +6,8 @@ import {
   FaHome, FaColumns, FaGem, FaLayerGroup, FaMonument, FaTree,
   FaPencilRuler, FaSearchPlus, FaTimes,
   FaStar, FaMountain, FaFire,
-  FaUsers,
+  FaUsers, FaUser, FaUserTie, FaDoorOpen, FaTint, FaCrown,
+  FaCalendarCheck, FaCheckCircle,
 } from 'react-icons/fa';
 import { GiLotusFlower } from 'react-icons/gi';
 import Reveal from '../components/Reveal.jsx';
@@ -16,10 +17,23 @@ import '../stylesheet/renovation.css';
 const FACT_ICONS = [FaLandmark, FaMapMarkedAlt, FaScroll, FaFemale];
 const STRUCT_ICONS = [FaMonument, FaHome, FaColumns, FaGem, FaLayerGroup, FaTree];
 const JY_ICONS = [FaStar, FaMountain, FaHandHoldingHeart];
+/* door frame, thalakkallu, ovu kallu, peedam, bali kallu, deepasthambham, coconut stone */
+const SP_ICONS = [FaDoorOpen, FaLayerGroup, FaTint, FaMonument, FaGem, FaFire, FaLeaf];
 const LAMPS = 7;
 const HANG_LAMP = '/assets/lamp1.webp';
 const IMG_RENDER = '/assets/bc1.webp';
 const IMG_BLUEPRINT = '/assets/blueprint.jpeg';
+
+/* office-bearer + tantri photos (drop the files in these paths) */
+const OFF_IMGS = [
+  '/assets/person1.jpeg',
+  '/assets/person2.jpeg',
+  '/assets/person3.jpeg',
+];
+const TANTRI_IMG = '/assets/committee/tantri.webp';
+const COM_IMG = '/assets/paper.jpeg';
+/* 8 plan / design drawings */
+const PLAN_IMGS = Array.from({ length: 8 }, (_, i) => `/assets/plan${i + 1}.jpeg`);
 
 /* fixed star positions for the Makara Jyothi night scene: [x, y, radius, delay] */
 const STARS = [
@@ -114,6 +128,66 @@ const COM_DEFAULT = {
     { role: 'Treasurer', names: ['Saritha Ramdas'] },
     { role: 'Joint Treasurer', names: ['Bhamini Murali'] },
   ],
+};
+
+/* English fallback for the office-bearer photo cards – used only if t.officers is missing */
+const OFF_DEFAULT = {
+  eyebrow: 'Guiding Hands',
+  title: 'Our Office Bearers',
+  sub: 'The devotees leading the restoration of the shrine.',
+  members: [
+    { role: 'President', name: 'Prof. G. Sobharani', detail: 'Retd. Principal, Govt. College Malappuram' },
+    { role: 'Secretary', name: 'Radha Ramanunni', detail: '' },
+    { role: 'Treasurer', name: 'Saraswathi Antharjanam', detail: '' },
+  ],
+};
+
+/* English fallback for the sponsorship section – used only if t.sponsor is missing */
+const SP_DEFAULT = {
+  eyebrow: 'Offer Your Seva',
+  title: 'Sponsor the Temple Stone Works',
+  sub: 'Devotees who wish to can take up and sponsor any of the following works for the new shrine.',
+  alert: 'The temple pratishta is to be held on 14 January. Please consider and let us know at the earliest.',
+  priceTag: 'Approx. cost',
+  items: [
+    { t: 'Granite Door Frame', d: 'Karinkal kattila', p: '₹23,000' },
+    { t: 'Thalakkallu', d: '', p: '₹19,500' },
+    { t: 'Ovu Kallu', d: 'Stone outlet for the abhisheka water', p: '₹9,000' },
+    { t: 'Peedam', d: 'Pedestal', p: '₹11,000' },
+    { t: 'Bali Kallu', d: 'Offering stone, price per piece', p: '₹2,600 each' },
+    { t: 'Deepasthambham', d: 'Five-tier lamp pillar', p: '₹20,000' },
+    { t: 'Coconut Stone', d: 'Nalikera kallu', p: '₹8,000' },
+  ],
+  priceNote: 'Amounts are approximate and include vehicle hire to deliver the stones safely at the site. Small variations may occur.',
+  notes: [
+    'Interested devotees may sponsor any of the works.',
+    'These must be made to exact measurements, so stones brought ready-made may not fit. Please inform us first if you are interested.',
+    'The work can be done as advised by the sculptor.',
+  ],
+  cta: 'Contact to Sponsor',
+  kalTag: 'Brass',
+  kalTitle: 'Golden Kalasam (Thazhikakkudam)',
+  kalText: 'It is best made of brass to the exact measurement, as copper turns black. If you wish to sponsor it, the sculptor can be entrusted to make it neatly to the size of the roof.',
+  kalPrice: '₹20,000',
+  kalNote: 'Approximate cost. Small variations may occur.',
+};
+
+/* English fallback for the tantri section – used only if t.tantri is missing */
+const TT_DEFAULT = {
+  eyebrow: 'Spiritual Guidance',
+  title: 'Our Tantri',
+  name: 'Dr. Shyam Chaitanya',
+  role: 'Tantri · Melshanthi, Anju Moorthy Temple',
+  bio: 'Melshanthi of Anju Moorthy Temple and the tantric supervisor of the reconstruction work.',
+};
+
+/* English fallback for the plan gallery – used only if t.planGallery is missing */
+const PLAN_DEFAULT = {
+  eyebrow: 'Design Drawings',
+  title: 'Plan & Design Gallery',
+  sub: 'Drawings and plans prepared for the construction of the new shrine.',
+  capLabel: 'Drawing',
+  caps: [],
 };
 
 /* Shared gradients – rendered once, referenced by every lamp */
@@ -316,12 +390,32 @@ function Hang({ className }) {
   );
 }
 
+/* Photo with a built-in placeholder icon – the icon stays visible until the image file exists */
+function Photo({ src, alt, Icon = FaUser }) {
+  return (
+    <span className="rn-ph">
+      <Icon className="rn-ph-ic" aria-hidden="true" />
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+      />
+    </span>
+  );
+}
+
 export default function Renovation() {
   const { t } = useLang();
   const r = t.reno;
   const c = { ...RENO_DEFAULT, ...(t.renoPage || {}) };
   const j = { ...JY_DEFAULT, ...(t.jyothi || {}) };
   const cm = { ...COM_DEFAULT, ...(t.committee || {}) };
+  const of = { ...OFF_DEFAULT, ...(t.officers || {}) };
+  const sp = { ...SP_DEFAULT, ...(t.sponsor || {}) };
+  const tt = { ...TT_DEFAULT, ...(t.tantri || {}) };
+  const pg = { ...PLAN_DEFAULT, ...(t.planGallery || {}) };
+
   /* flatten groups into table rows; the role cell spans all names of a group */
   const comRows = cm.groups.flatMap((g) =>
     g.names.map((name, i) => ({ role: g.role, name, first: i === 0, span: g.names.length }))
@@ -423,6 +517,7 @@ export default function Renovation() {
       </section>
 
       {/* ───────── TEMPLE COMMITTEE ───────── */}
+      {/* ───────── TEMPLE COMMITTEE ───────── */}
       <section className="section rn-com">
         <div className="container">
           <Reveal className="rn-com-head">
@@ -431,31 +526,65 @@ export default function Renovation() {
             <p className="rn-com-sub">{cm.sub}</p>
           </Reveal>
 
-          <Reveal className="rn-com-wrap">
-            <table className="rn-com-table">
-              <caption className="rn-sr">{cm.title}</caption>
-              <thead>
-                <tr>
-                  <th scope="col" className="rn-com-no">{cm.head[0]}</th>
-                  <th scope="col">{cm.head[1]}</th>
-                  <th scope="col">{cm.head[2]}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comRows.map((row, k) => (
-                  <tr key={k} className={row.first ? 'rn-com-start' : undefined}>
-                    <td className="rn-com-no"><span>{k + 1}</span></td>
-                    {row.first && (
-                      <th scope="rowgroup" rowSpan={row.span} className="rn-com-pos">
-                        {row.role}
-                      </th>
-                    )}
-                    <td className="rn-com-person">{row.name}</td>
+          <div className="rn-com-grid">
+            {/* LEFT: table */}
+            <Reveal className="rn-com-wrap">
+              <table className="rn-com-table">
+                <caption className="rn-sr">{cm.title}</caption>
+                <thead>
+                  <tr>
+                    <th scope="col" className="rn-com-no">{cm.head[0]}</th>
+                    <th scope="col">{cm.head[1]}</th>
+                    <th scope="col">{cm.head[2]}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {comRows.map((row, k) => (
+                    <tr key={k} className={row.first ? 'rn-com-start' : undefined}>
+                      <td className="rn-com-no"><span>{k + 1}</span></td>
+                      {row.first && (
+                        <th scope="rowgroup" rowSpan={row.span} className="rn-com-pos">
+                          {row.role}
+                        </th>
+                      )}
+                      <td className="rn-com-person">{row.name}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </Reveal>
+
+            {/* RIGHT: image */}
+            <Reveal index={1} className="rn-com-media">
+              <div className="rn-com-pic">
+                <Photo src={COM_IMG} alt={cm.title} Icon={FaUsers} />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ───────── OFFICE BEARERS (3 PHOTO CARDS) ───────── */}
+      <section className="section rn-off">
+        <div className="container">
+          <Reveal className="rn-off-head">
+            <span className="rn-eyebrow"><FaUsers /> {of.eyebrow}</span>
+            <h2 className="rn-off-title">{of.title}</h2>
+            <p className="rn-off-sub">{of.sub}</p>
           </Reveal>
+
+          <div className="rn-off-grid">
+            {of.members.map((m, k) => (
+              <Reveal key={k} index={k} className="rn-off-card">
+                <div className="rn-off-photo">
+                  <Photo src={OFF_IMGS[k % OFF_IMGS.length]} alt={m.name} />
+                </div>
+                <span className="rn-off-role">{m.role}</span>
+                <h3 className="rn-off-name">{m.name}</h3>
+                {m.detail && <p className="rn-off-detail">{m.detail}</p>}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -524,6 +653,116 @@ export default function Renovation() {
           <Reveal>
             <p className="rn-struct-note"><FaScroll /> {c.structNote}</p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ───────── SPONSORSHIP: STONE WORKS + KALASAM ───────── */}
+      <section className="section rn-sp">
+        <div className="container">
+          <Reveal className="rn-sp-head">
+            <span className="rn-eyebrow"><FaHandHoldingHeart /> {sp.eyebrow}</span>
+            <h2 className="rn-sp-title">{sp.title}</h2>
+            <p className="rn-sp-sub">{sp.sub}</p>
+          </Reveal>
+
+          <Reveal className="rn-sp-alert">
+            <span className="rn-sp-alert-ic"><FaCalendarCheck /></span>
+            <p>{sp.alert}</p>
+          </Reveal>
+
+          <div className="rn-sp-grid">
+            {sp.items.map((it, k) => {
+              const Icon = SP_ICONS[k % SP_ICONS.length];
+              return (
+                <Reveal key={k} index={k % 3} className="rn-sp-item">
+                  <span className="rn-sp-ic"><Icon /></span>
+                  <strong className="rn-sp-name">{it.t}</strong>
+                  {it.d && <small className="rn-sp-desc">{it.d}</small>}
+                  <span className="rn-sp-price">
+                    <em>{sp.priceTag}</em>
+                    {it.p}
+                  </span>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <Reveal>
+            <p className="rn-sp-pricenote"><FaScroll /> {sp.priceNote}</p>
+          </Reveal>
+
+          <Reveal className="rn-kal">
+            <span className="rn-kal-ic"><FaCrown /></span>
+            <div className="rn-kal-body">
+              <span className="rn-kal-tag">{sp.kalTag}</span>
+              <h3>{sp.kalTitle}</h3>
+              <p>{sp.kalText}</p>
+            </div>
+            <div className="rn-kal-price">
+              <strong>{sp.kalPrice}</strong>
+              <small>{sp.kalNote}</small>
+            </div>
+          </Reveal>
+
+          <Reveal className="rn-sp-notes">
+            <ul>
+              {sp.notes.map((n, k) => (
+                <li key={k}><FaCheckCircle /> <span>{n}</span></li>
+              ))}
+            </ul>
+            <Link to="/contact" className="btn btn-gold">{sp.cta} <FaArrowRight /></Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ───────── TANTRI ───────── */}
+      <section className="section rn-tt">
+        <div className="container">
+          <Reveal className="rn-tt-card">
+            <div className="rn-tt-photo">
+              <Photo src={TANTRI_IMG} alt={tt.name} Icon={FaUserTie} />
+            </div>
+            <div className="rn-tt-body">
+              <span className="rn-eyebrow"><FaOm /> {tt.eyebrow}</span>
+              <h2 className="rn-tt-title">{tt.title}</h2>
+              <strong className="rn-tt-name">{tt.name}</strong>
+              <span className="rn-tt-role">{tt.role}</span>
+              <p className="rn-tt-bio">{tt.bio}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ───────── PLAN GALLERY (8 IMAGES) ───────── */}
+      <section className="section rn-plan">
+        <div className="container">
+          <Reveal className="rn-plan-head">
+            <span className="rn-eyebrow"><FaPencilRuler /> {pg.eyebrow}</span>
+            <h2 className="rn-plan-title">{pg.title}</h2>
+            <p className="rn-plan-sub">{pg.sub}</p>
+          </Reveal>
+
+          <div className="rn-plan-grid">
+            {PLAN_IMGS.map((src, k) => {
+              const cap = pg.caps[k] || `${pg.capLabel} ${k + 1}`;
+              return (
+                <Reveal key={k} index={k % 4} className="rn-plan-item">
+                  <button
+                    type="button"
+                    className="rn-plan-btn"
+                    onClick={() => setZoom({ src, alt: cap })}
+                    aria-label={`${cap} – ${c.zoomHint}`}
+                  >
+                    <img src={src} alt={cap} loading="lazy" />
+                    <span className="rn-plan-num">{k + 1}</span>
+                    <span className="rn-fig-zoom" aria-hidden="true"><FaSearchPlus /></span>
+                  </button>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <p className="rn-zoom-hint"><FaSearchPlus /> {c.zoomHint}</p>
         </div>
       </section>
 

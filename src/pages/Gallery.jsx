@@ -43,6 +43,22 @@ const SL_PICS = [
   '/assets/c5.jpeg',
 ];
 
+/* Bhoomi Pooja & Kuttiyadikkal photos (8 = 2 rows x 4). Rename to match your files in public/assets/ */
+const BP_PICS = [
+  '/assets/b1.jpeg',
+  '/assets/b2.jpeg',
+  '/assets/b3.jpeg',
+  '/assets/b4.jpeg',
+  '/assets/b5.jpeg',
+  '/assets/b6.jpeg',
+  '/assets/b7.jpeg',
+  '/assets/b8.jpeg',
+  '/assets/b9.jpeg',
+  '/assets/b10.jpeg',
+  '/assets/b11.jpeg',
+  '/assets/b12.jpeg',
+];
+
 /* Website inauguration image (shown beside the Website Inauguration text) */
 const WEB_IMG = '/assets/web1.webp';
 
@@ -313,6 +329,32 @@ export default function Gallery() {
             </Reveal>
 
             <p className="fp-note">{sl.saranam}</p>
+          </div>
+        </section>
+
+        {/* BHOOMI POOJA & KUTTIYADIKKAL: 8 photos, 4 per row (2 rows) */}
+        <section className="section bp-sec">
+          <div className="container">
+            <Reveal>
+              <div className="gal-head">
+                <span className="gal-eyebrow">{g.bpEyebrow ?? 'Sacred Beginnings'}</span>
+                <h2>{g.bpTitle ?? 'Bhoomi Pooja & Kuttiyadikkal'}</h2>
+                {g.bpSub && <p>{g.bpSub}</p>}
+                <span className="gal-divider"><i /></span>
+              </div>
+            </Reveal>
+
+            <div className="bp-grid">
+              {BP_PICS.map((src, k) => (
+                <Reveal key={src} index={k % 4} className="bp-item">
+                  <figure className="bp-frame">
+                    <SmartImg src={src} alt={`${g.bpTitle ?? 'Bhoomi Pooja & Kuttiyadikkal'} ${k + 1}`} />
+                    <span className="bp-shade" />
+                    <span className="bp-num">{pad(k)}</span>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
